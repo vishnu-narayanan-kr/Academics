@@ -12,9 +12,21 @@ namespace RestAPI.Controllers
     {
         // integration configuration
         private readonly IConfiguration _configuration;
+
+        // Sql Connection ADD initialization
+        private SqlConnection con;
+
+        // Perform database query and operation
+        private DatabaseApp app;
+
         public StudentController(IConfiguration configuration) {
             this._configuration = configuration;
+
+            app = new DatabaseApp();
+            con = new SqlConnection(this._configuration
+                .GetConnectionString("studentConnection"));
         }
+
 
         // Add Student API
         [HttpPost]
@@ -23,14 +35,16 @@ namespace RestAPI.Controllers
 
         public Response AddStudent(Student std)
         {
-            // Sql Connection ADD initialization
-            SqlConnection con = new SqlConnection(this._configuration
-                .GetConnectionString("studentConnection"));
-
-            // Perform database query and operation
-            DatabaseApp app = new DatabaseApp();
-
             return app.AddStudent(con, std);
+        }
+
+        // Retrieve list of students
+        [HttpGet]
+        [Route("GetAllStudents")]
+        
+        public Response GetAllStudents()
+        {
+            return app.GetAllStudents(con);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace RestAPI.Models
 {
@@ -44,6 +45,63 @@ namespace RestAPI.Models
                 Console.WriteLine(ex.Message);
             }
 
+
+            return response;
+        }
+
+        public Response GetAllStudents(SqlConnection sqlCon)
+        {
+            Response response = new Response();
+
+            try
+            {
+                sqlCon.Open();
+
+                string query = "select * from Student";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, sqlCon);
+
+                DataTable dt = new DataTable();
+
+                adapter.Fill(dt);
+
+                List<Student> students = new List<Student>();
+
+                if (dt.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        Student student = new Student();
+
+                        student.Name = dt.Rows[i]["std_Name"].ToString();
+                        student.Id = (int)dt.Rows[i]["std_Id"];
+                        student.Email = dt.Rows[i]["std_Email"].ToString();
+                        student.Reg_Year = (int)dt.Rows[i]["std_Reg_Year"];
+                        student.Term = dt.Rows[i]["std_Reg_Term"].ToString();
+
+                        students.Add(student);
+                    }
+                }
+
+                if (students.Count > 0)
+                {
+                    response.statusCode = 200;
+                    response.statusMessage = "Success";
+                    response.std = null;
+                    response.stds = students;
+                }
+                else {
+                    response.statusCode = 100;
+                    response.statusMessage = "Unsuccessful";
+                    response.std = null;
+                    response.stds = null;
+                }
+
+            }
+            catch (Exception ex) { 
+                Console.WriteLine (ex.Message);
+            }
+
+            sqlCon.Close();
 
             return response;
         }

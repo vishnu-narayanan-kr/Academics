@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseApp1
 {
-    internal class Student
+    public class Student
     {
         public string Name;
         public int Id;

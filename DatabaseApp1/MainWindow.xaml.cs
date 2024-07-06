@@ -1,5 +1,9 @@
-﻿using System.Data;
+﻿using Newtonsoft.Json;
+using System.Data;
 using System.Data.SqlClient;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,9 +22,23 @@ namespace DatabaseApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        HttpClient httpClient = new HttpClient();
         public MainWindow()
         {
             InitializeComponent();
+
+            // configure the http link for our desktop
+
+            // step 1: setup the base address for the rest api
+            httpClient.BaseAddress = new Uri("https://localhost:7286/api/Student/");
+
+            // step 2: Clear our current packet header
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+
+            // step 3: Setup your own packet header
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+                );
         }
 
         // step 1: Establish the connection
@@ -42,10 +60,11 @@ namespace DatabaseApp1
         // create command adaptor
         SqlCommand sqlCommand;
 
-        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        private async void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                /*
                 Establish_Connection();
 
                 String query = "select * from Student where std_Id = @id";
@@ -78,6 +97,28 @@ namespace DatabaseApp1
 
                 if (noData) {
                     MessageBox.Show("The search ID is not present");
+                } 
+                
+                */
+
+                int stdID = int.Parse(SearchIdTbx.Text);
+                // generate the client request
+                var response = await httpClient.GetStringAsync(
+                    "GetStudentById/" + stdID);
+                // Deseriable the JSON response
+                Response res = JsonConvert.DeserializeObject<Response>(response);
+                if (res != null)
+                {
+                    MessageBox.Show(res.statusCode + " " + res.statusMessage);
+                    StudentNameTbx.Text = res.std.Name;
+                    EmailTbx.Text = res.std.Email;
+                    RegYearTbx.Text = res.std.Reg_Year.ToString();
+                    RegTermTbx.Text = res.std.Term;
+                    StudentIdTbx.Text = res.std.Id.ToString();
+                }
+                else {
+
+                    MessageBox.Show("Connection error present ");
                 }
 
             }
@@ -85,11 +126,11 @@ namespace DatabaseApp1
                 MessageBox.Show(ex.Message);
             }
 
-            sqlConnection.Close();
+            // sqlConnection.Close();
         }
 
-        private void InsertBtn_Click(object sender, RoutedEventArgs e)
-        {
+        private async void InsertBtn_Click(object sender, RoutedEventArgs e)
+        { /*
             try {
                 Establish_Connection();
 
@@ -124,12 +165,36 @@ namespace DatabaseApp1
             }
             // step 7: Close the connection
             sqlConnection.Close();
+          */
+
+            Student std = new Student();
+
+            std.Name = StudentNameTbx.Text;
+            std.Email = EmailTbx.Text;
+            std.Reg_Year = int.Parse(RegYearTbx.Text);
+            std.Term = RegTermTbx.Text;
+
+            string json = JsonConvert.SerializeObject(std);
+
+            using StringContent jsonContent = new(
+                json,
+                Encoding.UTF8,
+                "application/json");
+
+            Console.WriteLine(jsonContent);
+
+            // need to call the add student api
+            var response = await httpClient.PostAsync("AddStudent", jsonContent);
+
+            // Deserialze the response message you got from Remote Server
+            //MessageBox.Show(response.Content.ToString());
+            MessageBox.Show(response.StatusCode.ToString());
         }
 
-        private void Show_All_Click(object sender, RoutedEventArgs e)
+        private async void Show_All_Click(object sender, RoutedEventArgs e)
         {
             // Read all the reports from the DB table
-
+            /*
             try {
                 Establish_Connection();
 
@@ -150,13 +215,77 @@ namespace DatabaseApp1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            } 
+            */
+
+            try
+            {
+                var response = await httpClient.GetStringAsync("GetAllStudents");
+                // We now need to deserialize the response message
+                Response res = JsonConvert.DeserializeObject<Response>(response);
+
+                if (res != null)
+                {
+                    MessageBox.Show(res.statusCode.ToString() +
+                        " " + res.statusMessage);
+                    // StudentDataGrid.Visibility = Visibility.Visible;
+
+                    DataTable studentsTable = new DataTable("table");
+
+                    DataColumn colItem1 = new DataColumn("Name",
+                        Type.GetType("System.String"));
+                    DataColumn colItem2 = new DataColumn("ID",
+                        Type.GetType("System.String"));
+                    DataColumn colItem3 = new DataColumn("Email",
+                        Type.GetType("System.String"));
+                    DataColumn colItem4 = new DataColumn("Reg Year",
+                        Type.GetType("System.String"));
+                    DataColumn colItem5 = new DataColumn("Term",
+                        Type.GetType("System.String"));
+
+                    studentsTable.Columns.Add(colItem1);
+                    studentsTable.Columns.Add(colItem2);
+                    studentsTable.Columns.Add(colItem3);
+                    studentsTable.Columns.Add(colItem4);
+                    studentsTable.Columns.Add(colItem5);
+
+                    for (int i = 0; i < res.stds.Count; i++)
+                    {
+                        Student student = res.stds[i];
+
+                        DataRow newRow;
+
+                        newRow = studentsTable.NewRow();
+                        newRow["Name"] = student.Name;
+                        newRow["ID"] = student.Id;
+                        newRow["Email"] = student.Email;
+                        newRow["Reg Year"] = student.Reg_Year;
+                        newRow["Term"] = student.Term;
+
+                        studentsTable.Rows.Add(newRow);
+                    }
+
+                    StudentDataGrid.ItemsSource = new DataView(studentsTable);
+
+                    string json = JsonConvert.SerializeObject(res.stds);
+
+                    Console.WriteLine(json);
+
+                    // DataContext = this;
+                }
+                else
+                    MessageBox.Show("Data Connection Error");
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void updateBtn_Click(object sender, RoutedEventArgs e)
+        private async void updateBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                /*
                 Establish_Connection();
 
                 string query = "update Student set std_Name=@name, std_Email=@email, " +
@@ -175,6 +304,32 @@ namespace DatabaseApp1
                 if (i == 1) {
                     MessageBox.Show("Update successful");
                 }
+                */
+
+                // we need the updated student information from the text boxes
+                Student std = new Student();
+                std.Name = StudentNameTbx.Text;
+                std.Email = EmailTbx.Text;
+                std.Reg_Year = int.Parse(RegYearTbx.Text);
+                std.Term = RegTermTbx.Text;
+                std.Id = int.Parse(StudentIdTbx.Text);
+
+                int stdID = int.Parse(SearchIdTbx.Text);
+
+                string json = JsonConvert.SerializeObject(std);
+
+                using StringContent jsonContent = new(
+                    json,
+                    Encoding.UTF8,
+                    "application/json");
+
+                Console.WriteLine(jsonContent);
+
+                // we need to send the student to the server machine
+                var response = await httpClient.PutAsync(
+                    "UpdateStudentById/" + stdID, jsonContent);
+                // Deserialization
+                MessageBox.Show(response.ToString());
             }
             catch (Exception ex) {
                 MessageBox.Show(ex.Message);
@@ -203,9 +358,10 @@ namespace DatabaseApp1
             RegTermTbx.Text = "";
         }
 
-        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        private async void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             try {
+                /*
                 Establish_Connection();
 
                 string query = "Delete from student where std_Id = '" + int.Parse(StudentIdTbx.Text) + "'";
@@ -221,7 +377,16 @@ namespace DatabaseApp1
                 else {
                     MessageBox.Show("Student not found");
                 }
-            } catch (Exception ex) {
+                */
+
+                int stdID = int.Parse(StudentIdTbx.Text);
+                // generating the delete request using restAPI
+                var response = await httpClient.DeleteAsync("DeleteStudentById/" + stdID);
+                // deserialize it.
+                MessageBox.Show(response.ToString());
+                //Response res = JsonConvert.DeserializeObject<Response>(response);
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message);
             }
 

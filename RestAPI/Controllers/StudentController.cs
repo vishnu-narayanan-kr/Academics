@@ -46,5 +46,30 @@ namespace RestAPI.Controllers
         {
             return app.GetAllStudents(con);
         }
+
+        // search API: search by student id
+        [HttpGet]
+        [Route("GetStudentById/{id}")]
+
+        public Response GetStudentById(int id)
+        {
+            return app.GetStudentById(con, id);
+        }
+
+        // update student information
+        [HttpPut]
+        [Route("UpdateStudentById/{id}")]
+
+        public Response UpdateStudentById(int id, Student std) {
+            return app.UpdateStudentById(con, id,  std);
+        }
+
+        // delete student information
+        [HttpDelete]
+        [Route("DeleteStudentById/{id}")]
+        public Response DeleteStudentById(int id)
+        {
+            return app.DeleteStudentById(con, id);
+        }
     }
 }

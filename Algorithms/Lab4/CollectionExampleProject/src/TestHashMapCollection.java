@@ -1,6 +1,7 @@
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ import java.util.Set;
  */
 public class TestHashMapCollection {
     public static void main(String[] args) {
-        Map<String, Car> carHashMap = new HashMap();
+        LinkedHashMap<String, Car> carHashMap = new LinkedHashMap();
         
         /*
         if database table is used, the purpose is to complete
@@ -55,7 +56,7 @@ public class TestHashMapCollection {
         Collection<Car> carValues = carHashMap.values();
         
         for(Car value: carValues) {
-            System.out.print(value + ", ");
+            System.out.print(value + ",\n");
         }
         
         System.out.println("");

@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Dell
  */
-public class TestEmployeeDisplayHashMap {
+public class TestEmployeeProject2 {
 
     public static void main(String[] args) throws FileNotFoundException {
         //HashMap<Integer, EmployeeLinkedList> employeeHashMap = new LinkedHashMap();

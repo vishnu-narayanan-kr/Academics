@@ -16,9 +16,9 @@ public class TestLinkedListCollection {
     public static void main(String[] args) {
         List<String> nameList = new LinkedList<>();
 
-        String[] names = {"Ann", "Manu", "Deepak", "Rahul"};
+        String[] names = {"Ann", "Bob", "Carol"};
 
-        // read from array and intsert it into linked list
+        // read from array and insert it into linked list
         for (String name : names) {
            nameList.add(name);
         }
@@ -36,8 +36,8 @@ public class TestLinkedListCollection {
         while(it.hasNext()) {
             String name = it.next();
             System.out.println(name);
-            if(name.equals("Manu"))
-                it.set("Lee");
+            // if (name.equals("Manu"))
+               // it.set("Lee");
         }
         
         // do it = nameList.listIterator(); to reset to the first node always

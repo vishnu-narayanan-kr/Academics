@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Dell
  */
-public class TestEmployeeReadFile {
+public class TestEmployeeProject1 {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner inFile = new Scanner(new File("Employee.in"));
         

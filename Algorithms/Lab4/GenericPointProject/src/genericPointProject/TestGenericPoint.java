@@ -11,7 +11,6 @@ package genericPointProject;
 public class TestGenericPoint {
     public static void main(String[] args) {
         Point<String> strPoint = new Point("Anna", "Banana");
-        
         System.out.println(strPoint.toString());
         
         Point<Number> Pie = new Point(3.14, 2.71);

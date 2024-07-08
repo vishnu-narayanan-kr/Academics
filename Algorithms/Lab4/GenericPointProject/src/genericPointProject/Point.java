@@ -28,7 +28,7 @@ public class Point<T> {
     
     @Override
     public String toString() {
-        return this.x + " " + this.y;
+        return "[ x = " + this.x + ", y = " + this.y + " ]";
     }
     
     public Point(T x, T y){

@@ -166,7 +166,7 @@ namespace DatabaseApp1
             // step 7: Close the connection
             sqlConnection.Close();
           */
-
+            
             Student std = new Student();
 
             std.Name = StudentNameTbx.Text;
@@ -174,6 +174,8 @@ namespace DatabaseApp1
             std.Reg_Year = int.Parse(RegYearTbx.Text);
             std.Term = RegTermTbx.Text;
 
+            new DBApp().AddStudent(std);
+        /*
             string json = JsonConvert.SerializeObject(std);
 
             using StringContent jsonContent = new(
@@ -189,6 +191,7 @@ namespace DatabaseApp1
             // Deserialze the response message you got from Remote Server
             //MessageBox.Show(response.Content.ToString());
             MessageBox.Show(response.StatusCode.ToString());
+        */
         }
 
         private async void Show_All_Click(object sender, RoutedEventArgs e)

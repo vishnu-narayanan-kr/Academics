@@ -40,7 +40,7 @@ public class Faculty {
     }
     
     public double doCalc_Bonus() {
-        return Math.round(f_Salary * f_BonusRate * 100) / 100.0;
+        return Math.round(f_Salary * f_BonusRate) / 100.0;
     }
     
     public double doBonus_tax() {

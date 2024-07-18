@@ -39,6 +39,8 @@ public class TestLambdaHashMapFacultyProject {
 
         inFile.close();
 
+        System.out.println("The size of the Faculty HashMap is: " + facultyHashMap.size());
+
         System.out.println("\nPrinting all the keys of facultyHashMap");
         facultyHashMap.forEach((k, v) -> System.out.println(k));
 
@@ -58,16 +60,44 @@ public class TestLambdaHashMapFacultyProject {
                 .stream()
                 .sorted(Comparator.comparingDouble(Faculty::doCalc_Bonus))
                 .forEach(System.out::println);
-        
+
+        System.out.println("\nPrinting all the values of facultyHashMap sorted by doBonus_tax()");
+        facultyHashMap
+                .values()
+                .stream()
+                .sorted(Comparator.comparingDouble(Faculty::doBonus_tax))
+                .forEach(System.out::println);
+
+        System.out.println("\nPrinting all the values of facultyHashMap sorted by salary");
+        facultyHashMap
+                .values()
+                .stream()
+                .sorted(Comparator.comparingDouble(Faculty::getF_Salary))
+                .forEach(System.out::println);
+
+        System.out.println("\nPrinting all the values of facultyHashMap sorted by L_name");
+        facultyHashMap
+                .values()
+                .stream()
+                .sorted((f1, f2) -> f1.getF_Lname().compareTo(f2.getF_Lname()))
+                .forEach(System.out::println);
+
+        System.out.println("\nPrinting all the values of facultyHashMap sorted by L_name(reverse order)");
+        facultyHashMap
+                .values()
+                .stream()
+                .sorted((f1, f2) -> -f1.getF_Lname().compareTo(f2.getF_Lname()))
+                .forEach(System.out::println);
+
         System.out.println("\nPrinting Faculty with Max bonus");
         Faculty maxBonusFaculty = facultyHashMap
                 .values()
                 .stream()
                 .max((f1, f2) -> Double.compare(f1.getF_BonusRate(), f2.getF_BonusRate()))
                 .get();
-        
+
         System.out.println(maxBonusFaculty);
-        
+
         System.out.println("\nCreating and Displaying new key list from Map collection (Sorted by Value doCalc_Bonus)");
         List<Integer> keyList1 = facultyHashMap
                 .values()
@@ -75,25 +105,25 @@ public class TestLambdaHashMapFacultyProject {
                 .sorted(Comparator.comparingDouble(Faculty::doCalc_Bonus))
                 .map(f -> f.getF_id())
                 .collect(Collectors.toList());
-        
+
         keyList1.forEach(System.out::println);
-        
+
         System.out.println("\nCreating and Displaying new value list from Map collection (Sorted by Value doCalc_Bonus)");
         List<Faculty> keyList2 = facultyHashMap
                 .values()
                 .stream()
                 .sorted(Comparator.comparingDouble(Faculty::doCalc_Bonus))
                 .collect(Collectors.toList());
-        
+
         keyList2.forEach(System.out::println);
-        
+
         System.out.println("\nUsing filter() to search for any matching of Faculty last name \"Smith\" in HashMap");
         facultyHashMap
                 .values()
                 .stream()
                 .filter(f -> f.getF_Lname().equals("Smith"))
                 .forEach(System.out::println);
-        
+
         System.out.println("\nUsing filter() to search for any matching of Faculty bonus rate of \\\"1.5\\\" in HashMap");
         facultyHashMap
                 .values()

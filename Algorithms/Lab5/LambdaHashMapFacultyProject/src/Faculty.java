@@ -1,3 +1,6 @@
+
+import java.util.Objects;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -29,10 +32,10 @@ public class Faculty {
         display += "id: " + f_id + ", ";
         display += "lname: " + f_Lname + ", ";
         display += "fname: " + f_Fname + ", ";
-        display += "salary: " + f_Salary + ", ";
-        display += "bonus_rate: " + f_BonusRate + ", ";
-        display += "bonus: " + doCalc_Bonus() + ", ";
-        display += "bonus_tax: " + doBonus_tax();
+        display += "salary: " + f_Salary + "$, ";
+        display += "bonus_rate: " + f_BonusRate + "%, ";
+        display += "bonus: " + doCalc_Bonus() + "$, ";
+        display += "bonus_tax: " + doBonus_tax() + "$";
         
         display += "]";
         

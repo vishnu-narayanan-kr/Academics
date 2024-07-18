@@ -74,7 +74,6 @@ public class Trip {
         display += "distance = " + emp_distance + ", ";
         display += "cost_hotel = " + emp_costhotel + ", ";
         display += "cost_food = " + emp_costfood + ", ";
-        display += "Total Cost = " + CalculateCostTrip() + "$";
 
         return display;
     }

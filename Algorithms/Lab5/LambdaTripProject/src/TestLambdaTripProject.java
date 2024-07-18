@@ -50,6 +50,11 @@ public class TestLambdaTripProject {
         System.out.println("\nThe Employee Trip information using Lambda Expression");
         myTrip.forEach(System.out::println);
         
-        
+        System.out.println("\nInvoking printCostTrip usint Lambda Expression");
+        myTrip.forEach(t -> lambda_printCostTrip(t));
+    }
+    
+    public static void lambda_printCostTrip(Trip t) {
+        t.printCostTrip();
     }
 }

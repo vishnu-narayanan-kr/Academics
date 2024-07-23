@@ -29,7 +29,7 @@
             <Button x:Name="InsertBtn" Grid.Column="1" Content="Insert" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Padding="10,5,10,5" Click="InsertBtn_Click" Height="33" Width="65"/>
             <Button x:Name="SearchBtn" Grid.Column="1" Content="Search(ID)" HorizontalAlignment="Left" Margin="139,77,0,0" VerticalAlignment="Top" FontWeight="Bold" Padding="10,5,10,5" Click="SearchBtn_Click" Height="28" Width="81"/>
             <TextBox x:Name="SearchIdTbx" Grid.Column="1" HorizontalAlignment="Left" Margin="10,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="28"/>
-            <DataGrid x:Name="StudentDataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,249,0,0" Grid.RowSpan="2" AutoGenerateColumns="True"/>
+            <DataGrid x:Name="StudentDataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,249,0,0" Grid.RowSpan="2" AutoGenerateColumns="True" SelectionChanged="StudentDataGrid_SelectionChanged"/>
             <Button x:Name="Show_All" Grid.Column="1" Content="Show All" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Grid.Row="1" Cursor="Arrow" Padding="10,5,10,5" FontWeight="Bold" Click="Show_All_Click"/>
             <Button x:Name="UpdateBtn" Grid.Column="1" Content="Update" HorizontalAlignment="Left" Margin="95,25,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Padding="10,5,10,5" Click="updateBtn_Click" Height="33" Width="85"/>
             <Button x:Name="DeleteBtn" Grid.Column="1" Content="Delete" HorizontalAlignment="Left" Margin="18,0,0,0" Grid.Row="1" VerticalAlignment="Center" Background="#FFEC3D3D" Foreground="#FFEFE4E4" Padding="10,5,10,5" Click="DeleteBtn_Click"/>

@@ -395,5 +395,26 @@ namespace DatabaseApp1
 
             sqlConnection.Close();
         }
+
+        private void StudentDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                DataRowView row =  StudentDataGrid.SelectedItem as DataRowView;
+
+                if (row != null)
+                {
+                    StudentIdTbx.Text = (string)row["ID"];
+                    StudentNameTbx.Text = (string)row["Name"];
+                    EmailTbx.Text = (string)row["Email"];
+                    RegYearTbx.Text = (string)row["Reg Year"];
+                    RegTermTbx.Text = (string)row["Term"];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

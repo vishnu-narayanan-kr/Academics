@@ -22,6 +22,8 @@ class Program {
 
         thread1.Start();
         thread2.Start();
+
+        
     }
 
     private static void printArrayOne(int[] a) {
@@ -37,3 +39,15 @@ class Program {
         }
     }
 }
+
+/*
+Thread thread = new Thread(() =>
+{
+    this.Dispatcher.Invoke(() =>
+    {
+        
+    });
+});
+
+thread.Start();
+*/

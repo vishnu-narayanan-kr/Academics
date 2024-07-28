@@ -25,7 +25,7 @@ public class Employee {
     
     @Override
     public String toString() {
-        return "[Employee: id " + this.emp_id + ", fname: " + this.emp_fname + ", lname: " + this.emp_lname + ", salary: " + this.emp_salary + ", d_id: " + this.emp_d_id + ", position: " + this.emp_position + "]";
+        return "[Employee: id " + this.emp_id + ", fname: " + this.emp_fname + ", lname: " + this.emp_lname + ", salary: " + this.emp_salary + ", d_id: " + this.emp_d_id + ", position: " + this.emp_position + ", bonus=" + this.emp_bonus + "]";
     }
     
     Employee(){

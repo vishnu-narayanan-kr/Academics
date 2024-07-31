@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <script type="module" src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/common.css">
+
+</head>
+<body>
+    <h2>Register a Product</h2>
+    <section>
+        <label for="model-name">Model Name: </label>
+        <input type="text" id="model-name">
+        <label for="brand-name">Brand Name: </label>
+        <input type="text" id="brand-name">
+        <label for="price">Price: </label>
+        <input type="text" id="price">
+        <p id="error-message" class="error-message"></p>
+        <div id="button-section" class="button-section"></div>
+    </section>
+    <table>
+        <thead>
+            <th>Unique Code</th>
+            <th>Model Name</th>
+            <th>Brand Name</th>
+            <th>Price</th>
+            <th>Select</th>
+        </thead>
+        <tbody id="table-body">
+
+        </tbody>
+    </table>
+</body>
+</html>

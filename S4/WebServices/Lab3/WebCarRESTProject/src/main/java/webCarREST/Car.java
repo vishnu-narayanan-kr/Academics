@@ -1,4 +1,4 @@
-package webCar;
+package webCarREST;
 
 public class Car {
 	private String vin;
@@ -17,7 +17,7 @@ public class Car {
 		this.price = price;
 	}
 	
-	public double discountPrince() {
+	public double discountPrice() {
 		return price * 0.9;
 	}
 	

@@ -25,21 +25,22 @@ public class WebAuthenticationController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public AuthDetails login(User user) {
 		String username = user.getUsername();
-		String password = user.getPassword();
 		
 		boolean status = false;
 	
 		if(registeredUsers.containsKey(username)) {
-			if(registeredUsers.get(username).getPassword().equals(password)) {
+			if(registeredUsers.get(username).getPassword().equals(user.getPasswordHash())) {
 				status = true;
+				registeredUsers.get(username).setToken(utility.createSimpleAuthToken(user));
+				utility.writeToFile("users.txt", RegisteredUsers.getInstance().getFileString());
 			}
 		} else {
 			status = false;
 		}
 		
-		String message = status ? "success" : "failed";
+		String message = status ? "login success" : "login failed";
 		
-		return new AuthDetails(status, username + " " +  password.hashCode(), message);
+		return new AuthDetails(status, utility.createSimpleAuthToken(user), message);
 	}
 	
 	@POST
@@ -52,6 +53,7 @@ public class WebAuthenticationController {
 		if(registeredUsers.containsKey(user.getUsername())) {
 			message = "username exists, use a different username";
 		} else {
+			user.setPassword(Integer.toString(user.getPassword().hashCode()));
 			registeredUsers.put(user.getUsername(), user);
 			utility.writeToFile("users.txt", RegisteredUsers.getInstance().getFileString());
 			message = "user register successfully";

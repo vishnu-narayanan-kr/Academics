@@ -3,6 +3,9 @@ package webOnlineFoodDeliveryServiceREST;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Instant;
+
+import webOnlineFoodDeliveryServiceREST.Auth.User;
 
 public class Utility {
 	private String absolutePath = "C:/Users/Dell/Documents/GitHub/Academics/S4/WebServices/Project/src/main/java/webOnlineFoodDeliveryServiceREST/";
@@ -24,5 +27,9 @@ public class Utility {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public String createSimpleAuthToken(User user) {
+		return Integer.toString((user.getUsername() + user.getPassword() + Instant.now()).hashCode());
 	}
 }

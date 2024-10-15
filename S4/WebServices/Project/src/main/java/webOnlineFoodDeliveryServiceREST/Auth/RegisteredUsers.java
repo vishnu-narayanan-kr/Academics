@@ -25,8 +25,9 @@ public class RegisteredUsers {
 			while(inFile.hasNextLine()) {
 				String username = inFile.next();
 				String password = inFile.next();
+				String token = inFile.next();
 				
-				User user = new User(username, password);
+				User user = new User(username, password, token);
 				users.put(username, user);
 			} 
 			

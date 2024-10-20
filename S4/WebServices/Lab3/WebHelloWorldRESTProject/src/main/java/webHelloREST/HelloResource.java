@@ -34,7 +34,7 @@ public class HelloResource {
 		return "Hello from " + name;
 	}
 	
-	@Path("/specify")
+	@Path("/specifyParameter")
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String sayHTMLClientParameterHello(@QueryParam("empId") String id, @QueryParam("empName") String name, @QueryParam("empSalary") String salary) {

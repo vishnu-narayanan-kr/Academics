@@ -5,6 +5,17 @@ public class Car {
 	private String desc;
 	private double price;
 	
+	public String toString() {
+		String output = "";
+		
+		output += "car_vin: " + vin + ", ";
+		output += "car_desc: " + desc + ", ";
+		output += "car_price: " + price + ", ";
+		output += "car_price with discount: " + discountPrice() + ", ";
+		
+		return output;
+	}
+	
 	public Car() {
 		this.vin = "";
 		this.desc = "";
@@ -17,7 +28,7 @@ public class Car {
 		this.price = price;
 	}
 	
-	public double discountPrince() {
+	public double discountPrice() {
 		return price * 0.9;
 	}
 	

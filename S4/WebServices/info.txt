@@ -1,5 +1,5 @@
 ## web.xml additional lines
-paste this before last line
+paste this before last line, don't forget to change the param value
 
    <servlet>
   	<servlet-name>Jersey REST Service</servlet-name>

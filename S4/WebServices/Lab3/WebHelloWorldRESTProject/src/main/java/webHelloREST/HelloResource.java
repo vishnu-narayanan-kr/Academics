@@ -18,7 +18,7 @@ public class HelloResource {
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String sayHTMLHello() {
-		return "<html>Hello REST</html>";
+		return "<html><h2>Hello REST</h2></html>";
 	}
 	
 	@GET
@@ -31,7 +31,7 @@ public class HelloResource {
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String sayParameterHello(@PathParam("Name") String name) {
-		return "Hello from " + name;
+		return "<h2>Hello from " + name + "</h2>";
 	}
 	
 	@Path("/specifyParameter")

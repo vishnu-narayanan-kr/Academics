@@ -98,4 +98,11 @@ public class WebCarResource {
 		
 		return car;
 	}
+	
+	@Path("/TotalCarPriceDiscount")
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public Double calculateTotalCarPriceDiscount(@PathParam("vin") String vin) {
+		return carHashMap.values().stream().mapToDouble(Car::discountPrice).sum();
+	}
 }

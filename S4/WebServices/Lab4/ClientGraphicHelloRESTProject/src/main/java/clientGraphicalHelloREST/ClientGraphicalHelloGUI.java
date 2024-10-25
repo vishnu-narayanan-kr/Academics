@@ -32,9 +32,17 @@ public class ClientGraphicalHelloGUI extends JFrame implements ActionListener {
 	JTextField userNameTF;
 	JButton pathB;
 	JEditorPane pathEP;
+	JLabel empIDL;
+	JTextField empIDTF;
+	JLabel empNameL;
+	JTextField empNameTF;
+	JLabel empSalaryL;
+	JTextField empSalaryTF;
+	JButton queryParamB;
+	JEditorPane queryParamEP;
 	
-	HTMLEditorKit kit, kit2;
-	Document doc, doc2;
+	HTMLEditorKit kit, kit2, kit3;
+	Document doc, doc2, doc3;
 	
 	// Declare variables for REST services
 	String url;
@@ -55,6 +63,9 @@ public class ClientGraphicalHelloGUI extends JFrame implements ActionListener {
 		kit2 = new HTMLEditorKit();
 		doc2 = kit2.createDefaultDocument();
 		
+		kit3 = new HTMLEditorKit();
+		doc3 = kit3.createDefaultDocument();
+		
 		hihiJSONB = new JButton("HiHi JSON");
 		hihiJSONTF = new JTextField(10);
 		hihiHTMLB = new JButton("HiHi HTML");
@@ -69,16 +80,27 @@ public class ClientGraphicalHelloGUI extends JFrame implements ActionListener {
 		pathEP = new JEditorPane();
 			pathEP.setEditorKit(kit2);
 			pathEP.setDocument(doc2);
-		
+		empIDL = new JLabel("Parama EmpID: ", SwingConstants.CENTER);
+		empIDTF = new JTextField(10);
+		empNameL = new JLabel("Parama EmpName: ", SwingConstants.CENTER);
+		empNameTF = new JTextField(10);
+		empSalaryL = new JLabel("Parama EmpSalary: ", SwingConstants.CENTER);
+		empSalaryTF = new JTextField(10);
+		queryParamB = new JButton("Query Params");
+		queryParamEP = new JEditorPane();
+			queryParamEP.setEditorKit(kit3);
+			queryParamEP.setDocument(doc3);
+			
 		hihiJSONB.addActionListener(this);
 		hihiHTMLB.addActionListener(this);
 		hihiTEXTB.addActionListener(this);
 		pathB.addActionListener(this);
+		queryParamB.addActionListener(this);
 		
 		setTitle("Graphic based HelloREST");
 		
 		Container pane = getContentPane();
-		pane.setLayout(new GridLayout(5, 2));
+		pane.setLayout(new GridLayout(9, 2));
 		
 		pane.add(hihiJSONB);
 		pane.add(hihiJSONTF);
@@ -91,7 +113,16 @@ public class ClientGraphicalHelloGUI extends JFrame implements ActionListener {
 		pane.add(pathB);
 		pane.add(pathEP);
 		
-		setSize(400, 300);
+		pane.add(empIDL);
+		pane.add(empIDTF);
+		pane.add(empNameL);
+		pane.add(empNameTF);
+		pane.add(empSalaryL);
+		pane.add(empSalaryTF);
+		pane.add(queryParamB);
+		pane.add(queryParamEP);
+		
+		setSize(800, 600);
 		setVisible(true);
 	}
 
@@ -118,6 +149,18 @@ public class ClientGraphicalHelloGUI extends JFrame implements ActionListener {
 			target = client.target(pathUsernameUrl);
 			response = target.request().accept(MediaType.TEXT_HTML).get(String.class);
 			pathEP.setText(response);
+		} else if(actionCommand.equals("Query Params")) {
+			String id = empIDTF.getText();
+			String name = empNameTF.getText();
+			String salary = empSalaryTF.getText();
+			
+			String pathQuerynameUrl = url + "/specifyParameter/";
+			target = client.target(pathQuerynameUrl)
+					.queryParam("empId", id)
+					.queryParam("empName", name)
+					.queryParam("empSalary", salary);
+			response = target.request().accept(MediaType.TEXT_HTML).get(String.class);
+			queryParamEP.setText(response);
 		}
 		
 	}

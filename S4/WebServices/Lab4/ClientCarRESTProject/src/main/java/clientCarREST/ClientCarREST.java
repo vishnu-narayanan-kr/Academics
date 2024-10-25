@@ -36,7 +36,7 @@ public class ClientCarREST {
 		// Search Function
 		System.out.println("Enter a valid id to search: ");
 		Scanner scanner = new Scanner(System.in);
-		String id = scanner.next();
+		String id = scanner.nextLine();
 		target = client.target(url + "searchCar/" + id);
 		response = target.request().accept(MediaType.APPLICATION_JSON).get(String.class);
 		System.out.println(response);

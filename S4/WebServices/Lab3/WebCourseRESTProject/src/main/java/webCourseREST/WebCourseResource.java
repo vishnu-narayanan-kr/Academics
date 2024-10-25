@@ -90,6 +90,19 @@ public class WebCourseResource {
 				}
 			}
 			
-			return new Course(id, "", courseList.size());
+			return null;
+		}
+		
+		@Path("/totalCourseFees/{course_id}")
+		@GET
+		@Produces(MediaType.TEXT_PLAIN)
+		public Double calculateTotalCourseFees(@PathParam("course_id") String id) {
+			for(int i = 0; i < courseList.size(); i++) {
+				if(courseList.get(i).getCourse_no().equals(id)) {
+					return Double.parseDouble(courseList.get(i).CalculateTotalFees() + "");
+				}
+			}
+			
+			return 0.0;
 		}
 }

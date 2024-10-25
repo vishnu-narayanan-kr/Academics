@@ -1,5 +1,3 @@
-322. CoinChange
-
 class Solution {
     public int coinChange(int[] coins, int amount) {
         int[] numOfCoinsArr = new int[amount + 1];

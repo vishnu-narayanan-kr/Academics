@@ -8,11 +8,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
@@ -22,6 +26,12 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 public class DisplayMenuGUI extends JFrame implements ActionListener {
+	JLabel dishL = new JLabel("Enter something to search:", SwingConstants.RIGHT);
+	JTextField dishTF = new JTextField(10);
+	
+	JButton searchB = new JButton("Search");
+	
+	
 	DefaultTableModel tableModel = new DefaultTableModel(new String[] {
 			"id",
 			"Dish Name",
@@ -38,13 +48,61 @@ public class DisplayMenuGUI extends JFrame implements ActionListener {
 	
 	public DisplayMenuGUI() {
 	    gbc.insets = new Insets(5, 5, 5, 5);
-	    gbc.fill = GridBagConstraints.BOTH;
+	    gbc.fill = GridBagConstraints.HORIZONTAL;
 	    
 		setTitle("Menu");
-		setSize(850, 450);
+		setSize(840, 450);
 		setLayout(new BorderLayout());
-		
+
 		getMenuFromAPI();
+		
+		displayFilterPanel();
+		displayTable();
+
+        searchB.addActionListener(this);
+        
+		setLocationRelativeTo(null);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getActionCommand().equals("Search")) {
+			String keyword = dishTF.getText();
+			getMenuFromAPI(keyword);
+			displayTable();
+		}
+	}
+	
+	private void displayFilterPanel() {
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.0;
+        
+        mainPanel.add(dishL, gbc);
+        
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.0;
+        
+        mainPanel.add(dishTF, gbc);
+        
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.0;
+        
+        mainPanel.add(searchB, gbc);
+	}
+	
+	private void displayTable() {
+		tableModel.setRowCount(0);
 		
 		menuHashMap.values().forEach(m -> {
 			tableModel.addRow(new Object[] {
@@ -73,28 +131,25 @@ public class DisplayMenuGUI extends JFrame implements ActionListener {
         JScrollPane scrollPane = new JScrollPane(table);
         
         gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 1;
+        gbc.gridy = 1;
+        gbc.gridwidth = 3;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
-        
+        gbc.fill = GridBagConstraints.BOTH;
+
         mainPanel.add(scrollPane, gbc);
-        add(mainPanel, BorderLayout.CENTER);
         
-		setLocationRelativeTo(null);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		
+        add(mainPanel, BorderLayout.CENTER);
 	}
 	
 	private void getMenuFromAPI() {
+		getMenuFromAPI("");
+	}
+	
+	private void getMenuFromAPI(String keyword) {
 		try {
 			WebTarget target = Utility.getTarget("/Menu/View")
-					.queryParam("keyword", "");
+					.queryParam("keyword", keyword);
 			
 			Response response = target.request()
 					.accept(MediaType.APPLICATION_JSON)

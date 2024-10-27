@@ -1,4 +1,4 @@
-package webOnlineFoodDeliveryServiceREST.Menu;
+package clientOnlineFoodDeliveryServiceREST;
 
 public class Menu {
 	private Integer restaurantId;

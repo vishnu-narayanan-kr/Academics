@@ -51,12 +51,12 @@ public class WebAuthenticationController {
 		String message = "";
 		
 		if(registeredUsers.containsKey(user.getUsername())) {
-			message = "username exists, use a different username";
+			message = "username already exists!";
 		} else {
 			user.setPassword(Integer.toString(user.getPassword().hashCode()));
 			registeredUsers.put(user.getUsername(), user);
 			utility.writeToFile("users.txt", RegisteredUsers.getInstance().getFileString());
-			message = "user register successfully";
+			message = "success, please login";
 		}
 		
 		return message;

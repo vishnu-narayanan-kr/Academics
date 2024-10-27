@@ -1,9 +1,7 @@
 package clientOnlineFoodDeliveryServiceREST;
 
-import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,7 +65,8 @@ public class LoginGUI extends JFrame implements ActionListener {
         gbc.gridy = 2;
 		inputFormP.add(loginB, gbc);
 		
-		messageDisplayTF.setEnabled(false);
+		messageDisplayTF.setEditable(false);
+		messageDisplayTF.setEnabled(true);
 		
         gbc.gridx = 0;
         gbc.gridy = 3;
@@ -86,20 +85,28 @@ public class LoginGUI extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Login")) {
-			WebTarget target = Utility.getTarget("/Authentication/Login");
-			
-			String username = usernameTF.getText();
-			String password = new String(passwordTF.getPassword());
-			
-			User user = new User();
-			
-			user.setUsername(username);
-			user.setPassword(password);
-			
-			Response response = target.request(MediaType.APPLICATION_JSON)
-                    .post(Entity.entity(user, MediaType.APPLICATION_JSON));
-			
-			System.out.println("Status" + username + " " + password + response.readEntity(String.class));
+			try {
+				messageDisplayTF.setText("logging in...");
+				
+				WebTarget target = Utility.getTarget("/Authentication/Login");
+				
+				String username = usernameTF.getText();
+				String password = new String(passwordTF.getPassword());
+				
+				User user = new User();
+				
+				user.setUsername(username);
+				user.setPassword(password);
+				
+				Response response = target.request(MediaType.APPLICATION_JSON)
+	                    .post(Entity.entity(user, MediaType.APPLICATION_JSON));
+				
+				AuthDetails authDetails = response.readEntity(AuthDetails.class);
+				
+				messageDisplayTF.setText(authDetails.getMessage());
+			} catch(Exception ex) {
+				messageDisplayTF.setText("Something went wrong!");
+			}
 		} else if(e.getActionCommand().equals("Register")) {
 			new RegisterGUI();
 			this.dispose();

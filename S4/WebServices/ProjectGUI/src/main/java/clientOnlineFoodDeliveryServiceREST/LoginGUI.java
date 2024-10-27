@@ -16,6 +16,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
 public class LoginGUI extends JFrame implements ActionListener {
 	JLabel usernameL = new JLabel("Username:", SwingConstants.RIGHT);
 	JTextField usernameTF = new JTextField(10);
@@ -72,6 +77,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 		add(inputFormP);
 		
 		registerB.addActionListener(this);
+		loginB.addActionListener(this);
 		
 		setLocationRelativeTo(null);
 		setVisible(true);
@@ -79,7 +85,22 @@ public class LoginGUI extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals("Register")) {
+		if(e.getActionCommand().equals("Login")) {
+			WebTarget target = Utility.getTarget("/Authentication/Login");
+			
+			String username = usernameTF.getText();
+			String password = new String(passwordTF.getPassword());
+			
+			User user = new User();
+			
+			user.setUsername(username);
+			user.setPassword(password);
+			
+			Response response = target.request(MediaType.APPLICATION_JSON)
+                    .post(Entity.entity(user, MediaType.APPLICATION_JSON));
+			
+			System.out.println("Status" + username + " " + password + response.readEntity(String.class));
+		} else if(e.getActionCommand().equals("Register")) {
 			new RegisterGUI();
 			this.dispose();
 		}

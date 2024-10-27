@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.MediaType;
 import webOnlineFoodDeliveryServiceREST.Utility;
 
 @Path("Authentication")
-public class WebAuthenticationController {
+public class WebAuthenticationController { 
 	Utility utility;
 	Map<String, User> registeredUsers;
 	

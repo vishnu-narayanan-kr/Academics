@@ -1,6 +1,7 @@
 package clientOnlineFoodDeliveryServiceREST;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -27,10 +28,13 @@ import jakarta.ws.rs.core.Response;
 
 public class DisplayMenuGUI extends JFrame implements ActionListener {
 	JLabel dishL = new JLabel("Enter something to search:", SwingConstants.RIGHT);
-	JTextField dishTF = new JTextField(10);
+	JTextField dishTF = new JTextField(500);
 	
 	JButton searchB = new JButton("Search");
 	
+	JPanel buttonContainer = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
+    JButton loginB = new JButton("Login");
+    JButton registerB = new JButton("Register");
 	
 	DefaultTableModel tableModel = new DefaultTableModel(new String[] {
 			"id",
@@ -60,6 +64,8 @@ public class DisplayMenuGUI extends JFrame implements ActionListener {
 		displayTable();
 
         searchB.addActionListener(this);
+        loginB.addActionListener(this);
+        registerB.addActionListener(this);
         
 		setLocationRelativeTo(null);
         setVisible(true);
@@ -72,6 +78,10 @@ public class DisplayMenuGUI extends JFrame implements ActionListener {
 			String keyword = dishTF.getText();
 			getMenuFromAPI(keyword);
 			displayTable();
+		} else if(e.getActionCommand().equals("Login")) {
+			LoginGUI.getInstance();
+		} else if(e.getActionCommand().equals("Register")) {
+			RegisterGUI.getInstance();
 		}
 	}
 	
@@ -79,7 +89,7 @@ public class DisplayMenuGUI extends JFrame implements ActionListener {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
-        gbc.weightx = 1.0;
+        gbc.weightx = 0.0;
         gbc.weighty = 0.0;
         
         mainPanel.add(dishL, gbc);
@@ -95,10 +105,21 @@ public class DisplayMenuGUI extends JFrame implements ActionListener {
         gbc.gridx = 2;
         gbc.gridy = 0;
         gbc.gridwidth = 1;
-        gbc.weightx = 1.0;
+        gbc.weightx = 0.0;
         gbc.weighty = 0.0;
         
         mainPanel.add(searchB, gbc);
+        
+        buttonContainer.add(loginB);
+        buttonContainer.add(registerB);
+
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.weightx = 0.0;
+        gbc.weighty = 0.0;
+        
+        mainPanel.add(buttonContainer, gbc);
 	}
 	
 	private void displayTable() {
@@ -132,7 +153,7 @@ public class DisplayMenuGUI extends JFrame implements ActionListener {
         
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.gridwidth = 3;
+        gbc.gridwidth = 4;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;

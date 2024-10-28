@@ -33,7 +33,20 @@ public class LoginGUI extends JFrame implements ActionListener {
 	
 	JTextField messageDisplayTF = new JTextField(20);
 	
-	public LoginGUI() {
+	private static LoginGUI instance;
+	
+	public static LoginGUI getInstance() {
+		if(instance == null) {
+			instance = new LoginGUI();
+		}
+		
+		instance.setVisible(true);
+		return instance;
+	}
+	
+	private LoginGUI() {
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		
 	    gbc.insets = new Insets(5, 5, 5, 5);
 	    gbc.fill = GridBagConstraints.HORIZONTAL;
 	    
@@ -108,7 +121,7 @@ public class LoginGUI extends JFrame implements ActionListener {
 				messageDisplayTF.setText("Something went wrong!");
 			}
 		} else if(e.getActionCommand().equals("Register")) {
-			new RegisterGUI();
+			RegisterGUI.getInstance();
 			this.dispose();
 		}
 		

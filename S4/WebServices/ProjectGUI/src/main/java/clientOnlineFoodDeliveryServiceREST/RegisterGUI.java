@@ -35,7 +35,20 @@ public class RegisterGUI extends JFrame implements ActionListener{
 	
 	JTextField messageDisplayTF = new JTextField(20);
 	
-	public RegisterGUI() {
+	private static RegisterGUI instance;
+	
+	public static RegisterGUI getInstance() {
+		if(instance == null) {
+			instance = new RegisterGUI();
+		}
+		
+		instance.setVisible(true);
+		return instance;
+	}
+	
+	private RegisterGUI() {
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		
 	    gbc.insets = new Insets(5, 5, 5, 5);
 	    gbc.fill = GridBagConstraints.HORIZONTAL;
 	    
@@ -128,7 +141,7 @@ public class RegisterGUI extends JFrame implements ActionListener{
 				messageDisplayTF.setText("Something went wrong!");
 			}
 		} else if(e.getActionCommand().equals("Login")) {
-			new LoginGUI();
+			LoginGUI.getInstance();
 			this.dispose();
 		}
 	}

@@ -1,0 +1,50 @@
+1	Pasta Palace	1	Spaghetti Carbonara	Creamy pasta with pancetta and parmesan	12.99	Main Course
+1	Pasta Palace	2	Fettuccine Alfredo	Pasta with rich alfredo sauce and parmesan	13.49	Main Course
+1	Pasta Palace	3	Lasagna Bolognese	Layers of pasta with beef and tomato sauce	14.99	Main Course
+1	Pasta Palace	4	Bruschetta	Grilled bread with tomatoes and basil	6.49	Appetizer
+1	Pasta Palace	5	Tiramisu	Classic Italian dessert with coffee and mascarpone	7.99	Dessert
+1	Pasta Palace	6	Caesar Salad	Crisp romaine with Caesar dressing and croutons	9.99	Appetizer
+1	Pasta Palace	7	Mushroom Risotto	Creamy risotto with mushrooms and parmesan	11.99	Main Course
+1	Pasta Palace	8	Margherita Pizza	Thin-crust pizza with tomatoes, mozzarella, and basil	11.49	Main Course
+1	Pasta Palace	9	Chicken Parmesan	Breaded chicken with marinara and mozzarella	13.99	Main Course
+1	Pasta Palace	10	Garlic Bread	Grilled bread with garlic butter	5.99	Appetizer
+2	Burger Bonanza	11	Cheeseburger	Beef patty with cheddar, lettuce, and tomato	9.99	Main Course
+2	Burger Bonanza	12	Bacon Cheeseburger	Beef patty with bacon, cheddar, lettuce, and tomato	10.99	Main Course
+2	Burger Bonanza	13	Veggie Burger	Grilled veggie patty with lettuce and tomato	8.99	Main Course
+2	Burger Bonanza	14	Fries	Crispy seasoned fries	3.99	Side
+2	Burger Bonanza	15	Onion Rings	Crispy fried onion rings	4.49	Side
+2	Burger Bonanza	16	BBQ Chicken Burger	Grilled chicken with BBQ sauce, lettuce, and tomato	9.49	Main Course
+2	Burger Bonanza	17	Double Cheeseburger	Double beef patty with cheddar and bacon	12.49	Main Course
+2	Burger Bonanza	18	Grilled Chicken Sandwich	Grilled chicken breast with lettuce and mayo	9.99	Main Course
+2	Burger Bonanza	19	Chocolate Milkshake	Thick chocolate milkshake with whipped cream	4.99	Beverage
+2	Burger Bonanza	20	Apple Pie	Classic apple pie with cinnamon	5.49	Dessert
+3	Sushi Central	21	California Roll	Crab, avocado, and cucumber roll	8.49	Main Course
+3	Sushi Central	22	Salmon Nigiri	Sliced salmon on sushi rice	9.49	Main Course
+3	Sushi Central	23	Spicy Tuna Roll	Tuna roll with spicy mayo	9.99	Main Course
+3	Sushi Central	24	Miso Soup	Traditional Japanese soup with tofu and seaweed	3.99	Appetizer
+3	Sushi Central	25	Edamame	Steamed soybeans with sea salt	4.49	Appetizer
+3	Sushi Central	26	Tempura Shrimp	Crispy battered shrimp with dipping sauce	10.99	Main Course
+3	Sushi Central	27	Dragon Roll	Eel, avocado, and cucumber roll with eel sauce	11.99	Main Course
+3	Sushi Central	28	Chicken Teriyaki	Grilled chicken with teriyaki sauce	12.49	Main Course
+3	Sushi Central	29	Green Tea Ice Cream	Japanese-style green tea flavored ice cream	4.99	Dessert
+3	Sushi Central	30	Sake	Japanese rice wine	6.99	Beverage
+4	Taco Town	31	Chicken Taco	Grilled chicken with lettuce, tomato, and cheese	3.99	Main Course
+4	Taco Town	32	Beef Taco	Seasoned beef with lettuce, tomato, and cheese	4.49	Main Course
+4	Taco Town	33	Vegetarian Taco	Grilled veggies with guacamole and salsa	3.49	Main Course
+4	Taco Town	34	Chips and Salsa	Tortilla chips with fresh tomato salsa	2.99	Appetizer
+4	Taco Town	35	Guacamole	Freshly made guacamole with tortilla chips	3.99	Appetizer
+4	Taco Town	36	Carnitas Taco	Slow-cooked pork with onions and cilantro	4.99	Main Course
+4	Taco Town	37	Quesadilla	Cheese-filled grilled tortilla	5.99	Main Course
+4	Taco Town	38	Burrito	Flour tortilla stuffed with beans, rice, and meat	7.49	Main Course
+4	Taco Town	39	Margarita	Classical lime-flavored margarita	6.49	Beverage
+4	Taco Town	40	Churros	Fried dough pastry with cinnamon sugar	3.99	Dessert
+5	Curry House	41	Chicken Tikka Masala	Grilled chicken in creamy tomato sauce	13.99	Main Course
+5	Curry House	42	Lamb Vindaloo	Spicy lamb curry with potatoes	14.49	Main Course
+5	Curry House	43	Palak Paneer	Spinach curry with paneer cheese	11.99	Main Course
+5	Curry House	44	Butter Naan	Soft flatbread brushed with butter	2.49	Side
+5	Curry House	45	Basmati Rice	Fragrant long-grain rice	2.99	Side
+5	Curry House	46	Samosa	Crispy pastry filled with spiced potatoes and peas	3.49	Appetizer
+5	Curry House	47	Garlic Naan	Flatbread with garlic and herbs	2.99	Side
+5	Curry House	48	Mango Lassi	Sweetened mango yogurt drink	4.49	Beverage
+5	Curry House	49	Rogan Josh	Slow-cooked lamb in a rich spiced sauce	14.99	Main Course
+5	Curry House	50	Gulab Jamun	Deep-fried dough balls in sugar syrup	4.99	Dessert

@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("WebBilling")
@@ -95,5 +98,44 @@ public class WebBillingResource {
 		}
 		
 		return null;
+	}
+	
+	@Path("/searchBilling")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Billing searchAsQPBillingInfo(@QueryParam("id") int id) {
+		for(int i = 0; i < billingList.size(); i++) {
+			if(billingList.get(i).getClient_ID() == id) {
+				return billingList.get(i);
+			}
+		}
+		
+		return null;
+	}
+	
+	@Path("/addNewBilling")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public ArrayList<Billing> addNewBillingInfo(
+			@FormParam("id") int id,
+			@FormParam("lName") String lName,
+			@FormParam("fName") String fName,
+			@FormParam("pName") String pName,
+			@FormParam("price") double price,
+			@FormParam("qty") int qty
+			) {
+		
+		Billing newBilling = new Billing(
+					id,
+					lName,
+					fName,
+					pName,
+					price,
+					qty
+				);
+		
+		billingList.add(newBilling);
+		
+		return billingList;
 	}
 }

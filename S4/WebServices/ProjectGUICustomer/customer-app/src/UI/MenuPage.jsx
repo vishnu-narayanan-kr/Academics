@@ -44,16 +44,20 @@ export const MenuPage = () => {
         <tbody>
             {console.count("Menu Re-Render")}
             {   
-                menuData.map(({ mealId, mealName, price, description, category}) => (
-                    <tr key={mealId}>
-                        <td>{mealId}</td>
-                        <td>{mealName}</td>
-                        <td>{price}</td>
-                        <td>{description}</td>
-                        <td>{category}</td>
-                        <td><button onClick={() => updateCartItems({ mealId, mealName, price})}>Add to Cart</button></td>
-                    </tr>
-                ))
+                menuData.map((item) => {
+                    const { mealId, mealName, price, description, category } = item;
+
+                    return (
+                        <tr key={mealId}>
+                            <td>{mealId}</td>
+                            <td>{mealName}</td>
+                            <td>{price}</td>
+                            <td>{description}</td>
+                            <td>{category}</td>
+                            <td><button onClick={() => updateCartItems(item)}>Add to Cart</button></td>
+                        </tr>
+                    )
+                })
             }
         </tbody>
     ), [menuData, updateCartItems]);

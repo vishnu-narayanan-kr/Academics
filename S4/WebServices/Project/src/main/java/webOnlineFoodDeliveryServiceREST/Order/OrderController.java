@@ -22,7 +22,7 @@ public class OrderController {
 	@Path("Place")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public String placeOrder(Order order) {
+	public Order placeOrder(Order order) {
 		List<Order> orders = PastOrders.getInstance().getOrders();
 		
 		orders.add(order);
@@ -33,7 +33,7 @@ public class OrderController {
             e.printStackTrace();
         }
 		
-		return orders.toString();
+		return order;
 	}
 	
 	@Path("View")

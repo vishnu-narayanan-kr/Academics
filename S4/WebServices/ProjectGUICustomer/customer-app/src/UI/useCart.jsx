@@ -67,6 +67,37 @@ export const useCart = () => {
         .reduce((p, c) => p + c, 0), [items])
         .toFixed(2);
 
+    const onConfirmOrder = useCallback(async () => {
+        if(!items.length) return;
+        
+        const url = "http://localhost:8080/WebOnlineFoodDeliveryServiceProject/rest/Order/Place";
+
+        const data = {
+            username: "vishnu-react",
+            items
+        };
+
+        try {
+            const response = await fetch(url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+            });
+        
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+        
+            const result = await response.json();
+            console.log('Success:', result);
+          } catch (error) {
+            console.error('Error:', error);
+          }
+
+    }, [items]);
+
     const cart = (
             <div className="cart-container">
                 <table>
@@ -74,7 +105,7 @@ export const useCart = () => {
                     {body}
                 </table>
                 <p>The total is: <b>{total}$</b></p>
-                <button>Confirm Order!</button>
+                <button onClick={onConfirmOrder}>Confirm Order!</button>
             </div>
     );
 

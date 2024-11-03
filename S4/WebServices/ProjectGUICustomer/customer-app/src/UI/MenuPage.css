@@ -30,7 +30,7 @@
     background-color: #555; /* Darker color on hover */
 }
 
-.menu-menu-table-wrapper thead {
+.menu-table-wrapper thead {
     top: 0;
     position: sticky;
     background-color: white;

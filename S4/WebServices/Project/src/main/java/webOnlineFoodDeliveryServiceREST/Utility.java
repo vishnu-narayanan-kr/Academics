@@ -32,4 +32,8 @@ public class Utility {
 	public String createSimpleAuthToken(User user) {
 		return Integer.toString((user.getUsername() + user.getPassword() + Instant.now()).hashCode());
 	}
+	
+	public String getUID() {
+		return Integer.toString(Math.abs(Instant.now().hashCode()));
+	}
 }

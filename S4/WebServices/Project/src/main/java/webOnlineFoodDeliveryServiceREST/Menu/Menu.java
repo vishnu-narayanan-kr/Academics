@@ -1,6 +1,9 @@
 package webOnlineFoodDeliveryServiceREST.Menu;
 
-public class Menu {
+import java.io.Serializable;
+
+public class Menu  implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private Integer restaurantId;
 	private String restaurantName;
 	private Integer mealId;
@@ -31,7 +34,7 @@ public class Menu {
 		this.description = "";
 		this.price = 0.0;
 		this.category = "";
-	}
+		}
 	
 	public Menu(Integer restaurantId, String restaurantName, Integer mealId, String mealName, String description,
 			Double price, String category) {
@@ -99,4 +102,5 @@ public class Menu {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 }

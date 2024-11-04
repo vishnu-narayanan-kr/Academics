@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship Game</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"><h1>BATTLESHIP</h1></div>
+        <div class="turn-info">YOUR TURN: 02:45</div>
+        
+        <div class="boards">
+            <div class="board">
+                <h2 class="blue">MY FLEET</h2>
+                <div class="grid my-fleet">
+                    <!-- Header labels A-J for "My Fleet" -->
+                    <div class="header-style1"></div>
+                    <div class="header header-style2">A</div>
+                    <div class="header header-style1">B</div>
+                    <div class="header header-style2">C</div>
+                    <div class="header header-style1">D</div>
+                    <div class="header header-style2">E</div>
+                    <div class="header header-style1">F</div>
+                    <div class="header header-style2">G</div>
+                    <div class="header header-style1">H</div>
+                    <div class="header header-style2">I</div>
+                    <div class="header header-style1">J</div>
+                    
+                    <!-- Rows 1-10 for "My Fleet" -->
+                    <div class="header header-style2">1</div>
+                    <div  id="p-0-0" class="cell cell-style-1"></div><div  id="p-0-1" class="cell cell-style-2"></div><div  id="p-0-2" class="cell cell-style-1"></div><div  id="p-0-3" class="cell cell-style-2"></div><div  id="p-0-4" class="cell cell-style-1"></div>
+                    <div  id="p-0-5" class="cell cell-style-2"></div><div  id="p-0-6" class="cell cell-style-1"></div><div  id="p-0-7" class="cell cell-style-2"></div><div  id="p-0-8" class="cell cell-style-1"></div><div  id="p-0-9" class="cell cell-style-2"></div>
+
+                    <div class="header header-style1">2</div>
+                    <div  id="p-1-0" class="cell cell-style-3"></div><div  id="p-1-1" class="cell cell-style-3"></div><div  id="p-1-2" class="cell cell-style-3"></div><div  id="p-1-3" class="cell cell-style-3"></div><div  id="p-1-4" class="cell cell-style-3"></div>
+                    <div  id="p-1-5" class="cell cell-style-3"></div><div  id="p-1-6" class="cell cell-style-3"></div><div  id="p-1-7" class="cell cell-style-3"></div><div  id="p-1-8" class="cell cell-style-3"></div><div  id="p-1-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">3</div>
+                    <div  id="p-2-0" class="cell cell-style-1"></div><div  id="p-2-1" class="cell cell-style-2"></div><div  id="p-2-2" class="cell cell-style-1"></div><div  id="p-2-3" class="cell cell-style-2"></div><div  id="p-2-4" class="cell cell-style-1"></div>
+                    <div  id="p-2-5" class="cell cell-style-2"></div><div  id="p-2-6" class="cell cell-style-1"></div><div  id="p-2-7" class="cell cell-style-2"></div><div  id="p-2-8" class="cell cell-style-1"></div><div  id="p-2-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style1">4</div>
+                    <div  id="p-3-0" class="cell cell-style-3"></div><div  id="p-3-1" class="cell cell-style-3"></div><div  id="p-3-2" class="cell cell-style-3"></div><div  id="p-3-3" class="cell cell-style-3"></div><div  id="p-3-4" class="cell cell-style-3"></div>
+                    <div  id="p-3-5" class="cell cell-style-3"></div><div  id="p-3-6" class="cell cell-style-3"></div><div  id="p-3-7" class="cell cell-style-3"></div><div  id="p-3-8" class="cell cell-style-3"></div><div  id="p-3-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">5</div>
+                    <div  id="p-4-0" class="cell cell-style-1"></div><div  id="p-4-1" class="cell cell-style-2"></div><div  id="p-4-2" class="cell cell-style-1"></div><div  id="p-4-3" class="cell cell-style-2"></div><div  id="p-4-4" class="cell cell-style-1"></div>
+                    <div  id="p-4-5" class="cell cell-style-2"></div><div  id="p-4-6" class="cell cell-style-1"></div><div  id="p-4-7" class="cell cell-style-2"></div><div  id="p-4-8" class="cell cell-style-1"></div><div  id="p-4-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style1">6</div>
+                    <div  id="p-5-0" class="cell cell-style-3"></div><div  id="p-5-1" class="cell cell-style-3"></div><div  id="p-5-2" class="cell cell-style-3"></div><div  id="p-5-3" class="cell cell-style-3"></div><div  id="p-5-4" class="cell cell-style-3"></div>
+                    <div  id="p-5-5" class="cell cell-style-3"></div><div  id="p-5-6" class="cell cell-style-3"></div><div  id="p-5-7" class="cell cell-style-3"></div><div  id="p-5-8" class="cell cell-style-3"></div><div  id="p-5-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">7</div>
+                    <div  id="p-6-0" class="cell cell-style-1"></div><div  id="p-6-1" class="cell cell-style-2"></div><div  id="p-6-2" class="cell cell-style-1"></div><div  id="p-6-3" class="cell cell-style-2"></div><div  id="p-6-4" class="cell cell-style-1"></div>
+                    <div  id="p-6-5" class="cell cell-style-2"></div><div  id="p-6-6" class="cell cell-style-1"></div><div  id="p-6-7" class="cell cell-style-2"></div><div  id="p-6-8" class="cell cell-style-1"></div><div  id="p-6-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style1">8</div>
+                    <div  id="p-7-0" class="cell cell-style-3"></div><div  id="p-7-1" class="cell cell-style-3"></div><div  id="p-7-2" class="cell cell-style-3"></div><div  id="p-7-3" class="cell cell-style-3"></div><div  id="p-7-4" class="cell cell-style-3"></div>
+                    <div  id="p-7-5" class="cell cell-style-3"></div><div  id="p-7-6" class="cell cell-style-3"></div><div  id="p-7-7" class="cell cell-style-3"></div><div  id="p-7-8" class="cell cell-style-3"></div><div  id="p-7-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">9</div>
+                    <div  id="p-8-0" class="cell cell-style-1"></div><div  id="p-8-1" class="cell cell-style-2"></div><div  id="p-8-2" class="cell cell-style-1"></div><div  id="p-8-3" class="cell cell-style-2"></div><div  id="p-8-4" class="cell cell-style-1"></div>
+                    <div  id="p-8-5" class="cell cell-style-2"></div><div  id="p-8-6" class="cell cell-style-1"></div><div  id="p-8-7" class="cell cell-style-2"></div><div  id="p-8-8" class="cell cell-style-1"></div><div  id="p-8-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style1">10</div>
+                    <div  id="p-9-0" class="cell cell-style-3"></div><div  id="p-9-1" class="cell cell-style-3"></div><div  id="p-9-2" class="cell cell-style-3"></div><div  id="p-9-3" class="cell cell-style-3"></div><div  id="p-9-4" class="cell cell-style-3"></div>
+                    <div  id="p-9-5" class="cell cell-style-3"></div><div  id="p-9-6" class="cell cell-style-3"></div><div  id="p-9-7" class="cell cell-style-3"></div><div  id="p-9-8" class="cell cell-style-3"></div><div  id="p-9-9" class="cell cell-style-3"></div>
+                    
+                </div>
+            </div>
+
+            <div class="board">
+                <h2 class="red">ENEMY FLEET</h2>
+                <div id="enemy-board" class="grid enemy-fleet">
+                    <!-- Header labels A-J for "Enemy Fleet" -->
+                    <div class="header-style3"></div>
+                    <div class="header header-style2">A</div>
+                    <div class="header header-style3">B</div>
+                    <div class="header header-style2">C</div>
+                    <div class="header header-style3">D</div>
+                    <div class="header header-style2">E</div>
+                    <div class="header header-style3">F</div>
+                    <div class="header header-style2">G</div>
+                    <div class="header header-style3">H</div>
+                    <div class="header header-style2">I</div>
+                    <div class="header header-style3">J</div>
+
+                    <!-- Rows 1-10 for "Enemy Fleet" -->
+                    <div class="header header-style2">1</div>
+                    <div  id="e-0-0" class="cell cell-style-1"></div><div  id="e-0-1" class="cell cell-style-2"></div><div  id="e-0-2" class="cell cell-style-1"></div><div  id="e-0-3" class="cell cell-style-2"></div><div  id="e-0-4" class="cell cell-style-1"></div>
+                    <div  id="e-0-5" class="cell cell-style-2"></div><div  id="e-0-6" class="cell cell-style-1"></div><div  id="e-0-7" class="cell cell-style-2"></div><div  id="e-0-8" class="cell cell-style-1"></div><div  id="e-0-9" class="cell cell-style-2"></div>
+
+                    <div class="header header-style3">2</div>
+                    <div  id="e-1-0" class="cell cell-style-3"></div><div  id="e-1-1" class="cell cell-style-3"></div><div  id="e-1-2" class="cell cell-style-3"></div><div  id="e-1-3" class="cell cell-style-3"></div><div  id="e-1-4" class="cell cell-style-3"></div>
+                    <div  id="e-1-5" class="cell cell-style-3"></div><div  id="e-1-6" class="cell cell-style-3"></div><div  id="e-1-7" class="cell cell-style-3"></div><div  id="e-1-8" class="cell cell-style-3"></div><div  id="e-1-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">3</div>
+                    <div  id="e-2-0" class="cell cell-style-1"></div><div  id="e-2-1" class="cell cell-style-2"></div><div  id="e-2-2" class="cell cell-style-1"></div><div  id="e-2-3" class="cell cell-style-2"></div><div  id="e-2-4" class="cell cell-style-1"></div>
+                    <div  id="e-2-5" class="cell cell-style-2"></div><div  id="e-2-6" class="cell cell-style-1"></div><div  id="e-2-7" class="cell cell-style-2"></div><div  id="e-2-8" class="cell cell-style-1"></div><div  id="e-2-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style3">4</div>
+                    <div  id="e-3-0" class="cell cell-style-3"></div><div  id="e-3-1" class="cell cell-style-3"></div><div  id="e-3-2" class="cell cell-style-3"></div><div  id="e-3-3" class="cell cell-style-3"></div><div  id="e-3-4" class="cell cell-style-3"></div>
+                    <div  id="e-3-5" class="cell cell-style-3"></div><div  id="e-3-6" class="cell cell-style-3"></div><div  id="e-3-7" class="cell cell-style-3"></div><div  id="e-3-8" class="cell cell-style-3"></div><div  id="e-3-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">5</div>
+                    <div  id="e-4-0" class="cell cell-style-1"></div><div  id="e-4-1" class="cell cell-style-2"></div><div  id="e-4-2" class="cell cell-style-1"></div><div  id="e-4-3" class="cell cell-style-2"></div><div  id="e-4-4" class="cell cell-style-1"></div>
+                    <div  id="e-4-5" class="cell cell-style-2"></div><div  id="e-4-6" class="cell cell-style-1"></div><div  id="e-4-7" class="cell cell-style-2"></div><div  id="e-4-8" class="cell cell-style-1"></div><div  id="e-4-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style3">6</div>
+                    <div  id="e-5-0" class="cell cell-style-3"></div><div  id="e-5-1" class="cell cell-style-3"></div><div  id="e-5-2" class="cell cell-style-3"></div><div  id="e-5-3" class="cell cell-style-3"></div><div  id="e-5-4" class="cell cell-style-3"></div>
+                    <div  id="e-5-5" class="cell cell-style-3"></div><div  id="e-5-6" class="cell cell-style-3"></div><div  id="e-5-7" class="cell cell-style-3"></div><div  id="e-5-8" class="cell cell-style-3"></div><div  id="e-5-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">7</div>
+                    <div  id="e-6-0" class="cell cell-style-1"></div><div  id="e-6-1" class="cell cell-style-2"></div><div  id="e-6-2" class="cell cell-style-1"></div><div  id="e-6-3" class="cell cell-style-2"></div><div  id="e-6-4" class="cell cell-style-1"></div>
+                    <div  id="e-6-5" class="cell cell-style-2"></div><div  id="e-6-6" class="cell cell-style-1"></div><div  id="e-6-7" class="cell cell-style-2"></div><div  id="e-6-8" class="cell cell-style-1"></div><div  id="e-6-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style3">8</div>
+                    <div  id="e-7-0" class="cell cell-style-3"></div><div  id="e-7-1" class="cell cell-style-3"></div><div  id="e-7-2" class="cell cell-style-3"></div><div  id="e-7-3" class="cell cell-style-3"></div><div  id="e-7-4" class="cell cell-style-3"></div>
+                    <div  id="e-7-5" class="cell cell-style-3"></div><div  id="e-7-6" class="cell cell-style-3"></div><div  id="e-7-7" class="cell cell-style-3"></div><div  id="e-7-8" class="cell cell-style-3"></div><div  id="e-7-9" class="cell cell-style-3"></div>
+                    
+                    <div class="header header-style2">9</div>
+                    <div  id="e-8-0" class="cell cell-style-1"></div><div  id="e-8-1" class="cell cell-style-2"></div><div  id="e-8-2" class="cell cell-style-1"></div><div  id="e-8-3" class="cell cell-style-2"></div><div  id="e-8-4" class="cell cell-style-1"></div>
+                    <div  id="e-8-5" class="cell cell-style-2"></div><div  id="e-8-6" class="cell cell-style-1"></div><div  id="e-8-7" class="cell cell-style-2"></div><div  id="e-8-8" class="cell cell-style-1"></div><div  id="e-8-9" class="cell cell-style-2"></div>
+                    
+                    <div class="header header-style3">10</div>
+                    <div  id="e-9-0" class="cell cell-style-3"></div><div  id="e-9-1" class="cell cell-style-3"></div><div  id="e-9-2" class="cell cell-style-3"></div><div  id="e-9-3" class="cell cell-style-3"></div><div  id="e-9-4" class="cell cell-style-3"></div>
+                    <div  id="e-9-5" class="cell cell-style-3"></div><div  id="e-9-6" class="cell cell-style-3"></div><div  id="e-9-7" class="cell cell-style-3"></div><div  id="e-9-8" class="cell cell-style-3"></div><div  id="e-9-9" class="cell cell-style-3"></div>
+
+                    <!-- Repeat for rows 2-10 -->
+                </div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <span>Manual AI Move(Testing)</span>
+            <button id="fireBtn" class="fireBtn">FIRE!</button>
+        </div>
+    </div>
+</body>
+</html>

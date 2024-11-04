@@ -1,0 +1,178 @@
+.header-style1 {
+    background-color: #AFE1F8 !important; 
+}
+
+.header-style2 {
+    background-color: #F1F9FE !important; 
+}
+
+.header-style3 {
+    background-color: #FCD8C6 !important;
+}
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('bckgrng.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    color: #888888;
+}
+
+h1 {
+    font-size: 48px;
+    color: #0B589C;
+    margin-bottom: 10px;
+}
+
+.turn-info {
+    font-size: 14px;
+    color: #A9A9A9;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.boards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.board {
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.red {
+    color: #E82C3D;
+}
+
+.blue {
+    color: #0B589C; 
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(11, 40px);
+    grid-template-rows: repeat(11, 40px);
+    border: 1px solid #888888;
+}
+
+.corner {
+    background-color: transparent;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 1px solid #ccc; /* Adds border to each header cell */
+}
+
+/* Styles for "My Fleet" headers and cells */
+.my-fleet .header {
+    background-color: #AFE1F8; /* Light blue for "My Fleet" */
+}
+
+.enemy-fleet .header {
+    background-color: #FFCCCB; /* Light red for "Enemy Fleet" */
+}
+
+.cell {
+    background-color: #E6F7FF;
+    border: 1px solid #ccc;
+}
+
+.my-fleet .ship {
+    background-image: url("./player-battleship-svgrepo-com.svg");
+    background-size: contain;
+}
+
+.enemy-fleet .ship {
+    background-image: url("./enemy-battleship-ship-svgrepo-com.svg");
+    background-size: contain;
+}
+
+.miss {
+    background-image: url("./cross-svgrepo-com.svg");
+    background-size: contain;
+}
+
+.hit {
+    background-image: url("./fire-svgrepo-com.svg");
+    background-size: contain;
+}
+
+.enemy-fleet .cell:hover {
+    cursor: url("./bomb-svgrepo-com.svg") 32 32, auto;
+    background-color: #ec9ea4;
+}
+
+/* Ship cells in "My Fleet" */
+.ship {
+    background-color: #A9A9A9; /* Grey for ships */
+}
+
+/* Action bar */
+.action-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.action-bar button {
+    padding: 8px 16px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    border:  1px solid #ccc;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.cell-style-1 {
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+}
+
+.cell-style-2 {
+    background-color: #E3F5FE;
+    border: 1px solid #ccc;
+}
+
+.cell-style-3 {
+    background-color: #F1F9FE;
+    border: 1px solid #ccc;
+}
+
+
+.logo {
+    text-align: left;
+}
+
+.fireBtn {
+    color: #E82C3D !important;
+}

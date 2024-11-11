@@ -31,7 +31,7 @@ const renderBoards = () => {
                 document.getElementById(`p-${i}-${j}`).classList.add("ship");
             }
             
-            //*
+            /*
             // for testing only
             if(enemyShips[i][j] === 1) {
                 document.getElementById(`e-${i}-${j}`).classList.add("ship");
@@ -92,7 +92,7 @@ const findPlayerShip = () => {
     }
 }
 
-const difficulty = ["easy", "medium", "hard"][2];
+const difficulty = ["easy", "medium", "hard"][0];
 
 const moveAI = () => {
     if(dropCountAI === 100) return;

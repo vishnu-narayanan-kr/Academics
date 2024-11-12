@@ -2,7 +2,30 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model List<JayFirstProject.Models.Student>
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Student</h1>
+
+    <table border=1>
+        <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Email</th>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.id</td>
+                    <td>@student.name</td>
+                    <td>@student.course</td>
+                    <td>@student.year</td>
+                    <td>@student.email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

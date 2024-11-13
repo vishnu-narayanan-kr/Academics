@@ -1,14 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@page
+@model ASP.NETCoreWebApp.Pages.Clients.IndexModel
+@{
 }
 
-@model List<JayFirstProject.Models.Student>
-
-<a href="@Url.Action("StudentList", "Home")">StudentList</a>
 
 <div class="text-center">
-    <h1 class="display-4">Student</h1>
-
+    <h1 class="display-4">Student List</h1>
+    <a class="btn btn-primary btn-sm" href="/Clients/Create">Add New Student</a>
+    <br />
     <table border=1 class="table">
         <thead>
         <th>ID</th>
@@ -19,7 +18,7 @@
         <th>Action</th>
         </thead>
         <tbody>
-            @foreach (var student in Model)
+            @foreach (var student in Model.students)
             {
                 <tr>
                     <td>@student.id</td>
@@ -28,8 +27,8 @@
                     <td>@student.year</td>
                     <td>@student.email</td>
                     <td>
-                        <a href="/Edit?id=">Edit</a>
-                        <a href="/Delete?id=">Delete</a>
+                        <a href="/Clients/Edit?id=@student.id">Edit</a>
+                        <a href="/Clients/Delete?id=@student.id">Delete</a>
                     </td>
                 </tr>
             }

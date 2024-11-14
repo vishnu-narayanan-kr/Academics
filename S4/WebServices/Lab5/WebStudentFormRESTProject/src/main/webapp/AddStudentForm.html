@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add Student</title>
+</head>
+<body>
+	<form 
+		style="display: flex; flex-direction: column; max-width: 20vw;"
+		action="./rest/WebStudent/AddNewStudent" 
+		method="post">
+		<label for="id">
+			Enter Student ID: 
+			<input type="text" name="id"></input>
+		</label>
+		<label for="lname">
+			Enter Student Last Name: 
+			<input type="text" name="lname"></input>
+		</label>
+		<label for="fname">
+			Enter Student First Name: 
+			<input type="text" name="fname"></input>
+		</label>
+		<label for="ga1">
+			Enter Student Assignment1 grade: 
+			<input type="text" name="ga1"></input>
+		</label>
+		<label for="ga2">
+			Enter Student Assignment2 grade: 
+			<input type="text" name="ga2"></input>
+		</label>
+		<label for="ga3">
+			Enter Student Assignment3 grade: 
+			<input type="text" name="ga3"></input>
+		</label>
+		<label for="gm">
+			Enter Student Mid Term grade: 
+			<input type="text" name="gm"></input>
+		</label>
+		<label for="gf">
+			Enter Student Final grade: 
+			<input type="text" name="gf"></input>
+		</label>
+		<label for="fid">
+			Enter Student Faculty ID: 
+			<input type="text" name="fid"></input>
+		</label>
+		<button type="submit">Add</button>
+	</form>
+</body>
+</html>

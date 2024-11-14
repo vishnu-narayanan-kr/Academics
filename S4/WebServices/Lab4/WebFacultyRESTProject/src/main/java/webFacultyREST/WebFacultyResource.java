@@ -223,4 +223,62 @@ public class WebFacultyResource {
 		
 		return facultyHashMap;
 	}
+	
+	@GET
+	@Path("/DisplayFacultyStudent")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String displayFacultyStudent(@QueryParam("fid") Integer fid) {
+		String details = "No faculty found";
+		
+		if(facultyHashMap.containsKey(fid)) {
+			details = facultyHashMap.get(fid).toString();
+			details += "\nFaculty Student Details \n";
+			
+			url = "http://localhost:8080/WebStudentFormRESTProject/rest/WebStudent/ListStudent";
+			target = client.target(url);
+			
+			String students = target
+					.queryParam("fid", fid)
+					.request()
+					.accept(MediaType.TEXT_PLAIN)
+					.get(String.class);
+			
+			details += students;
+			details += "\n";
+		}
+		
+		
+		return details;
+	}
+	
+	@GET
+	@Path("DisplayAllFacultyStudent")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String displayAllFacultyStudent() {
+		
+		url = "http://localhost:8080/WebStudentFormRESTProject/rest/WebStudent/ListStudent";
+		target = client.target(url);
+		
+		String details = "";
+		
+		details = facultyHashMap.values().stream().map(f -> {
+			String detail = "";
+			
+			detail = facultyHashMap.get(f.getF_id()).toString();
+			detail += "\nFaculty Student Details \n";
+			
+			String students = target
+					.queryParam("fid", f.getF_id())
+					.request()
+					.accept(MediaType.TEXT_PLAIN)
+					.get(String.class);
+			
+			detail += students.length() == 0 ? "No Students found" : students;
+			detail += "\n";
+			
+			return detail;
+		}).collect(Collectors.joining("\n"));
+		
+		return details;
+	}
 }

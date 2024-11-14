@@ -1,4 +1,4 @@
-## pom.xml Client App
+### pom.xml Client App
 <dependencies>
 	  	<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
 	<dependency>
@@ -20,6 +20,7 @@
 	</dependency>
   </dependencies>
 
+### Server REST
 ## web.xml additional lines
 paste this before last line, don't forget to change the param value
 
@@ -46,3 +47,23 @@ paste this after <package> war line
 	    <version>4.0.0-M1</version>
 	</dependency>
   </dependencies>
+
+## Server SOAP POM
+<dependencies>
+  	<!-- https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt -->
+	<dependency>
+	    <groupId>com.sun.xml.ws</groupId>
+	    <artifactId>jaxws-rt</artifactId>
+	    <version>4.0.3</version>
+	</dependency>
+</dependencies>
+
+## sun-jaxws.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+	<endpoint 
+		name="WebHelloService"
+		implementation="webHelloService.Hello"
+		url-pattern="/ws/hello"
+	/>
+</endpoints>

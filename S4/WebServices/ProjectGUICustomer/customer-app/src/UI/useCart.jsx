@@ -91,6 +91,7 @@ export const useCart = () => {
             }
         
             const result = await response.json();
+            alert(`Order ${result.orderId} Confirmed: Please Navigate to Order History to see past orders.`);
             console.log('Success:', result);
           } catch (error) {
             console.error('Error:', error);
@@ -100,12 +101,16 @@ export const useCart = () => {
 
     const cart = (
             <div className="cart-container">
+                <h2>Your Cart</h2>
                 <table>
                     {header}
                     {body}
                 </table>
                 <p>The total is: <b>{total}$</b></p>
-                <button onClick={onConfirmOrder}>Confirm Order!</button>
+                <div className="cart-buttons">
+                    <button onClick={onConfirmOrder}>Confirm Order!</button>
+                    <button onClick={() => setItems([])}>Clear Cart</button>
+                </div>
             </div>
     );
 

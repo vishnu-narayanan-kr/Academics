@@ -1,0 +1,20 @@
+.order-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.order {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 350px;
+    width: 30%;
+    max-width: 30%;
+    border: 1px solid;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: auto;
+}

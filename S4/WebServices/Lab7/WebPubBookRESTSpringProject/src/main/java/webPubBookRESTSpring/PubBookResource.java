@@ -1,12 +1,17 @@
-package webPubBookREST;
+package webPubBookRESTSpring;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@Path("/PubBooks")
+import jakarta.xml.bind.annotation.XmlElement;
+
+@RestController
+@RequestMapping("/PubBooks")
 public class PubBookResource {
 	List<Publisher> publisherList = new ArrayList<Publisher>();
 	List<Book> bookList = new ArrayList<Book>();
@@ -28,8 +33,7 @@ public class PubBookResource {
 		initialize();
 	}
 	
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
+	@GetMapping(produces = MediaType.TEXT_PLAIN_VALUE)
 	public String displayPubBookList() {
 		String output = "";
 		
@@ -47,9 +51,7 @@ public class PubBookResource {
 		return output;
 	}
 	
-	@GET
-	@Path("/PubBooksJSON")
-	@Produces(MediaType.APPLICATION_JSON)
+	@GetMapping(value = "/PubBooksJSON", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<PublisherWithBooks> displayPubBookListJSON() {
 		List<PublisherWithBooks> list = new ArrayList<PublisherWithBooks>();
 		
@@ -74,9 +76,7 @@ public class PubBookResource {
 		return list;
 	}
 	
-	@GET
-	@Path("/PubBooksXML")
-	@Produces(MediaType.APPLICATION_XML)
+	@GetMapping(value = "/PubBooksXML", produces = MediaType.APPLICATION_XML_VALUE)
 	public PublishersWithBooks displayPubBookListXML() {
 		List<PublisherWithBooks> list = new ArrayList<PublisherWithBooks>();
 		
@@ -103,3 +103,4 @@ public class PubBookResource {
 		return publishers;
 	}
 }
+

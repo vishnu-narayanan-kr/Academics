@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket</title>
+    <script>
+        const socket = new WebSocket("ws://" + location.hostname + ":8080/websocket");
+        
+        socket.onopen = function(event) {
+            console.log("WebSocket connection established.");
+        };
+        
+        socket.onmessage = function(event) {
+            const messageData = JSON.parse(event.data);
+            // Handle incoming message data
+            console.log("Received message:", messageData);
+            document.getElementById("recieved-messages").innerHTML += event.data + "&nbsp;";
+        };
+        
+        socket.onerror = function(error) {
+            console.error("WebSocket error: ", error);
+        };
+        
+        socket.onclose = function(event) {
+            console.log("WebSocket connection closed:", event);
+        };
+        
+        function sendMessage() {
+            message = { 
+                username: document.getElementById('username').value,
+                message: document.getElementById('message').value,
+                x: 2,
+                y: 5
+            };
+
+            if (socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify(message));
+            } else {
+                console.error("WebSocket connection is not open.");
+            }
+        }
+        
+        // sendMessage({ sender: "Client", message: "Hello :) !" });
+    </script>
+</head>
+<body>
+    <input type="text" id="message">
+    <button onclick="sendMessage(document.getElementById('message').value)" disabled>Send</button>
+    <br>
+    <label for="username">Username: </label>
+    <input type="type" id="username"></input>
+    <br>
+    <label for="opponent">Opponent: </label>
+    <input type="type" id="opponent"></input>
+    <button onclick="sendMessage()">Send JSON</button>
+    <div>
+        <h3>Recieved Messages</h3>
+        <div id="recieved-messages"></div>
+    </div>
+</body>
+</html>

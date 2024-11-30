@@ -6,18 +6,18 @@ import '@fontsource/roboto/700.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { MenuPage } from './UI/MenuPage';
 import { ManageMenus } from './UI/ManageMenus';
+import { AuthPage } from './UI/AuthPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<AuthPage />} />
         <Route path="/ViewMenus" element={<MenuPage />} />
         <Route path="/ManageMenus" element={<ManageMenus />} />
       </Routes>

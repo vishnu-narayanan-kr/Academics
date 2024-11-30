@@ -40,7 +40,6 @@ public class WebAuthenticationController {
 				token = BCrypt.hashpw(username + LocalDateTime.now(), BCrypt.gensalt());
 				registeredUser.setToken(token);
 				RegisteredUsers.getInstance().updateUser(registeredUser);
-				// utility.writeToFile("users.txt", RegisteredUsers.getInstance().getFileString());
 			}
 		} else {
 			status = false;

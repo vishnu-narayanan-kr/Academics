@@ -7,6 +7,11 @@
 .menu-table-wrapper {
     height: 80vh;
     overflow: auto;
+    flex-grow: 1;
+}
+
+table {
+    width: 100%;
 }
 
 /* Customize the scrollbar for WebKit browsers (e.g., Chrome, Safari) */

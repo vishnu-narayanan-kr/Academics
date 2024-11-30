@@ -8,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
 import { useRef } from "react"
-import { postMenusApi } from "../APIs/menu"
+import { postMenuApi } from "../APIs/menu"
 
 export const AddMenu = ({ updateMenu }) => {
     const nameRef = useRef();
@@ -27,7 +27,7 @@ export const AddMenu = ({ updateMenu }) => {
             restaurantName: ""
         }
 
-        await postMenusApi({ menu });
+        await postMenuApi({ menu });
         updateMenu({});
     }
 

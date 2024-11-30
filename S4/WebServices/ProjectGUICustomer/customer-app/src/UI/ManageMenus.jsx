@@ -1,14 +1,24 @@
 import "./ManageMenus.css";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { deleteMenuApi, getMenusApi } from "../APIs/menu";
+import { deleteMenuApi, getMenusApi, putMenuApi } from "../APIs/menu";
 import { AddMenu } from "./AddMenu";
 import Button from "@mui/material/Button";
-import { Input } from "@mui/material";
+import Input from "@mui/material/Input";
 
 export const ManageMenus = () => {
     const [menuData, setMenuData] = useState([]);
     const inputRef = useRef(null);
+
+    const selectRowRef = useRef({
+        mealId: 0,
+        mealName: "",
+        price: 0,
+        description: "",
+        category: "",
+        restaurantId: 0,
+        restaurantName: ""
+    });
 
     const fetchData = useCallback(async ({ keyword = '' }) => {
         const menuArr = await getMenusApi({ keyword });
@@ -22,6 +32,15 @@ export const ManageMenus = () => {
     const onDelete = async (id) => {
         await deleteMenuApi(id);
         fetchData({});
+    }
+
+    const onRowFocus = (id) => {
+        selectRowRef.current = menuData.find(menu => menu.mealId === id);
+        console.log(selectRowRef.current)
+    }
+
+    const onUpdate = async () => {
+        await putMenuApi({ menu: selectRowRef.current })
     }
 
     const header = useMemo(() => (
@@ -38,22 +57,25 @@ export const ManageMenus = () => {
                     const { mealId, mealName, price, description, category } = item;
 
                     return (
-                        <tr key={mealId}>
-                            <td>{mealId}</td>
+                        <tr key={mealId} onClick={() => onRowFocus(mealId)}>
+                            <td><Input value={mealId}  disabled className="id-input"/></td>
                             <td>
-                                <Input value={mealName}/>
+                                <Input 
+                                    defaultValue={mealName}
+                                    className="name-input"
+                                    onChange={(e) => {selectRowRef.current.mealName = e.target.value}}/>
                             </td>
                             <td>
-                                <Input value={price} className="price-input"/>
+                                <Input defaultValue={price} className="price-input" onChange={(e) => {selectRowRef.current.price = +e.target.value}}/>
                             </td>
                             <td>
-                                <Input value={description}/>
+                                <Input defaultValue={description}  className="desc-input" onChange={(e) => {selectRowRef.current.description = e.target.value}}/>
                             </td>
                             <td>
-                                <Input value={category}/>
+                                <Input defaultValue={category} className="category-input" onChange={(e) => {selectRowRef.current.category = e.target.value}}/>
                             </td>
                             <td>
-                                <Button color="warning">Update</Button>
+                                <Button color="warning" onClick={onUpdate}>Update</Button>
                                 <Button color="error" onClick={() => onDelete(mealId)}>Delete</Button>
                             </td>
                         </tr>

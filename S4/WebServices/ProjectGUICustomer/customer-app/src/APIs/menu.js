@@ -22,7 +22,7 @@ export const getMenusApi = async ({ keyword }) => {
     return menuArr;
 }
 
-export const postMenusApi = async ({
+export const postMenuApi = async ({
     menu
 }) => {
     const relativeURL = URL + "/Add";
@@ -53,4 +53,24 @@ export const deleteMenuApi = async (id) => {
     } catch(e) {
         console.log(e)
     }
+}
+
+export const putMenuApi = async ({
+    menu
+}) => {
+    const relativeURL = URL + "/Update";
+
+    try {
+        const response = await fetch(relativeURL, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(menu)
+        });
+    
+        console.log('Success:', response);
+      } catch (error) {
+        console.error('Error:', error);
+      }
 }

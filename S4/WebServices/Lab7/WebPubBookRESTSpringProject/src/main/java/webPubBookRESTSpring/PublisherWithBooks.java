@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
 import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "publisher")
 public class PublisherWithBooks extends Publisher {
-	@XmlElement(name = "books")
-	@JsonProperty("books")
+	//@XmlElementWrapper(name = "books")
+	@JacksonXmlElementWrapper(localName = "books")
+	//@XmlElement(name = "book")
+	@JsonProperty("book")
 	private List<Book> bookList = new ArrayList<Book>();
 
 	public PublisherWithBooks(int p_id, String p_Name, String p_address, List<Book> bookList) {

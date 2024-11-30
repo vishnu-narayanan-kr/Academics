@@ -77,7 +77,8 @@ public class PubBookResource {
 	}
 	
 	@GetMapping(value = "/PubBooksXML", produces = MediaType.APPLICATION_XML_VALUE)
-	public PublishersWithBooks displayPubBookListXML() {
+	//public PublishersWithBooks displayPubBookListXML() {
+	public List<PublisherWithBooks> displayPubBookListXML() {
 		List<PublisherWithBooks> list = new ArrayList<PublisherWithBooks>();
 		
 		for(Publisher publisher: publisherList) {
@@ -98,9 +99,10 @@ public class PubBookResource {
 			list.add(publisherWithBooks);
 		}
 		
-		PublishersWithBooks publishers = new PublishersWithBooks(list);
+		//PublishersWithBooks publishers = new PublishersWithBooks(list);
 		
-		return publishers;
+		//return publishers;
+		return list;
 	}
 }
 

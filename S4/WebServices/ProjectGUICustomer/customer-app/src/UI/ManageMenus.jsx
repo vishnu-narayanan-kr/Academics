@@ -1,14 +1,14 @@
-import "./MenuPage.css";
+import "./ManageMenus.css";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useCart } from './useCart';
-import { getMenusApi } from "../APIs/menu";
+import { deleteMenuApi, getMenusApi } from "../APIs/menu";
+import { AddMenu } from "./AddMenu";
+import Button from "@mui/material/Button";
+import { Input } from "@mui/material";
 
-export const MenuPage = () => {
+export const ManageMenus = () => {
     const [menuData, setMenuData] = useState([]);
     const inputRef = useRef(null);
-
-    const [cart, updateCartItems] = useCart();
 
     const fetchData = useCallback(async ({ keyword = '' }) => {
         const menuArr = await getMenusApi({ keyword });
@@ -18,6 +18,11 @@ export const MenuPage = () => {
     useEffect(() => {
         fetchData({});
     }, [setMenuData]);
+
+    const onDelete = async (id) => {
+        await deleteMenuApi(id);
+        fetchData({});
+    }
 
     const header = useMemo(() => (
         <thead>
@@ -35,17 +40,28 @@ export const MenuPage = () => {
                     return (
                         <tr key={mealId}>
                             <td>{mealId}</td>
-                            <td>{mealName}</td>
-                            <td>{price}</td>
-                            <td>{description}</td>
-                            <td>{category}</td>
-                            <td><button onClick={() => updateCartItems(item)}>Add to Cart</button></td>
+                            <td>
+                                <Input value={mealName}/>
+                            </td>
+                            <td>
+                                <Input value={price} className="price-input"/>
+                            </td>
+                            <td>
+                                <Input value={description}/>
+                            </td>
+                            <td>
+                                <Input value={category}/>
+                            </td>
+                            <td>
+                                <Button color="warning">Update</Button>
+                                <Button color="error" onClick={() => onDelete(mealId)}>Delete</Button>
+                            </td>
                         </tr>
                     )
                 })
             }
         </tbody>
-    ), [menuData, updateCartItems]);
+    ), [menuData]);
 
     const showInputValue = useCallback(() => {
         const keyword = inputRef.current.value;
@@ -66,9 +82,8 @@ export const MenuPage = () => {
                         {body}
                     </table>
                 </div>
-                {cart}
+                <AddMenu updateMenu={fetchData}/>
             </div>
         </div>
     );
 }
-

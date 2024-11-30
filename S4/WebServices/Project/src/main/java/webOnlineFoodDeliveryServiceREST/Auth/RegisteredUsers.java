@@ -1,11 +1,7 @@
 package webOnlineFoodDeliveryServiceREST.Auth;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import webOnlineFoodDeliveryServiceREST.Utility;
 
@@ -14,25 +10,17 @@ public class RegisteredUsers {
 	private Map<String, User> users;
 	private Utility utility;
 	
+	@SuppressWarnings("unchecked")
 	private RegisteredUsers() {
-		users = new HashMap<String, User>();
 		utility = new Utility();
 		
 		try {
-			Scanner inFile = new Scanner(new File(utility.getPath("_Data/users.txt")));
-			inFile.useDelimiter("[\t\r\n]+");
+			users = (Map<String, User>) utility.readFromSerializedFile("users");
 			
-			while(inFile.hasNextLine()) {
-				String username = inFile.next();
-				String password = inFile.next();
-				String token = inFile.next();
-				
-				User user = new User(username, password, token);
-				users.put(username, user);
-			} 
-			
-			inFile.close();
-		} catch (FileNotFoundException e) {
+			if (users == null) {
+				users = new HashMap<String, User>();
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -48,8 +36,15 @@ public class RegisteredUsers {
 	public Map<String, User> getRegisteredUsers() {
 		return users;
 	}
-
-	public String getFileString() {
-		return users.values().stream().map(User::toString).collect(Collectors.joining(System.lineSeparator())); 
+	
+	public void addUser(User user) {
+		user.setPassword(user.getPasswordHash());
+		users.put(user.getUsername(), user);
+		utility.writeToSerializedFile("users", users);
+	}
+	
+	public void updateUser(User user) {
+		users.put(user.getUsername(), user);
+		utility.writeToSerializedFile("users", users);
 	}
 }

@@ -1,6 +1,9 @@
 package webOnlineFoodDeliveryServiceREST.Auth;
 
+import java.time.LocalDateTime;
 import java.util.Map;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
@@ -27,12 +30,17 @@ public class WebAuthenticationController {
 		String username = user.getUsername();
 		
 		boolean status = false;
+		String token = "";
+		
+		User registeredUser = registeredUsers.get(username);
 	
-		if(registeredUsers.containsKey(username)) {
-			if(registeredUsers.get(username).getPassword().equals(user.getPasswordHash())) {
+		if(registeredUser != null) {
+			if(BCrypt.checkpw(user.getPassword(), registeredUser.getPassword())) {
 				status = true;
-				registeredUsers.get(username).setToken(utility.createSimpleAuthToken(user));
-				utility.writeToFile("users.txt", RegisteredUsers.getInstance().getFileString());
+				token = BCrypt.hashpw(username + LocalDateTime.now(), BCrypt.gensalt());
+				registeredUser.setToken(token);
+				RegisteredUsers.getInstance().updateUser(registeredUser);
+				// utility.writeToFile("users.txt", RegisteredUsers.getInstance().getFileString());
 			}
 		} else {
 			status = false;
@@ -40,7 +48,7 @@ public class WebAuthenticationController {
 		
 		String message = status ? "login success" : "login failed";
 		
-		return new AuthDetails(status, utility.createSimpleAuthToken(user), message);
+		return new AuthDetails(token, message, registeredUser.getRole());
 	}
 	
 	@POST
@@ -53,9 +61,7 @@ public class WebAuthenticationController {
 		if(registeredUsers.containsKey(user.getUsername())) {
 			message = "username already exists!";
 		} else {
-			user.setPassword(Integer.toString(user.getPassword().hashCode()));
-			registeredUsers.put(user.getUsername(), user);
-			utility.writeToFile("users.txt", RegisteredUsers.getInstance().getFileString());
+			RegisteredUsers.getInstance().addUser(user);
 			message = "success, please login";
 		}
 		

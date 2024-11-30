@@ -1,24 +1,16 @@
 package webOnlineFoodDeliveryServiceREST.Auth;
 
 public class AuthDetails {
-	private boolean status;
 	private String token;
 	private String message;
+	private String role;
 	
-	public AuthDetails(boolean status, String token, String message) {
-		this.status = status;
+	public AuthDetails(String token, String message, String role) {
 		this.token = token;
 		this.message = message;
+		this.role = role;
 	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
+	
 	public String getToken() {
 		return token;
 	}
@@ -33,5 +25,13 @@ public class AuthDetails {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

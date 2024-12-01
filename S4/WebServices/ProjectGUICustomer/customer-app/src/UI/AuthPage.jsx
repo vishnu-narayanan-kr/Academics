@@ -5,14 +5,19 @@ import Select from "@mui/material/Select"
 import MenuItem from "@mui/material/MenuItem"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
-import { useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { loginApi, postUserApi } from "../APIs/auth"
+import { Auth } from "../Context/AuthContext"
+import { useNavigate } from "react-router"
 
 export const AuthPage = () => {
     const usernameRef = useRef();
     const passwordRef = useRef();
     const rePasswordRef = useRef();
     const roleRef = useRef("customer");
+    const navigate = useNavigate();
+
+    const { setAuthUser } = useContext(Auth)
 
     const [isReg, setIsReg] = useState(false);
 
@@ -42,9 +47,24 @@ export const AuthPage = () => {
                 Password: passwordRef.current,
             }
 
-            console.log(user)
+            const body = await loginApi({ user });
 
-            await loginApi({ user });
+            if (body) {
+                delete body.message;
+
+                const authUser = {
+                    username: user.username,
+                    ...body
+                }
+
+                setAuthUser(authUser);
+                
+                if(authUser.role === "customer") {
+                    navigate("/ViewMenus")
+                } else {
+                    navigate("/ManageMenus")
+                }
+            }
         }
     }
 

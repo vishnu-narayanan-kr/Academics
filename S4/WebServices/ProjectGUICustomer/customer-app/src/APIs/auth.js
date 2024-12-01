@@ -37,6 +37,8 @@ export const loginApi = async ({
         });
     
         console.log('Success:', response);
+
+        return await response.json();
       } catch (error) {
         console.error('Error:', error);
       }

@@ -1,12 +1,14 @@
+import { Auth } from "../Context/AuthContext";
 import "./Orders.css";
 
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useContext } from "react";
 
 export const Orders = () => {
     const [orderData, setOrderData] = useState([]);
+    const { authUser } = useContext(Auth); 
 
-    const fetchData = useCallback(async ({ username = "vishnu-react" }) => {
-        const apiUrl = 'http://localhost:8080/WebOnlineFoodDeliveryServiceProject/rest/Order/View?username=' + username;
+    const fetchData = useCallback(async() => {
+        const apiUrl = 'http://localhost:8080/WebOnlineFoodDeliveryServiceProject/rest/Order/View?username=' + authUser.username;
     
         try {
             const response = await fetch(apiUrl);
@@ -28,7 +30,7 @@ export const Orders = () => {
     }, [setOrderData]);
 
     useEffect(() => {
-        fetchData({});
+        fetchData();
     }, [setOrderData]);
 
     const orderItemRow = (item) => {

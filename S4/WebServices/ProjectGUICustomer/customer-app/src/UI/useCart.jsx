@@ -1,9 +1,11 @@
+import { Auth } from "../Context/AuthContext";
 import "./Cart.css";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useContext, useMemo, useState } from "react";
 
 export const useCart = () => {
     const [items, setItems] = useState([]);
+    const { authUser } = useContext(Auth);
 
     const updateCartItems = useCallback((item) => {
         const existingItem = items.find(({ mealId }) => mealId === item.mealId);
@@ -73,7 +75,7 @@ export const useCart = () => {
         const url = "http://localhost:8080/WebOnlineFoodDeliveryServiceProject/rest/Order/Place";
 
         const data = {
-            username: "vishnu-react",
+            username: authUser.username,
             items
         };
 

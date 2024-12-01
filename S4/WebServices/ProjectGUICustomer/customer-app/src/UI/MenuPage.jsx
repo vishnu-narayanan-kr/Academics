@@ -3,10 +3,12 @@ import "./MenuPage.css";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useCart } from './useCart';
 import { getMenusApi } from "../APIs/menu";
+import { useNavigate } from "react-router";
 
 export const MenuPage = () => {
     const [menuData, setMenuData] = useState([]);
     const inputRef = useRef(null);
+    const navigate = useNavigate();
 
     const [cart, updateCartItems] = useCart();
 
@@ -52,12 +54,17 @@ export const MenuPage = () => {
         fetchData({ keyword });
     }, []);
     
+    const viewOrders = () => {
+        navigate("/ViewOrders");
+    }
+
     return (
         <div>
             <div>
                 <label>Enter keyword to search:</label>
                 <input ref={inputRef} />
                 <button onClick={showInputValue}>Search</button>
+                <button onClick={viewOrders}>View Orders</button>
             </div>
             <div className="table-container">
                 <div className="menu-table-wrapper">

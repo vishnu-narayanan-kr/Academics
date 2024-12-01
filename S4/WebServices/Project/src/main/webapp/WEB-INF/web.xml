@@ -21,4 +21,19 @@
 	<servlet-name>Jersey REST Service</servlet-name>
 	<url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
+      <!-- Listener for JAX-WS (SOAP) -->
+	<listener>
+	    <listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+	</listener>
+	
+	<!-- JAX-WS (SOAP) Configuration -->
+	<servlet>
+	    <servlet-name>SOAPService</servlet-name>
+	    <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>SOAPService</servlet-name>
+	    <url-pattern>/ws/*</url-pattern>
+	</servlet-mapping>
 </web-app>

@@ -6,9 +6,9 @@ import MenuItem from "@mui/material/MenuItem"
 import Button from "@mui/material/Button"
 import Container from "@mui/material/Container"
 import { useContext, useRef, useState } from "react"
-import { loginApi, postUserApi } from "../APIs/auth"
 import { Auth } from "../Context/AuthContext"
 import { useNavigate } from "react-router"
+import { loginSOAPApi, postUserSOAPApi } from "../APIs/SOAP/auth"
 
 export const AuthPage = () => {
     const usernameRef = useRef();
@@ -28,13 +28,11 @@ export const AuthPage = () => {
             // check password validity first
             const user = {
                 username: usernameRef.current,
-                Password: passwordRef.current,
+                password: passwordRef.current,
                 role: roleRef.current,
             }
 
-            console.log(user)
-
-            await postUserApi({ user });
+            await postUserSOAPApi({ user });
         }
     }
 
@@ -44,11 +42,11 @@ export const AuthPage = () => {
         } else {
             const user = {
                 username: usernameRef.current,
-                Password: passwordRef.current,
+                password: passwordRef.current,
             }
 
-            const body = await loginApi({ user });
-
+            const body = await loginSOAPApi({ user });
+            
             if (body) {
                 delete body.message;
 
@@ -61,7 +59,7 @@ export const AuthPage = () => {
                 
                 if(authUser.role === "customer") {
                     navigate("/ViewMenus")
-                } else {
+                } else if(authUser.role === "manager") {
                     navigate("/ManageMenus")
                 }
             }

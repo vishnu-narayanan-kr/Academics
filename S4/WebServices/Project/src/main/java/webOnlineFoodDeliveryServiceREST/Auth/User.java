@@ -4,14 +4,22 @@ import java.io.Serializable;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "User")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	@XmlElement
 	private String username;
+	@XmlElement
 	private String password;
+	@XmlElement
 	private String token;
+	@XmlElement
 	private String role;
 	
 	public String toString() {
@@ -27,7 +35,6 @@ public class User implements Serializable {
 	
 	public String getPasswordHash() {
 		return BCrypt.hashpw(password, BCrypt.gensalt());
-		// return Integer.toString(password.hashCode());
 	}
 	
 	public User() {

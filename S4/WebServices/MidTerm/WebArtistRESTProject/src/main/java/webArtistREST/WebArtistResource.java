@@ -7,12 +7,15 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
-@Path("ArtistList")
+@Path("/")
 public class WebArtistResource {
 	Map<Integer, Artist> artistHashMap;
 	
@@ -40,6 +43,37 @@ public class WebArtistResource {
 			}
 	}
 	
+	@Path("/addNewArtist")
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public Map<Integer, Artist> addNewArtistInfo(
+				@FormParam("art_id") Integer art_id,
+				@FormParam("art_name") String art_name,
+				@FormParam("art_num") Integer art_num,
+				@FormParam("art_total") Double art_total
+			) {
+		
+		Artist artist = new Artist(art_id, art_name, art_num, art_total);
+		
+		artistHashMap.put(art_id, artist);
+		
+		return artistHashMap;
+	}
+	
+	@Path("/searchArtist")
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Artist searchJSONArtistInfoById(@QueryParam("art_id") Integer id) {
+		Artist artist = new Artist();
+		
+		if(artistHashMap.containsKey(id)) {
+			return artistHashMap.get(id);
+		}
+		
+		return artist;
+	}
+	
+	@Path("/ArtistList")
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public String displayHTMLArtistInfo() {

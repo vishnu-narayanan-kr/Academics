@@ -1,0 +1,21 @@
+.id-input {
+    max-width: 30px;
+    text-align: center;
+}
+
+.name-input {
+    max-width: 150px;
+}
+
+.price-input {
+    max-width: 70px;
+}
+
+.desc-input {
+    width: 30vw;
+    max-width: 400px;
+}
+
+.category-input {
+    max-width: 110px;
+}

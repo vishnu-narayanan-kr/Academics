@@ -1,4 +1,4 @@
-def permute(nums):
+def permute1(nums):
     permutations = list()
 
     for num in nums:
@@ -22,5 +22,24 @@ def permute(nums):
 
 test1 = [1, 2, 3, 4]
 
-print(permute(test1))
+# Now let's do it using Backtracking
+
+
+perms = list()
+perm = list()
+
+def permute(nums = []):
+    for i in range(len(nums)):
+      num = nums.pop(i)
+      perm.append(num)
+      permute(nums)
+      perm.remove(num)
+      nums.insert(i, num)
+    
+    if len(nums) == 0:
+        perms.append(perm.copy())
+
+permute(test1)
+
+print(perms)
 

@@ -12,6 +12,14 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import webOnlineFoodDeliveryServiceREST.Utility;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 @Path("Authentication")
 public class WebAuthenticationController { 
 	Utility utility;
@@ -20,6 +28,18 @@ public class WebAuthenticationController {
 	public WebAuthenticationController() {
 		utility = new Utility();
 		registeredUsers = RegisteredUsers.getInstance().getRegisteredUsers();
+		
+		Context ctx;
+		DataSource ds;
+		
+		try {
+			ctx = new InitialContext();
+			ds = (DataSource) ctx.lookup("jdbc/MyMSSQLDS");
+			Connection conn = ds.getConnection();
+		} catch (NamingException | SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	@POST
@@ -46,6 +66,10 @@ public class WebAuthenticationController {
 		}
 		
 		String message = status ? "login success" : "login failed";
+		
+		if (registeredUser == null) {
+			registeredUser = new User();
+		}
 		
 		return new AuthDetails(token, message, registeredUser.getRole());
 	}

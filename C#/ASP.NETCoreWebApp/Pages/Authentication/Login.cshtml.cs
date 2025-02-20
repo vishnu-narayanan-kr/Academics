@@ -23,13 +23,13 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
                 {
                     con.Open();
                     String sql = "SELECT TOP (1) * FROM users " +
-                        "WHERE username = '" + username + "' AND password = '" + password + "';";
+                        "WHERE username = '" + username + "';";
 
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
 
-                        if (reader.Read())
+                        if (reader.Read() && BCrypt.Net.BCrypt.Verify(password, ((string)reader["password"]).Trim()))
                         {
                             Response.Redirect("/Clients/Index");
                         }

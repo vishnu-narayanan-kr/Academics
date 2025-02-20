@@ -1,4 +1,5 @@
 using ASP.NETCoreWebApp.Models;
+using BCrypt.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
@@ -33,6 +34,8 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
 
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {
+                        password = BCrypt.Net.BCrypt.HashPassword(password);
+
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@email", email);
                         cmd.Parameters.AddWithValue("@password", password);

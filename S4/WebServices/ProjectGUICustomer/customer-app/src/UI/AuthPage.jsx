@@ -9,6 +9,7 @@ import { useContext, useRef, useState } from "react"
 import { Auth } from "../Context/AuthContext"
 import { useNavigate } from "react-router"
 import { loginSOAPApi, postUserSOAPApi } from "../APIs/SOAP/auth"
+import { loginApi } from "../APIs/auth"
 
 export const AuthPage = () => {
     const usernameRef = useRef();
@@ -45,8 +46,9 @@ export const AuthPage = () => {
                 password: passwordRef.current,
             }
 
-            const body = await loginSOAPApi({ user });
-            
+            //const body = await loginSOAPApi({ user });
+            const body = await loginApi({ user });
+
             if (body) {
                 delete body.message;
 

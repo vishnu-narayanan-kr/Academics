@@ -1,0 +1,721 @@
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:https://connect.espressodid.com/soap/index_v2.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:https://connect.espressodid.com/soap/index_v2.php">
+  <types>
+    <xsd:schema targetNamespace="urn:https://connect.espressodid.com/soap/index_v2.php">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="errorArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:errors[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="errors">
+        <xsd:all>
+          <xsd:element name="code" type="xsd:int" />
+          <xsd:element name="message" type="xsd:string" />
+          <xsd:element name="array_key" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="statusStructure">
+        <xsd:all>
+          <xsd:element name="processing_status" type="xsd:string" />
+          <xsd:element name="date" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="statusStructureArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:statusStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="sdStructure">
+        <xsd:all>
+          <xsd:element name="activity" type="xsd:string" />
+          <xsd:element name="existing_account_number" type="xsd:string" />
+          <xsd:element name="start_number" type="xsd:string" />
+          <xsd:element name="end_number" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="sdStructureArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:sdStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="lsrEuiStructure">
+        <xsd:all>
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="current_provider_name" type="xsd:string" />
+          <xsd:element name="desired_due_date" type="xsd:string" />
+          <xsd:element name="authorization_date" type="xsd:string" />
+          <xsd:element name="current_service_type" type="xsd:string" />
+          <xsd:element name="end_user_name" type="xsd:string" />
+          <xsd:element name="comments" type="xsd:string" />
+          <xsd:element name="house_number" type="xsd:string" />
+          <xsd:element name="street_directional" type="xsd:string" />
+          <xsd:element name="street_name" type="xsd:string" />
+          <xsd:element name="street_type" type="xsd:string" />
+          <xsd:element name="descriptive_location" type="xsd:string" />
+          <xsd:element name="floor" type="xsd:string" />
+          <xsd:element name="room" type="xsd:string" />
+          <xsd:element name="building" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="province_state" type="xsd:string" />
+          <xsd:element name="zip_code" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="historyStructure">
+        <xsd:all>
+          <xsd:element name="lsr_eui" type="tns:lsrEuiStructure" />
+          <xsd:element name="sd" type="tns:sdStructureArray" />
+          <xsd:element name="status" type="tns:statusStructureArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="historyStructureArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:historyStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="versionsStructure">
+        <xsd:all>
+          <xsd:element name="version_identification" type="xsd:string" />
+          <xsd:element name="note" type="xsd:string" />
+          <xsd:element name="history" type="tns:historyStructureArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="versionsStructureArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:versionsStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="returnedReport">
+        <xsd:all>
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="pon" type="xsd:string" />
+          <xsd:element name="last_processstatus" type="xsd:string" />
+          <xsd:element name="date_last_update" type="xsd:string" />
+          <xsd:element name="versions" type="tns:versionsStructureArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="returnedReportArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:returnedReport[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="returnPonStatus">
+        <xsd:all>
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="pon" type="xsd:string" />
+          <xsd:element name="last_processstatus" type="xsd:string" />
+          <xsd:element name="date_last_update" type="xsd:string" />
+          <xsd:element name="versions" type="tns:versionsStructureArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="returnInfoForTelNumber">
+        <xsd:all>
+          <xsd:element name="pon" type="xsd:string" />
+          <xsd:element name="last_processstatus" type="xsd:string" />
+          <xsd:element name="date_last_update" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="returnLnpPonsStatusFromDate">
+        <xsd:all>
+          <xsd:element name="pon" type="xsd:string" />
+          <xsd:element name="last_processstatus" type="xsd:string" />
+          <xsd:element name="date_last_update" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="returnLnpPonsStatusFromDateArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:returnLnpPonsStatusFromDate[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="returnlnpPonsByStatus">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="xsd:string[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="inputLnpCreatePons">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpCreatePonsStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="lnpCreatePonsStruct">
+        <xsd:all>
+          <xsd:element name="current_provider_name" type="xsd:string" />
+          <xsd:element name="desired_due_date" type="xsd:string" />
+          <xsd:element name="auth_date" type="xsd:string" />
+          <xsd:element name="end_user_name" type="xsd:string" />
+          <xsd:element name="house_number" type="xsd:string" />
+          <xsd:element name="street_directional" type="xsd:string" />
+          <xsd:element name="street_name" type="xsd:string" />
+          <xsd:element name="street_type" type="xsd:string" />
+          <xsd:element name="descriptive_location" type="xsd:string" />
+          <xsd:element name="floor" type="xsd:string" />
+          <xsd:element name="room" type="xsd:string" />
+          <xsd:element name="building" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="province_state" type="xsd:string" />
+          <xsd:element name="zip_code" type="xsd:string" />
+          <xsd:element name="service_type" type="xsd:string" />
+          <xsd:element name="comments" type="xsd:string" />
+          <xsd:element name="service_details" type="tns:sdStructureArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="returnLnpCreatePons">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:LnpCreatePonsStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="LnpCreatePonsStructure">
+        <xsd:all>
+          <xsd:element name="pon" type="xsd:string" />
+          <xsd:element name="version_identification" type="xsd:string" />
+          <xsd:element name="numbers" type="tns:numbersStructureArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="numbersStructureArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:numbersStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="numbersStructure">
+        <xsd:all>
+          <xsd:element name="number" type="xsd:string" />
+          <xsd:element name="activity" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="npaNxxPortabilityStructure">
+        <xsd:all>
+          <xsd:element name="is_portable" type="xsd:int" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ponArrayStruct">
+        <xsd:all>
+          <xsd:element name="pon" type="xsd:string" />
+          <xsd:element name="current_provider_name" type="xsd:string" />
+          <xsd:element name="desired_due_date" type="xsd:string" />
+          <xsd:element name="auth_date" type="xsd:string" />
+          <xsd:element name="service_type" type="xsd:string" />
+          <xsd:element name="end_user_name" type="xsd:string" />
+          <xsd:element name="comments" type="xsd:string" />
+          <xsd:element name="house_number" type="xsd:string" />
+          <xsd:element name="street_directional" type="xsd:string" />
+          <xsd:element name="street_name" type="xsd:string" />
+          <xsd:element name="street_type" type="xsd:string" />
+          <xsd:element name="descriptive_location" type="xsd:string" />
+          <xsd:element name="floor" type="xsd:string" />
+          <xsd:element name="room" type="xsd:string" />
+          <xsd:element name="building" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="province_state" type="xsd:string" />
+          <xsd:element name="zip_code" type="xsd:string" />
+          <xsd:element name="service_details" type="tns:sdStructureArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didProductCatalogStruct">
+        <xsd:all>
+          <xsd:element name="npa" type="xsd:string" />
+          <xsd:element name="ratecenter" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didProductCatalogStructArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didProductCatalogStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderingOptionsArrayStruct">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didOrderingOptionsStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderingOptionsStruct">
+        <xsd:all>
+          <xsd:element name="option" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didRequestArrayRoot">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didRequestArrayRootStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didRequestArrayRootStructure">
+        <xsd:all>
+          <xsd:element name="profile" type="xsd:string" />
+          <xsd:element name="requests" type="tns:didRequestArrayStruct" />
+          <xsd:element name="options" type="tns:didOrderingOptionsArrayStruct" minOccurs="0" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didRequestArrayStruct">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didRequestArrayStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didRequestArrayStructure">
+        <xsd:all>
+          <xsd:element name="ratecenter" type="xsd:string" />
+          <xsd:element name="npa" type="xsd:string" />
+          <xsd:element name="quantity" type="xsd:int" />
+          <xsd:element name="prefix" type="xsd:string" />
+          <xsd:element name="country_prefix" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderDidsReturnStructure">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="xsd:string[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didGetRoutingProfilesReturnStructure">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="xsd:string[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didGetRoutingProfilesDetailsFullStructArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didGetRoutingProfilesDetailsFullStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didGetRoutingProfilesDetailsFullStruct">
+        <xsd:all>
+          <xsd:element name="label" type="xsd:string" />
+          <xsd:element name="tech_prefix" type="xsd:string" />
+          <xsd:element name="format" type="xsd:string" />
+          <xsd:element name="subtype" type="xsd:string" />
+          <xsd:element name="routing_type" type="xsd:string" />
+          <xsd:element name="default" type="xsd:string" />
+          <xsd:element name="ips" type="tns:didGetRoutingProfileDetailsStructArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didGetRoutingProfileDetailsStructArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didGetRoutingProfileDetailsStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didGetRoutingProfileDetailsStruct">
+        <xsd:all>
+          <xsd:element name="ip" type="xsd:string" />
+          <xsd:element name="priority" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didGetOrderStatusReturn">
+        <xsd:all>
+          <xsd:element name="status" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderInfoBaseStructure">
+        <xsd:all>
+          <xsd:element name="profile" type="xsd:string" />
+          <xsd:element name="requests" type="tns:didOrderInfoStructureArr" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderInfoStructureArr">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didOrderInfoStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderInfoStructure">
+        <xsd:all>
+          <xsd:element name="ratecenter" type="xsd:string" />
+          <xsd:element name="npa" type="xsd:string" />
+          <xsd:element name="quantity" type="xsd:string" />
+          <xsd:element name="prefix" type="xsd:string" />
+          <xsd:element name="country_prefix" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didGetOrderDetailsStruct">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didOrderDetStructList[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderDetStructList">
+        <xsd:all>
+          <xsd:element name="ratecenter" type="xsd:string" />
+          <xsd:element name="npa" type="xsd:string" />
+          <xsd:element name="start" type="xsd:string" />
+          <xsd:element name="end" type="xsd:string" />
+          <xsd:element name="prefix" type="xsd:string" />
+          <xsd:element name="country_prefix" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didGetOrderProblemsReturn">
+        <xsd:all>
+          <xsd:element name="ratecenter" type="xsd:string" />
+          <xsd:element name="npa" type="xsd:string" />
+          <xsd:element name="quantity" type="xsd:string" />
+          <xsd:element name="prefix" type="xsd:string" />
+          <xsd:element name="country_prefix" type="xsd:string" />
+          <xsd:element name="reject_reason" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didGetOrderProblemsReturnArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didGetOrderProblemsReturn[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderEditRequestStructureArr">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didOrderEditRequestStructure[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didOrderEditRequestStructure">
+        <xsd:all>
+          <xsd:element name="ratecenter" type="xsd:string" />
+          <xsd:element name="npa" type="xsd:string" />
+          <xsd:element name="quantity" type="xsd:int" />
+          <xsd:element name="prefix" type="xsd:string" />
+          <xsd:element name="country_prefix" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didOrdersRequestsStruct">
+        <xsd:all>
+          <xsd:element name="ratecenter" type="xsd:string" />
+          <xsd:element name="npa" type="xsd:int" />
+          <xsd:element name="quantity" type="xsd:int" />
+          <xsd:element name="prefix" type="xsd:string" />
+          <xsd:element name="country_prefix" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didOrdersRequestsStructArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didOrdersRequestsStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didGetOrdersReturn">
+        <xsd:all>
+          <xsd:element name="code" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="date" type="xsd:string" />
+          <xsd:element name="profile" type="xsd:string" />
+          <xsd:element name="requests" type="tns:didOrdersRequestsStructArray" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didGetOrdersReturnArray">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didGetOrdersReturn[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didGetAvailableDIDsForSelectionStruct">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:availableDIDsForSelectionStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="availableDIDsForSelectionStruct">
+        <xsd:all>
+          <xsd:element name="ratecenter" type="xsd:string" />
+          <xsd:element name="npa" type="xsd:string" />
+          <xsd:element name="did" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="didSelectionArrayStruct">
+        <xsd:complexContent>
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:didSelectionStruct[]" /> </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="didSelectionStruct">
+        <xsd:all>
+          <xsd:element name="did" type="xsd:string" /> </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="testConnectionRequest">
+    <part name="name" type="xsd:string" /> </message>
+  <message name="testConnectionResponse">
+    <part name="return" type="xsd:string" /> </message>
+  <message name="lnpGetReportRequest">
+    <part name="startDate" type="xsd:string" />
+    <part name="endDate" type="xsd:string" /> </message>
+  <message name="lnpGetReportResponse">
+    <part name="return" type="tns:returnedReportArray" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpPonLastStatusRequest">
+    <part name="PON" type="xsd:string" /> </message>
+  <message name="lnpPonLastStatusResponse">
+    <part name="return" type="tns:returnPonStatus" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpPonInfoForTelNumberRequest">
+    <part name="TelephoneNumber" type="xsd:string" /> </message>
+  <message name="lnpPonInfoForTelNumberResponse">
+    <part name="return" type="tns:returnInfoForTelNumber" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpPonsStatusFromDateRequest">
+    <part name="DateFrom" type="xsd:string" /> </message>
+  <message name="lnpPonsStatusFromDateResponse">
+    <part name="return" type="tns:returnLnpPonsStatusFromDateArray" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpPonsByStatusRequest">
+    <part name="Status" type="xsd:string" /> </message>
+  <message name="lnpPonsByStatusResponse">
+    <part name="return" type="tns:returnlnpPonsByStatus" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpCreatePonsRequest">
+    <part name="requests" type="tns:inputLnpCreatePons" /> </message>
+  <message name="lnpCreatePonsResponse">
+    <part name="return" type="tns:returnLnpCreatePons" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpCancelPonRequest">
+    <part name="pon" type="xsd:string" /> </message>
+  <message name="lnpCancelPonResponse">
+    <part name="return" type="xsd:string" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpEditDDDRequest">
+    <part name="pon" type="xsd:string" />
+    <part name="DesiredDueDate" type="xsd:string" />
+    <part name="AuthorizationDate" type="xsd:string" /> </message>
+  <message name="lnpEditDDDResponse">
+    <part name="return" type="xsd:string" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpCheckNpaNxxPortabilityRequest">
+    <part name="npanxx" type="xsd:int" /> </message>
+  <message name="lnpCheckNpaNxxPortabilityResponse">
+    <part name="return" type="tns:npaNxxPortabilityStructure" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="lnpEditPonRequest">
+    <part name="ponArray" type="tns:ponArrayStruct" /> </message>
+  <message name="lnpEditPonResponse">
+    <part name="return" type="xsd:string" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetProductCatalogRequest" />
+  <message name="didGetProductCatalogResponse">
+    <part name="return" type="tns:didProductCatalogStructArray" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetOrderingOptionsRequest" />
+  <message name="didGetOrderingOptionsResponse">
+    <part name="return" type="tns:didOrderingOptionsArrayStruct" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didOrderDidsRequest">
+    <part name="didRequestArray" type="tns:didRequestArrayRoot" /> </message>
+  <message name="didOrderDidsResponse">
+    <part name="return" type="tns:didOrderDidsReturnStructure" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetRoutingProfilesRequest" />
+  <message name="didGetRoutingProfilesResponse">
+    <part name="return" type="tns:didGetRoutingProfilesReturnStructure" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetRoutingProfilesDetailsFullRequest" />
+  <message name="didGetRoutingProfilesDetailsFullResponse">
+    <part name="return" type="tns:didGetRoutingProfilesDetailsFullStructArray" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetRoutingProfileDetailsRequest">
+    <part name="profile" type="xsd:string" /> </message>
+  <message name="didGetRoutingProfileDetailsResponse">
+    <part name="return" type="tns:didGetRoutingProfileDetailsStructArray" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetOrderStatusRequest">
+    <part name="didOrderId" type="xsd:string" /> </message>
+  <message name="didGetOrderStatusResponse">
+    <part name="return" type="tns:didGetOrderStatusReturn" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetOrderInfoRequest">
+    <part name="didOrderId" type="xsd:string" /> </message>
+  <message name="didGetOrderInfoResponse">
+    <part name="return" type="tns:didOrderInfoBaseStructure" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetOrderDetailsRequest">
+    <part name="didOrderId" type="xsd:string" /> </message>
+  <message name="didGetOrderDetailsResponse">
+    <part name="return" type="tns:didGetOrderDetailsStruct" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetOrderProblemsRequest">
+    <part name="didOrderId" type="xsd:string" /> </message>
+  <message name="didGetOrderProblemsResponse">
+    <part name="return" type="tns:didGetOrderProblemsReturnArray" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didOrderDiscardRejectedRequest">
+    <part name="didOrderId" type="xsd:string" /> </message>
+  <message name="didOrderDiscardRejectedResponse">
+    <part name="return" type="xsd:string" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didOrderCancelRequest">
+    <part name="didOrderId" type="xsd:string" /> </message>
+  <message name="didOrderCancelResponse">
+    <part name="return" type="xsd:string" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didOrderEditRequest">
+    <part name="didOrderId" type="xsd:string" />
+    <part name="requestArray" type="tns:didOrderEditRequestStructureArr" /> </message>
+  <message name="didOrderEditResponse">
+    <part name="return" type="xsd:string" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetOrdersRequest">
+    <part name="startDate" type="xsd:string" />
+    <part name="endDate" type="xsd:string" /> </message>
+  <message name="didGetOrdersResponse">
+    <part name="return" type="tns:didGetOrdersReturnArray" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didGetAvailableDIDsForSelectionRequest">
+    <part name="didOrderId" type="xsd:string" /> </message>
+  <message name="didGetAvailableDIDsForSelectionResponse">
+    <part name="return" type="tns:didGetAvailableDIDsForSelectionStruct" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <message name="didOrderSelectDIDsRequest">
+    <part name="didOrderId" type="xsd:string" />
+    <part name="didStruct" type="tns:didSelectionArrayStruct" /> </message>
+  <message name="didOrderSelectDIDsResponse">
+    <part name="return" type="xsd:string" />
+    <part name="errors" type="tns:errorArray" /> </message>
+  <portType name="espressoDIDPortType">
+    <operation name="testConnection"> <input message="tns:testConnectionRequest" /> <output message="tns:testConnectionResponse" /> </operation>
+    <operation name="lnpGetReport"> <input message="tns:lnpGetReportRequest" /> <output message="tns:lnpGetReportResponse" /> </operation>
+    <operation name="lnpPonLastStatus"> <input message="tns:lnpPonLastStatusRequest" /> <output message="tns:lnpPonLastStatusResponse" /> </operation>
+    <operation name="lnpPonInfoForTelNumber"> <input message="tns:lnpPonInfoForTelNumberRequest" /> <output message="tns:lnpPonInfoForTelNumberResponse" /> </operation>
+    <operation name="lnpPonsStatusFromDate"> <input message="tns:lnpPonsStatusFromDateRequest" /> <output message="tns:lnpPonsStatusFromDateResponse" /> </operation>
+    <operation name="lnpPonsByStatus"> <input message="tns:lnpPonsByStatusRequest" /> <output message="tns:lnpPonsByStatusResponse" /> </operation>
+    <operation name="lnpCreatePons"> <input message="tns:lnpCreatePonsRequest" /> <output message="tns:lnpCreatePonsResponse" /> </operation>
+    <operation name="lnpCancelPon"> <input message="tns:lnpCancelPonRequest" /> <output message="tns:lnpCancelPonResponse" /> </operation>
+    <operation name="lnpEditDDD"> <input message="tns:lnpEditDDDRequest" /> <output message="tns:lnpEditDDDResponse" /> </operation>
+    <operation name="lnpCheckNpaNxxPortability"> <input message="tns:lnpCheckNpaNxxPortabilityRequest" /> <output message="tns:lnpCheckNpaNxxPortabilityResponse" /> </operation>
+    <operation name="lnpEditPon"> <input message="tns:lnpEditPonRequest" /> <output message="tns:lnpEditPonResponse" /> </operation>
+    <operation name="didGetProductCatalog"> <input message="tns:didGetProductCatalogRequest" /> <output message="tns:didGetProductCatalogResponse" /> </operation>
+    <operation name="didGetOrderingOptions"> <input message="tns:didGetOrderingOptionsRequest" /> <output message="tns:didGetOrderingOptionsResponse" /> </operation>
+    <operation name="didOrderDids"> <input message="tns:didOrderDidsRequest" /> <output message="tns:didOrderDidsResponse" /> </operation>
+    <operation name="didGetRoutingProfiles"> <input message="tns:didGetRoutingProfilesRequest" /> <output message="tns:didGetRoutingProfilesResponse" /> </operation>
+    <operation name="didGetRoutingProfilesDetailsFull"> <input message="tns:didGetRoutingProfilesDetailsFullRequest" /> <output message="tns:didGetRoutingProfilesDetailsFullResponse" /> </operation>
+    <operation name="didGetRoutingProfileDetails"> <input message="tns:didGetRoutingProfileDetailsRequest" /> <output message="tns:didGetRoutingProfileDetailsResponse" /> </operation>
+    <operation name="didGetOrderStatus"> <input message="tns:didGetOrderStatusRequest" /> <output message="tns:didGetOrderStatusResponse" /> </operation>
+    <operation name="didGetOrderInfo"> <input message="tns:didGetOrderInfoRequest" /> <output message="tns:didGetOrderInfoResponse" /> </operation>
+    <operation name="didGetOrderDetails"> <input message="tns:didGetOrderDetailsRequest" /> <output message="tns:didGetOrderDetailsResponse" /> </operation>
+    <operation name="didGetOrderProblems"> <input message="tns:didGetOrderProblemsRequest" /> <output message="tns:didGetOrderProblemsResponse" /> </operation>
+    <operation name="didOrderDiscardRejected"> <input message="tns:didOrderDiscardRejectedRequest" /> <output message="tns:didOrderDiscardRejectedResponse" /> </operation>
+    <operation name="didOrderCancel"> <input message="tns:didOrderCancelRequest" /> <output message="tns:didOrderCancelResponse" /> </operation>
+    <operation name="didOrderEdit"> <input message="tns:didOrderEditRequest" /> <output message="tns:didOrderEditResponse" /> </operation>
+    <operation name="didGetOrders"> <input message="tns:didGetOrdersRequest" /> <output message="tns:didGetOrdersResponse" /> </operation>
+    <operation name="didGetAvailableDIDsForSelection"> <input message="tns:didGetAvailableDIDsForSelectionRequest" /> <output message="tns:didGetAvailableDIDsForSelectionResponse" /> </operation>
+    <operation name="didOrderSelectDIDs"> <input message="tns:didOrderSelectDIDsRequest" /> <output message="tns:didOrderSelectDIDsResponse" /> </operation>
+  </portType>
+  <binding name="espressoDIDBinding" type="tns:espressoDIDPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="testConnection">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#testConnection" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpGetReport">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpGetReport" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpPonLastStatus">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpPonLastStatus" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpPonInfoForTelNumber">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpPonInfoForTelNumber" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpPonsStatusFromDate">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpPonsStatusFromDate" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpPonsByStatus">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpPonsByStatus" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpCreatePons">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpCreatePons" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpCancelPon">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpCancelPon" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpEditDDD">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpEditDDD" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpCheckNpaNxxPortability">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpCheckNpaNxxPortability" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="lnpEditPon">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#lnpEditPon" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetProductCatalog">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetProductCatalog" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetOrderingOptions">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetOrderingOptions" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didOrderDids">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didOrderDids" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetRoutingProfiles">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetRoutingProfiles" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetRoutingProfilesDetailsFull">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetRoutingProfilesDetailsFull" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetRoutingProfileDetails">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetRoutingProfileDetails" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetOrderStatus">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetOrderStatus" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetOrderInfo">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetOrderInfo" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetOrderDetails">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetOrderDetails" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetOrderProblems">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetOrderProblems" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didOrderDiscardRejected">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didOrderDiscardRejected" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didOrderCancel">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didOrderCancel" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didOrderEdit">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didOrderEdit" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetOrders">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetOrders" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didGetAvailableDIDsForSelection">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didGetAvailableDIDsForSelection" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+    <operation name="didOrderSelectDIDs">
+      <soap:operation soapAction="urn:https://connect.espressodid.com/soap/index_v2.php#didOrderSelectDIDs" style="rpc" /> <input>
+      <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" /> </input> <output>
+<soap:body use="encoded" namespace="urn:https://connect.espressodid.com/soap/index_v2.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+</output> </operation>
+  </binding>
+  <service name="espressoDID">
+    <port name="espressoDIDPort" binding="tns:espressoDIDBinding">
+      <soap:address location="https://connect.espressodid.com:443/soap/index_v2.php" /> </port>
+  </service>
+</definitions>

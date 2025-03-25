@@ -1,0 +1,539 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:https://connect.espressodid.com/cloud/public/v3/production" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:https://connect.espressodid.com/cloud/public/v3/production">
+    <types>
+        <xsd:schema targetNamespace="urn:https://connect.espressodid.com/cloud/public/v3/production">
+            <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+            <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+            <xsd:complexType name="errorArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:errors[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="errors">
+                <xsd:all>
+                    <xsd:element name="code" type="xsd:int" />
+                    <xsd:element name="message" type="xsd:string" />
+                    <xsd:element name="array_key" type="xsd:string" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="errorFieldArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:errorsField[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="errorsField">
+                <xsd:all>
+                    <xsd:element name="code" type="xsd:int" />
+                    <xsd:element name="message" type="xsd:string" />
+                    <xsd:element name="array_key" type="xsd:string" />
+                    <xsd:element name="regarding_field" type="xsd:string" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="stringArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="xsd:string[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpSdStructure">
+                <xsd:all>
+                    <xsd:element name="activity" type="xsd:string" />
+                    <xsd:element name="existing_account_number" type="xsd:string" />
+                    <xsd:element name="start_number" type="xsd:string" />
+                    <xsd:element name="end_number" type="xsd:string" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpSdStructureArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpSdStructure[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpPonStructure">
+                <xsd:all>
+                    <xsd:element name="service_type" type="xsd:string" />
+                    <xsd:element name="current_provider_name" type="xsd:string" />
+                    <xsd:element name="desired_due_date" type="xsd:string" />
+                    <xsd:element name="auth_date" type="xsd:string" />
+                    <xsd:element name="end_user_name" type="xsd:string" />
+                    <xsd:element name="house_number" type="xsd:string" />
+                    <xsd:element name="street_directional" type="xsd:string" />
+                    <xsd:element name="street_suffix" type="xsd:string" />
+                    <xsd:element name="street_name" type="xsd:string" />
+                    <xsd:element name="street_type" type="xsd:string" />
+                    <xsd:element name="descriptive_location" type="xsd:string" />
+                    <xsd:element name="floor" type="xsd:string" />
+                    <xsd:element name="room" type="xsd:string" />
+                    <xsd:element name="building" type="xsd:string" />
+                    <xsd:element name="city" type="xsd:string" />
+                    <xsd:element name="province_state" type="xsd:string" />
+                    <xsd:element name="zip_code" type="xsd:string" />
+                    <xsd:element name="comments" type="xsd:string" />
+                    <xsd:element name="losing_carrier_comments" type="xsd:string" />
+                    <xsd:element name="service_details" type="tns:lnpSdStructureArray" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpStatusStructure">
+                <xsd:all>
+                    <xsd:element name="status" type="xsd:string" />
+                    <xsd:element name="date" type="xsd:string" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpStatusStructureArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpStatusStructure[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpVerStructureHistory">
+                <xsd:all>
+                    <xsd:element name="date" type="xsd:string" />
+                    <xsd:element name="pon_data" type="tns:lnpPonStructure" />
+                    <xsd:element name="status" type="tns:lnpStatusStructureArray" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpVerStructureHistoryArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpVerStructureHistory[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpVerStructure">
+                <xsd:all>
+                    <xsd:element name="version" type="xsd:string" />
+                    <xsd:element name="history" type="tns:lnpVerStructureHistoryArray" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpVerStructureArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpVerStructure[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpStatusReasonDetail">
+                <xsd:all>
+                    <xsd:element name="code" type="xsd:string" />
+                    <xsd:element name="code_label" type="xsd:string" />
+                    <xsd:element name="numbers" type="xsd:string" />
+                    <xsd:element name="regarding_field" type="xsd:string" />
+                    <xsd:element name="remarks" type="xsd:string" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpStatusReasonDetailArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpStatusReasonDetail[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpStatusReason">
+                <xsd:all>
+                    <xsd:element name="type" type="xsd:string" />
+                    <xsd:element name="type_label" type="xsd:string" />
+                    <xsd:element name="details" type="tns:lnpStatusReasonDetailArray" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpPonReport">
+                <xsd:all>
+                    <xsd:element name="date" type="xsd:string" />
+                    <xsd:element name="pon" type="xsd:string" />
+                    <xsd:element name="last_version" type="xsd:string" />
+                    <xsd:element name="last_processstatus" type="xsd:string" />
+                    <xsd:element name="date_last_update" type="xsd:string" />
+                    <xsd:element name="status_reason" type="tns:lnpStatusReason" />
+                    <xsd:element name="note" type="xsd:string" />
+                    <xsd:element name="routing" type="tns:lnpRoutingStructure" />
+                    <xsd:element name="versions" type="tns:lnpVerStructureArray" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpPonReportArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpPonReport[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpPonShortInfo">
+                <xsd:all>
+                    <xsd:element name="pon" type="xsd:string" />
+                    <xsd:element name="last_version" type="xsd:string" />
+                    <xsd:element name="last_processstatus" type="xsd:string" />
+                    <xsd:element name="service_details" type="tns:lnpSdStructureArray" />
+                    <xsd:element name="date_last_update" type="xsd:string" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpPonShortInfoArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpPonShortInfo[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpRoutingDetails">
+                <xsd:all>
+                    <xsd:element name="start_number" type="xsd:string" />
+                    <xsd:element name="end_number" type="xsd:string" />
+                    <xsd:element name="routing_profile" type="xsd:int" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpRoutingDetailsArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpRoutingDetails[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpRoutingStructure">
+                <xsd:all>
+                    <xsd:element name="default_routing_profile" type="xsd:int" />
+                    <xsd:element name="details" type="tns:lnpRoutingDetailsArray" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpRoutingProfile">
+                <xsd:all>
+                    <xsd:element name="id" type="xsd:int" />
+                    <xsd:element name="label" type="xsd:string" />
+                    <xsd:element name="tech_prefix" type="xsd:string" />
+                    <xsd:element name="format" type="xsd:string" />
+                    <xsd:element name="routing_type" type="xsd:string" />
+                    <xsd:element name="ips" type="tns:stringArray" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpRoutingProfileArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpRoutingProfile[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpApplicationError">
+                <xsd:all>
+                    <xsd:element name="code" type="xsd:string" />
+                    <xsd:element name="message" type="xsd:string" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpApplicationErrorArray">
+                <xsd:complexContent>
+                    <xsd:restriction base="SOAP-ENC:Array">
+                        <xsd:attribute ref="SOAP-ENC:arrayType" wsdl:arrayType="tns:lnpApplicationError[]" />
+                    </xsd:restriction>
+                </xsd:complexContent>
+            </xsd:complexType>
+            <xsd:complexType name="lnpCreatePonRequest">
+                <xsd:all>
+                    <xsd:element name="pon_data" type="tns:lnpPonStructure" />
+                    <xsd:element name="routing" type="tns:lnpRoutingStructure" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpEditPonRequest">
+                <xsd:all>
+                    <xsd:element name="pon" type="xsd:string" />
+                    <xsd:element name="pon_data" type="tns:lnpPonStructure" />
+                </xsd:all>
+            </xsd:complexType>
+            <xsd:complexType name="lnpEditPonRoutingRequest">
+                <xsd:all>
+                    <xsd:element name="pon" type="xsd:string" />
+                    <xsd:element name="routing" type="tns:lnpRoutingStructure" />
+                </xsd:all>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="testConnectionRequest">
+        <part name="name" type="xsd:string" />
+    </message>
+    <message name="testConnectionResponse">
+        <part name="return" type="xsd:string" />
+    </message>
+    <message name="lnpGetReportRequest">
+        <part name="startDate" type="xsd:string" />
+        <part name="endDate" type="xsd:string" />
+    </message>
+    <message name="lnpGetReportResponse">
+        <part name="return" type="tns:lnpPonReportArray" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpPonLastStatusRequest">
+        <part name="pon" type="xsd:string" />
+    </message>
+    <message name="lnpPonLastStatusResponse">
+        <part name="return" type="tns:lnpPonReport" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpPonInfoForTelNumberRequest">
+        <part name="number" type="xsd:string" />
+    </message>
+    <message name="lnpPonInfoForTelNumberResponse">
+        <part name="return" type="tns:lnpPonShortInfoArray" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpPonsStatusFromDateRequest">
+        <part name="date" type="xsd:string" />
+    </message>
+    <message name="lnpPonsStatusFromDateResponse">
+        <part name="return" type="tns:lnpPonShortInfoArray" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpPonsByStatusRequest">
+        <part name="status" type="xsd:string" />
+    </message>
+    <message name="lnpPonsByStatusResponse">
+        <part name="return" type="tns:lnpPonShortInfoArray" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpCreatePonsRequest">
+        <part name="data" type="tns:lnpCreatePonRequest" />
+    </message>
+    <message name="lnpCreatePonsResponse">
+        <part name="return" type="tns:lnpPonShortInfoArray" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpEditDDDRequest">
+        <part name="pon" type="xsd:string" />
+        <part name="desired_due_date" type="xsd:string" />
+        <part name="auth_date" type="xsd:string" />
+    </message>
+    <message name="lnpEditDDDResponse">
+        <part name="return" type="xsd:string" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpCancelPonRequest">
+        <part name="pon" type="xsd:string" />
+    </message>
+    <message name="lnpCancelPonResponse">
+        <part name="return" type="xsd:string" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpEditPonRequest">
+        <part name="data" type="tns:lnpEditPonRequest" />
+    </message>
+    <message name="lnpEditPonResponse">
+        <part name="return" type="xsd:string" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpCheckNpaNxxPortabilityRequest">
+        <part name="npanxx" type="xsd:string" />
+    </message>
+    <message name="lnpCheckNpaNxxPortabilityResponse">
+        <part name="return" type="xsd:int" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpEditPonRoutingRequest">
+        <part name="data" type="tns:lnpEditPonRoutingRequest" />
+    </message>
+    <message name="lnpEditPonRoutingResponse">
+        <part name="return" type="xsd:string" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpGetRoutingProfilesRequest" />
+    <message name="lnpGetRoutingProfilesResponse">
+        <part name="return" type="tns:lnpRoutingProfileArray" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <message name="lnpGetApplicationErrorDictionaryRequest" />
+    <message name="lnpGetApplicationErrorDictionaryResponse">
+        <part name="return" type="tns:lnpApplicationErrorArray" />
+        <part name="errors" type="tns:errorFieldArray" />
+    </message>
+    <portType name="espressoDIDPortType">
+        <operation name="testConnection">
+            <input message="tns:testConnectionRequest" />
+            <output message="tns:testConnectionResponse" />
+        </operation>
+        <operation name="lnpGetReport">
+            <input message="tns:lnpGetReportRequest" />
+            <output message="tns:lnpGetReportResponse" />
+        </operation>
+        <operation name="lnpPonLastStatus">
+            <input message="tns:lnpPonLastStatusRequest" />
+            <output message="tns:lnpPonLastStatusResponse" />
+        </operation>
+        <operation name="lnpPonInfoForTelNumber">
+            <input message="tns:lnpPonInfoForTelNumberRequest" />
+            <output message="tns:lnpPonInfoForTelNumberResponse" />
+        </operation>
+        <operation name="lnpPonsStatusFromDate">
+            <input message="tns:lnpPonsStatusFromDateRequest" />
+            <output message="tns:lnpPonsStatusFromDateResponse" />
+        </operation>
+        <operation name="lnpPonsByStatus">
+            <input message="tns:lnpPonsByStatusRequest" />
+            <output message="tns:lnpPonsByStatusResponse" />
+        </operation>
+        <operation name="lnpCreatePons">
+            <input message="tns:lnpCreatePonsRequest" />
+            <output message="tns:lnpCreatePonsResponse" />
+        </operation>
+        <operation name="lnpEditDDD">
+            <input message="tns:lnpEditDDDRequest" />
+            <output message="tns:lnpEditDDDResponse" />
+        </operation>
+        <operation name="lnpCancelPon">
+            <input message="tns:lnpCancelPonRequest" />
+            <output message="tns:lnpCancelPonResponse" />
+        </operation>
+        <operation name="lnpEditPon">
+            <input message="tns:lnpEditPonRequest" />
+            <output message="tns:lnpEditPonResponse" />
+        </operation>
+        <operation name="lnpCheckNpaNxxPortability">
+            <input message="tns:lnpCheckNpaNxxPortabilityRequest" />
+            <output message="tns:lnpCheckNpaNxxPortabilityResponse" />
+        </operation>
+        <operation name="lnpEditPonRouting">
+            <input message="tns:lnpEditPonRoutingRequest" />
+            <output message="tns:lnpEditPonRoutingResponse" />
+        </operation>
+        <operation name="lnpGetRoutingProfiles">
+            <input message="tns:lnpGetRoutingProfilesRequest" />
+            <output message="tns:lnpGetRoutingProfilesResponse" />
+        </operation>
+        <operation name="lnpGetApplicationErrorDictionary">
+            <input message="tns:lnpGetApplicationErrorDictionaryRequest" />
+            <output message="tns:lnpGetApplicationErrorDictionaryResponse" />
+        </operation>
+    </portType>
+    <binding name="espressoDIDBinding" type="tns:espressoDIDPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="testConnection">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#testConnection" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpGetReport">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpGetReport" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpPonLastStatus">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpPonLastStatus" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpPonInfoForTelNumber">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpPonInfoForTelNumber" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpPonsStatusFromDate">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpPonsStatusFromDate" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpPonsByStatus">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpPonsByStatus" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpCreatePons">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpCreatePons" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpEditDDD">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpEditDDD" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpCancelPon">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpCancelPon" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpEditPon">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpEditPon" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpCheckNpaNxxPortability">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpCheckNpaNxxPortability" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpEditPonRouting">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpEditPonRouting" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpGetRoutingProfiles">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpGetRoutingProfiles" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="lnpGetApplicationErrorDictionary">
+            <soap:operation soapAction="urn:https://connect.espressodid.com/cloud/public/v3/production#lnpGetApplicationErrorDictionary" style="rpc" />
+            <input>
+            <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="urn:https://connect.espressodid.com/cloud/public/v3/production" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <service name="espressoDID">
+        <port name="espressoDIDPort" binding="tns:espressoDIDBinding">
+            <soap:address location="https://connect.espressodid.com/cloud/public/v3/production" />
+        </port>
+    </service>
+</definitions>

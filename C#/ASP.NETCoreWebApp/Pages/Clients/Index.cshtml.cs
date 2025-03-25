@@ -1,15 +1,17 @@
 using ASP.NETCoreWebApp.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ASP.NETCoreWebApp.Pages.Clients
 {
     public class IndexModel : PageModel
     {
         public List<Student> students = new List<Student>();
+
+        public string yearFilter = "0";
         public void OnGet()
         {
-
             try
             {
                 string connectionString = "Data Source=desktop-aiq6j2v;Initial Catalog=S3-CSharp;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
@@ -18,6 +20,13 @@ namespace ASP.NETCoreWebApp.Pages.Clients
                 {
                     con.Open();
                     string sql = "SELECT * FROM STUDENTS";
+
+                    yearFilter = Request.Query["year"].ToString();
+
+                    if (!yearFilter.IsNullOrEmpty())
+                    {
+                        sql = "SELECT * FROM STUDENTS WHERE year = '" + yearFilter +"';";
+                    }
 
                     using (SqlCommand cmd = new SqlCommand(sql, con))
                     {

@@ -1,6 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
+using System.Security.Claims;
 
 namespace ASP.NETCoreWebApp.Pages.Authentication
 {
@@ -9,7 +10,7 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
         public String username = "";
         public String password = "";
         public String errorMessage = "";
-        public void OnPost()
+        public async void OnPost()
         {
             try
             {
@@ -31,6 +32,22 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
 
                         if (reader.Read() && BCrypt.Net.BCrypt.Verify(password, ((string)reader["password"]).Trim()))
                         {
+                            // Create a list of claims
+                            var claims = new List<Claim>
+                            {
+                                new Claim(ClaimTypes.Name, username)
+                                // You can add additional claims as needed.
+                            };
+
+                            // Create a ClaimsIdentity with the specified authentication scheme.
+                            var claimsIdentity = new ClaimsIdentity(claims, "MyCookieAuth");
+
+                            // Create the principal
+                            var principal = new ClaimsPrincipal(claimsIdentity);
+
+                            // Sign in the user with the authentication scheme
+                            await HttpContext.SignInAsync("MyCookieAuth", principal);
+
                             Response.Redirect("/Clients/Index");
                         }
                         else {

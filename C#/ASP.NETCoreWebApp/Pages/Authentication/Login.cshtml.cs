@@ -1,7 +1,6 @@
-using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
-using System.Security.Claims;
 
 namespace ASP.NETCoreWebApp.Pages.Authentication
 {
@@ -10,7 +9,14 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
         public String username = "";
         public String password = "";
         public String errorMessage = "";
-        public async void OnPost()
+
+        private readonly EmailService _emailService;
+
+        public LoginModel()
+        {
+            _emailService = new EmailService();
+        }
+        public async Task<IActionResult> OnPostAsync()
         {
             try
             {
@@ -32,23 +38,22 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
 
                         if (reader.Read() && BCrypt.Net.BCrypt.Verify(password, ((string)reader["password"]).Trim()))
                         {
-                            // Create a list of claims
-                            var claims = new List<Claim>
-                            {
-                                new Claim(ClaimTypes.Name, username)
-                                // You can add additional claims as needed.
-                            };
+                            // Generate a 6-digit 2FA code
+                            var random = new Random();
+                            var twoFactorCode = random.Next(100000, 999999).ToString();
+                            string email = (string)reader["email"];
 
-                            // Create a ClaimsIdentity with the specified authentication scheme.
-                            var claimsIdentity = new ClaimsIdentity(claims, "MyCookieAuth");
+                            // Store the code and expiry time in session
+                            HttpContext.Session.SetString("TwoFactorCode", twoFactorCode);
+                            HttpContext.Session.SetString("TwoFactorEmail", email);
+                            HttpContext.Session.SetString("Username", username);
+                            HttpContext.Session.SetString("TwoFactorExpiry", DateTime.UtcNow.AddMinutes(5).ToString());
 
-                            // Create the principal
-                            var principal = new ClaimsPrincipal(claimsIdentity);
+                            // Send the code via email
+                            await _emailService.SendEmailAsync(email, "Your 2FA Code", $"Your verification code is: {twoFactorCode}");
 
-                            // Sign in the user with the authentication scheme
-                            await HttpContext.SignInAsync("MyCookieAuth", principal);
-
-                            Response.Redirect("/Clients/Index");
+                            // Redirect to the 2FA verification page
+                            return RedirectToPage("/Authentication/TwoFactor");
                         }
                         else {
                             errorMessage = "Username or Password ERROR";
@@ -61,8 +66,10 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
             }
             catch (Exception ex)
             {
-                errorMessage = ex.Message;
+                // errorMessage = ex.Message;
+                errorMessage = "something went wrong";
             }
+            return RedirectToPage();
         }
     }
 }

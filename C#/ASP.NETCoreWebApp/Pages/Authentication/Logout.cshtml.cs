@@ -8,6 +8,8 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
     {
         public async void OnGet()
         {
+            HttpContext.Session.Remove("Username");
+            HttpContext.Session.Remove("TwoFactorEmail");
             await HttpContext.SignOutAsync("MyCookieAuth");
         }
     }

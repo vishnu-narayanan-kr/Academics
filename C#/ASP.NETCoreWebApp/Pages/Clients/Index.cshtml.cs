@@ -10,10 +10,14 @@ namespace ASP.NETCoreWebApp.Pages.Clients
     public class IndexModel : PageModel
     {
         public List<Student> students = new List<Student>();
+        public string? username { get; set; }
 
         public string yearFilter = "0";
         public void OnGet()
         {
+
+            username = HttpContext.Session.GetString("Username");
+
             try
             {
                 string connectionString = "Data Source=desktop-aiq6j2v;Initial Catalog=S3-CSharp;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";

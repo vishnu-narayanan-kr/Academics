@@ -6,9 +6,11 @@
 
 <div class="text-center">
     <h1 class="display-4">Student List</h1>
+    <p>Welcome @Model.username</p>
     <a class="btn btn-primary btn-sm" href="/Clients/Create">Add New Student</a>
     <br />
-    <h3>Filter by year</h3>
+    <h3>Filter by year: </h3>
+    <p>@Html.Raw(Model.yearFilter)</p>
     <form method="get">
         <input name="year" value="@Model.yearFilter"/>
         <button class="btn btn-sm btn-info" type="submit">Search</button>
@@ -29,7 +31,7 @@
                 <tr>
                     <td>@student.id</td>
                     <td>@student.name</td>
-                    <td>@student.course</td>
+                    <td>@Html.Raw(student.course)</td>
                     <td>@student.year</td>
                     <td>@student.email</td>
                     <td>

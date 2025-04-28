@@ -9,14 +9,7 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
         public String username = "";
         public String password = "";
         public String errorMessage = "";
-
-        private readonly EmailService _emailService;
-
-        public LoginModel()
-        {
-            _emailService = new EmailService();
-        }
-        public async Task<IActionResult> OnPostAsync()
+        public void OnPost()
         {
             try
             {
@@ -38,22 +31,7 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
 
                         if (reader.Read() && BCrypt.Net.BCrypt.Verify(password, ((string)reader["password"]).Trim()))
                         {
-                            // Generate a 6-digit 2FA code
-                            var random = new Random();
-                            var twoFactorCode = random.Next(100000, 999999).ToString();
-                            string email = (string)reader["email"];
-
-                            // Store the code and expiry time in session
-                            HttpContext.Session.SetString("TwoFactorCode", twoFactorCode);
-                            HttpContext.Session.SetString("TwoFactorEmail", email);
-                            HttpContext.Session.SetString("Username", username);
-                            HttpContext.Session.SetString("TwoFactorExpiry", DateTime.UtcNow.AddMinutes(5).ToString());
-
-                            // Send the code via email
-                            await _emailService.SendEmailAsync(email, "Your 2FA Code", $"Your verification code is: {twoFactorCode}");
-
-                            // Redirect to the 2FA verification page
-                            return RedirectToPage("/Authentication/TwoFactor");
+                            Response.Redirect("/Clients/Index");
                         }
                         else {
                             errorMessage = "Username or Password ERROR";
@@ -66,10 +44,8 @@ namespace ASP.NETCoreWebApp.Pages.Authentication
             }
             catch (Exception ex)
             {
-                // errorMessage = ex.Message;
-                errorMessage = "something went wrong";
+                errorMessage = ex.Message;
             }
-            return RedirectToPage();
         }
     }
 }

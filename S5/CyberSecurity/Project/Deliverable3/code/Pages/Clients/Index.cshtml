@@ -1,0 +1,45 @@
+﻿@page
+@model ASP.NETCoreWebApp.Pages.Clients.IndexModel
+@{
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Student List</h1>
+    <p>Welcome @Model.username</p>
+    <a class="btn btn-primary btn-sm" href="/Clients/Create">Add New Student</a>
+    <br />
+    <h3>Filter by year: </h3>
+    <p>@Html.Raw(Model.yearFilter)</p>
+    <form method="get">
+        <input name="year" value="@Model.yearFilter"/>
+        <button class="btn btn-sm btn-info" type="submit">Search</button>
+    </form>
+    <br />
+    <table border=1 class="table">
+        <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Year</th>
+        <th>Email</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+            @foreach (var student in Model.students)
+            {
+                <tr>
+                    <td>@student.id</td>
+                    <td>@student.name</td>
+                    <td>@Html.Raw(student.course)</td>
+                    <td>@student.year</td>
+                    <td>@student.email</td>
+                    <td>
+                        <a href="/Clients/Edit?id=@student.id">Edit</a>
+                        <a href="/Clients/Delete?id=@student.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

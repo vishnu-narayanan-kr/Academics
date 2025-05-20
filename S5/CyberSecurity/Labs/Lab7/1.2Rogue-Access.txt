@@ -1,0 +1,27 @@
+sudo airmon-ng check
+
+after booting into kali linux in VirtualBox, In the VM menu, removable devices, disconnect the adapter from host,
+and connect it directly to virtual machine
+
+when I do iwconfig,
+I can't find the wlan adapter
+
+I use TP Link AC600 as external usb wifi adapter, so I had to update the driver
+sudo apt update
+sudo apt install -y dkms git build-essential bc
+
+Install the chipset
+git clone https://github.com/aircrack-ng/rtl8812au.git
+cd rtl8812au
+
+update kernel headers, and boot into correct header
+
+make clean
+make
+sudo make install
+sudo modprobe 8812au
+
+once you can see the wlan0 option in iwconfig,
+
+sudo airmon-ng start wlan0 => to monitor
+sudo airbase-ng -e "Free_WiFi" -c 6 wlan0

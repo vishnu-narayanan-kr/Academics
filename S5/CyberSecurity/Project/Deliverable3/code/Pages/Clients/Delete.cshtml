@@ -1,0 +1,29 @@
+﻿@page
+@using Microsoft.Data.SqlClient;
+
+@{
+    try
+    {
+        String id = Request.Query["id"];
+        String connectionString = "Data Source=desktop-aiq6j2v;Initial Catalog=S3-CSharp;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
+
+        using (SqlConnection con = new SqlConnection(connectionString))
+        {
+            con.Open();
+
+            String sql = "DELETE FROM students WHERE id=@id";
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        Response.Redirect("/Clients/Index");
+    }
+    catch (Exception ex)
+    {
+        
+    }
+}

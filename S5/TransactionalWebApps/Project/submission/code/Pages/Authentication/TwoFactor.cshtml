@@ -1,0 +1,18 @@
+﻿@page
+@model ASP.NETCoreWebApp.Pages.Authentication.TwoFactorModel
+@{
+    ViewData["Title"] = "Two-Factor Authentication";
+}
+
+<h2>Enter 2FA Code</h2>
+<form method="post">
+    <div>
+        <label>Verification Code:</label>
+        <input type="text" name="TwoFactorCode" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Verify</button>
+</form>
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p style="color:red">@Model.ErrorMessage</p>
+}

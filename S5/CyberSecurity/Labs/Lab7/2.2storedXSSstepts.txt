@@ -1,0 +1,26 @@
+Problem: Lab: Stored XSS into HTML context with nothing encoded
+End result: execute JS in client side to alert a message, but this JS is stored and comes from the database
+
+Analysis:
+
+Step 1:
+https://0ae900ae0397b93580133a2900520025.web-security-academy.net/post?postId=6
+find the comment input and see if the input is getting reflected in the output by posting the comment
+observation: the input string is reflected as such in the output the posts
+
+Step 2:
+Check if html tags can be injected by posting for <h1>test</h1>
+observation: you should note that the comment reflected should be a inside a h1 tag
+https://0ae900ae0397b93580133a2900520025.web-security-academy.net/post?postId=6
+
+Step 3:
+with the search query add script tag to execute an alert()
+like test<script>alert(1)</script>
+Observation: you have successfully excuted JS in the client side, this can be used to run dangerous scripts instead of just alert
+https://0ae900ae0397b93580133a2900520025.web-security-academy.net/post?postId=6
+
+Step 4:
+Now reload the page to see if the XSS is getting executed from stored script comming from the db
+like test<script>alert(1)</script>
+Observation: you have successfully excuted JS in the client side, this can be used to run dangerous scripts instead of just alert
+https://0ae900ae0397b93580133a2900520025.web-security-academy.net/post?postId=6

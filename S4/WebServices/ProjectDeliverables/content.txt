@@ -1,0 +1,28 @@
+Scope, Objective
+business domain and environment
+
+Architecture, and technology stack (High-Level Design)
+IDE and other tools used
+
+Functional, non Functional Requirements
+User stories and use case diagrams.
+
+Low-level Design
+Diagrams.
+DFD, ERD, and Database diagram
+
+Security design:
+Authentication, authorization, encryption, and data protection
+
+testing, approach taken, User acceptance, unit etc..
+
+Screenshots
+
+Comparison to existing system DoorDash
+
+Drawbacks of this design.
+What would be better implementation
+
+Any questions?
+
+Cross-check with deliverable

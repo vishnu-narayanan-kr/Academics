@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="StackBookProject">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Lab3/StackBookProject/dist/StackBookProject.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

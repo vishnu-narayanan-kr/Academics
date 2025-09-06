@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Algorithms.iml" filepath="$PROJECT_DIR$/.idea/Algorithms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab1/ArrayListBillingProject/ArrayListBillingProject.iml" filepath="$PROJECT_DIR$/Lab1/ArrayListBillingProject/ArrayListBillingProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab2/ArrayListPayRollProject/ArrayListPayRollProject.iml" filepath="$PROJECT_DIR$/Lab2/ArrayListPayRollProject/ArrayListPayRollProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab1/ArrayListProcessProject/ArrayListProcessProject.iml" filepath="$PROJECT_DIR$/Lab1/ArrayListProcessProject/ArrayListProcessProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/BinaryTreeProject/BinaryTreeProject.iml" filepath="$PROJECT_DIR$/Lab3/BinaryTreeProject/BinaryTreeProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab4/BookArrayListCollectionProject/BookArrayListCollectionProject.iml" filepath="$PROJECT_DIR$/Lab4/BookArrayListCollectionProject/BookArrayListCollectionProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab4/CollectionExampleProject/CollectionExampleProject.iml" filepath="$PROJECT_DIR$/Lab4/CollectionExampleProject/CollectionExampleProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab4/CollectionTripProject/CollectionTripProject.iml" filepath="$PROJECT_DIR$/Lab4/CollectionTripProject/CollectionTripProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab4/CourseArrayListCollectionProject/CourseArrayListCollectionProject.iml" filepath="$PROJECT_DIR$/Lab4/CourseArrayListCollectionProject/CourseArrayListCollectionProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab6/CourseMVCPatternProject/CourseMVCPatternProject.iml" filepath="$PROJECT_DIR$/Lab6/CourseMVCPatternProject/CourseMVCPatternProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab6/CourseSingletonPatternProject/CourseSingletonPatternProject.iml" filepath="$PROJECT_DIR$/Lab6/CourseSingletonPatternProject/CourseSingletonPatternProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab6/DesignPatternsFacultyProject/DesignPatternsFacultyProject.iml" filepath="$PROJECT_DIR$/Lab6/DesignPatternsFacultyProject/DesignPatternsFacultyProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab6/EmployeeLambdaExpProject/EmployeeLambdaExpProject.iml" filepath="$PROJECT_DIR$/Lab6/EmployeeLambdaExpProject/EmployeeLambdaExpProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab4/EmployeeProject/EmployeeProject.iml" filepath="$PROJECT_DIR$/Lab4/EmployeeProject/EmployeeProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/EmployeeTreeProject/EmployeeTreeProject.iml" filepath="$PROJECT_DIR$/Lab3/EmployeeTreeProject/EmployeeTreeProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab1/FileProcessProject/FileProcessProject.iml" filepath="$PROJECT_DIR$/Lab1/FileProcessProject/FileProcessProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FinalExam/FinalExam.iml" filepath="$PROJECT_DIR$/FinalExam/FinalExam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab4/GenericPointProject/GenericPointProject.iml" filepath="$PROJECT_DIR$/Lab4/GenericPointProject/GenericPointProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab1/GradeProject/GradeProject.iml" filepath="$PROJECT_DIR$/Lab1/GradeProject/GradeProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab5/LambdaExpressionProject/LambdaExpressionProject.iml" filepath="$PROJECT_DIR$/Lab5/LambdaExpressionProject/LambdaExpressionProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab5/LambdaHashMapFacultyProject/LambdaHashMapFacultyProject.iml" filepath="$PROJECT_DIR$/Lab5/LambdaHashMapFacultyProject/LambdaHashMapFacultyProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab5/LambdaTripProject/LambdaTripProject.iml" filepath="$PROJECT_DIR$/Lab5/LambdaTripProject/LambdaTripProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab2/LinkedList1Project/LinkedList1Project.iml" filepath="$PROJECT_DIR$/Lab2/LinkedList1Project/LinkedList1Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab2/LinkedList2Project/LinkedList2Project.iml" filepath="$PROJECT_DIR$/Lab2/LinkedList2Project/LinkedList2Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab2/LinkedListCourseProject/LinkedListCourseProject.iml" filepath="$PROJECT_DIR$/Lab2/LinkedListCourseProject/LinkedListCourseProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/LinkedStackProject/LinkedStackProject.iml" filepath="$PROJECT_DIR$/Lab3/LinkedStackProject/LinkedStackProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MidTerm/MidTerm.iml" filepath="$PROJECT_DIR$/MidTerm/MidTerm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/MultipleQueueProject/MultipleQueueProject.iml" filepath="$PROJECT_DIR$/Lab3/MultipleQueueProject/MultipleQueueProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab6/NameIteratorPatternProject/NameIteratorPatternProject.iml" filepath="$PROJECT_DIR$/Lab6/NameIteratorPatternProject/NameIteratorPatternProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab2/ProjectThreeLinkedList/ProjectThreeLinkedList.iml" filepath="$PROJECT_DIR$/Lab2/ProjectThreeLinkedList/ProjectThreeLinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/QueueProject/QueueProject.iml" filepath="$PROJECT_DIR$/Lab3/QueueProject/QueueProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab6/SortingProject/SortingProject.iml" filepath="$PROJECT_DIR$/Lab6/SortingProject/SortingProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/StackBookProject/StackBookProject.iml" filepath="$PROJECT_DIR$/Lab3/StackBookProject/StackBookProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lab3/StackFileProcessProject/StackFileProcessProject.iml" filepath="$PROJECT_DIR$/Lab3/StackFileProcessProject/StackFileProcessProject.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Algorithms">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Lab2.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Lab6.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Lab5.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Lab4.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Lab1.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Lab3.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="QueueProject">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Lab3/QueueProject/dist/QueueProject.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

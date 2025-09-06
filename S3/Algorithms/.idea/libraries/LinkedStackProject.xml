@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LinkedStackProject">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Lab3/LinkedStackProject/dist/LinkedStackProject.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
